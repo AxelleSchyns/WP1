@@ -22,7 +22,7 @@ archs_weighted = {"resnet": models.resnet50(weights='ResNet50_Weights.DEFAULT'),
                   "ret_ccl": ResNet_ret.resnet50(num_classes=128, mlp=False, two_branch=False, normlinear = True),
                   "cdpath": cdpath(), "phikon":ViTModel.from_pretrained("owkin/phikon", add_pooling_layer=False), 
                   "ibot_vits": iBot("vit_small"), "ibot_vitb": iBot("vit_base"), 'ctranspath': ctranspath(), 
-                  "byol_light": BYOL(1000), "uni": UNIModel()}
+                  "byol_light": BYOL(1000), }#"uni": UNIModel()
 
 
 class Model(nn.Module):
@@ -35,7 +35,6 @@ class Model(nn.Module):
         self.weight = weight
         self.model_name = model
         self.device = device
-        self.model_name = model
 
         if model == 'deit':
             self.transformer = True
@@ -185,7 +184,7 @@ class Model(nn.Module):
             losses_mean = [[],[]]
             losses_std = [[],[]]
         else:   
-            data = dataset.TrainingDataset(root = training_dir, model_name = self.model_name, samples_per_class= 2, generalise = generalise, load_kmeans = load_kmeans, informative_samp = informative_samp, need_val=0)
+            data = dataset.TrainingDataset(root = training_dir, model_name = self.model_name, samples_per_class= 2, informative_samp = informative_samp, need_val=0)
             print('Size of dataset', data.__len__())
             loaders = [torch.utils.data.DataLoader(data, batch_size=self.batch_size,
                                                 shuffle=True, num_workers=12,
@@ -206,8 +205,7 @@ class Model(nn.Module):
 
         # Creation of the folder to save the weight
         weight_path = create_weights_folder(self.model_name, starting_weights)
-        write_info(self, weight_path, lr, decay, beta_lr, lr_proxies, loss_name, epochs, generalise, informative_samp, load_kmeans, need_val, sched, gamma, starting_weights, epoch_freq)
-
+        write_info(self, weight_path, lr, decay, beta_lr, lr_proxies, loss_name, epochs, informative_samp, need_val, sched, gamma)
         # Downloading of the pretrained weights and parameters 
         if starting_weights is not None:
             checkpoint = torch.load(starting_weights)
@@ -316,7 +314,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--model',
         help='feature extractor to use',
-        default='densenet'
+        default='resnet'
     )
 
     parser.add_argument(
@@ -348,7 +346,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--loss',
         default=None,
-        help='<margin, proxy_nca_pp, softmax, softtriple, triplet, contrastive, BCE, cosine>'
+        help='<margin, proxy_nca_pp, softmax, softtriple>'
     )
 
     parser.add_argument(

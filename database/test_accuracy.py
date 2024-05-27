@@ -5,7 +5,6 @@ import sklearn
 import time
 import sklearn.metrics
 import utils
-import pickle
 
 import numpy as np
 import seaborn as sn
@@ -463,7 +462,7 @@ if __name__ == "__main__":
 
     parser.add_argument(
         '--extractor',
-        default='densenet'
+        default='resnet'
     )
     parser.add_argument(
         '--weights',

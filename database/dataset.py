@@ -129,9 +129,8 @@ class TrainingDataset(Dataset):
 
             img = Image.open(self.image_list[class_nbr][class_sample_idx]).convert('RGB')
 
-            if self.model_name == 'deit' or self.model_name == 'cvt' or self.model_name == 'conv':
-                img = self.transform(img)
-                return class_nbr, self.feature_extractor(images=img, return_tensors='pt')['pixel_values']
+            #if self.model_name == 'deit':
+            #    return class_nbr, self.transform(images=img, return_tensors='pt')['pixel_values']
             
             return class_nbr, self.transform(img)
 

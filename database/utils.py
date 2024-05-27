@@ -33,6 +33,10 @@ def encode(model, img):
                 code = model.module.encoder(img).cpu()
     return code
 
+def get_name(path):
+    end_c = path.rfind("/")
+    return path[end_c+1:]
+
 # Get the class of an image from its path
 # ! Only works when the path is in the form: /home/.../project/class/image_name
 def get_class(path):
@@ -80,7 +84,7 @@ def rename_classes(class_list):
 # Get new class name of a class
 def get_new_name(class_name, path=None):
     if path == None:
-        classes = os.listdir("/home/labarvr4090/Documents/Axelle/cytomine/Data/validation")
+        classes = os.listdir("/home/labsig/Documents/Axelle/cytomine/Data/our/validation")
     else:
         classes = os.listdir(path)
     classes.sort()
@@ -93,7 +97,30 @@ def get_new_name(class_name, path=None):
             cpt_c += 1
     
     return -1 
+def write_info(obj, path, lr, decay, beta_lr, lr_proxies, loss_name, epochs, informative_samp, need_val, sched, gamma ):
+    with open(path + "/info.txt", "w") as file:
+        file.write("Information about the training of the model\n")
+        file.write("Model:" + str(obj.model_name) + "\n")
+        file.write("Weight: " + str(obj.weight) + "\n")
+        file.write("Loss function: " + str(loss_name) + "\n")
+        file.write("Num features: " + str(obj.num_features) + "\n")
 
+        file.write("\n")
+        file.write("\n")
+
+        file.write("Learning rate: " + str(lr) + "\n")
+        file.write("Decay: " + str(decay) + "\n")
+        file.write("Beta learning rate: " + str(beta_lr) + "\n")
+        file.write("Learning rate proxies: " + str(lr_proxies) + "\n")
+        file.write("Scheduler: " + str(sched) + "\n")
+        file.write("Gamma: " + str(gamma) + "\n")
+        
+        file.write("Epochs: " + str(epochs) + "\n")
+        file.write("Informative sampling: " + str(informative_samp) + "\n")
+        file.write("Parallel: " + str(obj.parallel) + "\n")
+        file.write("Batch size: " + str(obj.batch_size) + "\n")
+        file.write("Need validation: " + str(need_val) + "\n")
+    
 def create_weights_folder(model_name, starting_weights = None):
     try:
         os.mkdir("weights_folder")

@@ -70,7 +70,7 @@ if __name__ == "__main__":
         exit(-1)
     
     # Load the feature extractor 
-    model = models.Model(model=args.extractor, use_dr=args.dr_model, num_features=args.num_features, weight=args.weights,
+    model = models.Model(model=args.extractor, num_features=args.num_features, weight=args.weights,
                            device=device)
     #model = UNIModel()
     if model is None:

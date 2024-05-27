@@ -30,7 +30,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--extractor',
         help='feature extractor that is used',
-        default='densenet'
+        default='resnet'
     )
 
     parser.add_argument(
