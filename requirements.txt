@@ -66,7 +66,6 @@ six==1.16.0
 sympy==1.12
 threadpoolctl==3.5.0
 tifffile==2024.5.10
-timm @ file:///home/labsig/Documents/Axelle/cytomine/WP1/timm-0.5.4.tar#sha256=6f61b4881c0e34a73600f2307f68e7e7cf5a0330def77c41a2ec7fb8428917cf
 tokenizers==0.19.1
 torch==2.3.0
 torchaudio==2.3.0

@@ -1,0 +1,379 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/deit/model5/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 3.6741843223571777
+Time of the transfer: 343.01599526405334
+Time of the indexing: 7.7778096199035645
+T_indexing = 361.3129062652588
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/dino/model11/pretrained_vit_small_checkpoint.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 4 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/dino/model12/checkpoint0099_scratch.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 5 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/dino/model13/checkpoint0099_pretrained.pth
+Indexing
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/deit/model5/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 3.574207067489624
+Time of the transfer: 343.23099088668823
+Time of the indexing: 7.497392654418945
+T_indexing = 361.498352766037
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.6860818244327298
+top-5 accuracy :  0.8660325464130185
+maj accuracy class :  0.7097180838872336
+t_tot: 604.7999277114868
+t_model: 172.17831015586853
+t_transfer: 69.20201706886292
+t_search: 351.7171046733856
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/dino/model11/pretrained_vit_small_checkpoint.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 4 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/dino/model12/checkpoint0099_scratch.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 5 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/dino/model13/checkpoint0099_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 6 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol/model15/epoch=67-step=112132.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 7 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol/model18/epoch=45-step=75854.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 8 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol/model19/epoch=99-step=500400.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 9 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/retccl/model24/ret_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 10 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model27/checkpoint_teacher.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 11 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model30/checkpoint_new.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 12 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model31/checkpoint24.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 13 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ctranspath/model29/ctranspath.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 5.4996631145477295
+Time of the transfer: 185.02105259895325
+Time of the indexing: 8.44893193244934
+T_indexing = 205.51254177093506
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8015986706394682
+top-5 accuracy :  0.9201237680495072
+maj accuracy class :  0.825005730002292
+t_tot: 2417.5959701538086
+t_model: 277.8789186477661
+t_transfer: 1.4080140590667725
+t_search: 2125.843782901764
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 14 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/uni/model32/placeholder.txt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/deit/model5/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model11/pretrained_vit_small_checkpoint.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 4 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model12/checkpoint0099_scratch.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 5 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model13/checkpoint0099_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 6 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol_light/model15/epoch=67-step=112132.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 7 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol_light/model18/epoch=45-step=75854.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 8 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol_light/model19/epoch=99-step=500400.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 3.9127793312072754
+Time of the transfer: 142.4316656589508
+Time of the indexing: 7.825572729110718
+T_indexing = 160.4331567287445
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.6635915654366262
+top-5 accuracy :  0.8864886545954619
+maj accuracy class :  0.6949633279853312
+t_tot: 850.8266804218292
+t_model: 160.0276186466217
+t_transfer: 2.7105026245117188
+t_search: 676.2667813301086
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 9 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/retccl/model24/ret_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 10 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model27/checkpoint_teacher.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+Time of the model: 3.1132688522338867
+Time of the transfer: 123.43070197105408
+Time of the indexing: 8.369673728942871
+T_indexing = 141.39050722122192
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+top-1 accuracy :  0.7224386889754756
+top-5 accuracy :  0.87517190006876
+maj accuracy class :  0.7409752463900986
+t_tot: 1224.1202619075775
+t_model: 162.2845618724823
+t_transfer: 1.721900463104248
+t_search: 1048.696825504303
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 11 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model30/checkpoint_new.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+Time of the model: 3.0457706451416016
+Time of the transfer: 123.47833919525146
+Time of the indexing: 7.972708225250244
+T_indexing = 141.73984479904175
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+top-1 accuracy :  0.7224386889754756
+top-5 accuracy :  0.87517190006876
+maj accuracy class :  0.7409752463900986
+t_tot: 1218.2686247825623
+t_model: 161.4777388572693
+t_transfer: 1.6770460605621338
+t_search: 1043.8758296966553
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 12 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model31/checkpoint24.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+Time of the model: 3.0738677978515625
+Time of the transfer: 123.39363527297974
+Time of the indexing: 8.076193571090698
+T_indexing = 141.58244681358337
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+top-1 accuracy :  0.7224386889754756
+top-5 accuracy :  0.87517190006876
+maj accuracy class :  0.7409752463900986
+t_tot: 1202.444378376007
+t_model: 156.4962134361267
+t_transfer: 1.8168425559997559
+t_search: 1033.034908771515
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 13 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ctranspath/model29/ctranspath.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 5.546029567718506
+Time of the transfer: 184.9525706768036
+Time of the indexing: 8.278337955474854
+T_indexing = 205.14064359664917
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8015986706394682
+top-5 accuracy :  0.9201237680495072
+maj accuracy class :  0.825005730002292
+t_tot: 2404.829199552536
+t_model: 272.08966064453125
+t_transfer: 1.3743071556091309
+t_search: 2118.771206140518
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 14 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/uni/model32/placeholder.txt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
