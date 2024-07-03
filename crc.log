@@ -328,3 +328,93 @@ t_tot: 150.9431607723236
 t_model: 6.87922739982605
 t_transfer: 0.758617639541626
 t_search: 141.9269301891327
+
+
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 12 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/vit_small_backbone/checkpoint_teacher.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/vit_small_backbone/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.5146405696868896
+Time of the transfer: 71.39460325241089
+Time of the indexing: 3.7720491886138916
+T_indexing = 87.27113962173462
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/vit_small_backbone/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.9235376044568245
+top-5 accuracy :  0.9777158774373259
+maj accuracy class :  0.9298050139275766
+f1 score :  0.9235376044568245
+t_tot: 134.25622653961182
+t_model: 15.519728660583496
+t_transfer: 5.967050790786743
+t_search: 111.35132074356079
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 7 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/v1_alan/epoch=45-step=75854.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 6 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/v2_alan/epoch=67-step=112132.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 6 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/v2_alan/epoch=67-step=112132.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.7592740058898926
+Time of the transfer: 60.88453435897827
+Time of the indexing: 4.045086145401001
+T_indexing = 77.53954148292542
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8391364902506964
+top-5 accuracy :  0.9374651810584959
+maj accuracy class :  0.8469359331476323
+f1 score :  0.8391364902506964
+t_tot: 87.62480044364929
+t_model: 13.884373903274536
+t_transfer: 0.8285233974456787
+t_search: 71.57094764709473
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 7 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/v1_alan/epoch=45-step=75854.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.8519580364227295
+Time of the transfer: 60.846065044403076
+Time of the indexing: 3.947068452835083
+T_indexing = 77.16083097457886
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.781058495821727
+top-5 accuracy :  0.9317548746518106
+maj accuracy class :  0.7899721448467967
+f1 score :  0.781058495821727
+t_tot: 93.61844992637634
+t_model: 15.540199041366577
+t_transfer: 0.8239552974700928
+t_search: 75.82209920883179

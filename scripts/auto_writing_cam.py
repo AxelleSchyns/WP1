@@ -13,7 +13,7 @@ numbers = re.findall(r'\b(?:0(?:\.\d+)?|\d+\.\d+|\d+e[+-]?\d+)\b', log_content) 
 
 print(len(numbers))
 
-columns = ['t_indexing (s)', 't_tot (s)', 't_model (s)', 't_transfer (s)', 't_search (s)', 'Top-1' 	,'Top-5', 'Maj', ]
+columns = ['t_indexing (s)', 't_tot (s)', 't_model (s)', 't_transfer (s)', 't_search (s)', 'Top-1' 	,'Top-5', 'Maj', 'F1']
 
 print(numbers)
 sorted_numbers = np.zeros(len(columns))
@@ -22,10 +22,10 @@ for i in range(len(numbers)):
         pass
     elif i == 3:
         sorted_numbers[0] = np.round(np.float64(numbers[3]), 2)
-    elif i < 7:
+    elif i < 8:
         sorted_numbers[i+1] = np.round(np.float64(numbers[i])*100, 2)
     else:
-        sorted_numbers[i-6] = np.round(np.float64(numbers[i]), 2)
+        sorted_numbers[i-7] = np.round(np.float64(numbers[i]), 2)
     
 # Create a DataFrame from the extracted numbers
 df = pd.DataFrame([sorted_numbers], columns=columns)

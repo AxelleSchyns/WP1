@@ -131,8 +131,6 @@ class iBot():
         self.patch_size = 16
     def load_weights(self, weight_path):
         # load pretrained weights
-        print(weight_path)
-        print(os.path.isfile(weight_path))
         if os.path.isfile(weight_path):
             state_dict = torch.load(weight_path)
             

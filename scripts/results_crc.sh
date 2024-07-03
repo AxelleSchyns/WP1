@@ -5,7 +5,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=16
+nb_models=5
 
 # path to data
 #path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'

@@ -118,6 +118,42 @@ def display_cm(weight, measure, ground_truth, data, predictions, predictions_maj
     # save the confusion matrix
     plt.savefig(fold_path + '/confusion_matrix_maj_'+measure+'.png')
 
+def display_precision_recall(weight, measure, ground_truth, predictions):
+    from sklearn.metrics import average_precision_score, precision_recall_curve
+    from sklearn.preprocessing import label_binarize
+    from sklearn.metrics import PrecisionRecallDisplay
+
+    classes = np.unique(ground_truth)
+    Y_test = label_binarize(ground_truth, classes=classes)
+    y_score = label_binarize(predictions, classes=classes)
+    # For each class
+    precision = dict()
+    recall = dict()
+    average_precision = dict()
+    for i in range(len(classes)):
+        precision[i], recall[i], _ = precision_recall_curve(Y_test[:, i], y_score[:, i])
+        average_precision[i] = average_precision_score(Y_test[:, i], y_score[:, i])
+
+    # A "micro-average": quantifying score on all classes jointly
+    precision["micro"], recall["micro"], _ = precision_recall_curve(
+        Y_test.ravel(), y_score.ravel()
+    )
+    average_precision["micro"] = average_precision_score(Y_test, y_score, average="micro")
+
+    from collections import Counter
+
+    display = PrecisionRecallDisplay(
+        recall=recall["micro"],
+        precision=precision["micro"],
+        average_precision=average_precision["micro"],
+        prevalence_pos_label=Counter(Y_test.ravel())[1] / Y_test.size,
+    )
+    display.plot(plot_chance_level=True)
+    _ = display.ax_.set_title("Micro-averaged over all classes")
+    fold_path = weight[0:weight.rfind("/")]
+    plt.savefig(fold_path + '/crc_prec_recall_curve_'+measure+'.png')
+    
+
 
 # Compute the metrics per class of the dataset 
 # - model = python object containing the feature extractor
@@ -273,6 +309,10 @@ def test(model, model_weight, dataset, db_name, extractor, measure, class_name, 
         # Compute accuracy 
         predictions, predictions_maj, top_1_acc, top_5_acc, maj_acc = compute_results(names, data, predictions, class_im, top_1_acc,top_5_acc,maj_acc,predictions_maj, weights)
 
+    if measure == 'weighted':
+        f1 = sklearn.metrics.f1_score(ground_truth, predictions, average = "weighted")
+    else:
+        f1 = sklearn.metrics.f1_score(ground_truth, predictions, average = "micro")
 
     if measure == 'weighted':
         s = len(data.classes) # In weighted, each result was already divided by the length of the class
@@ -284,6 +324,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, class_name, 
         print("top-1 accuracy : ", top_1_acc / s)
         print("top-5 accuracy : ", top_5_acc / s)
         print("maj accuracy class : ", maj_acc / s)
+        print("f1 score : ", f1)
 
         print('t_tot:', t_tot)
         print('t_model:', t_model)
@@ -293,6 +334,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, class_name, 
     # Display results in graphics
     if see_cms:
         display_cm(model_weight, measure, ground_truth, data, predictions, predictions_maj)
+        display_precision_recall(model_weight, measure, ground_truth, predictions)
     
     return [top_1_acc/ s, top_5_acc/ s, maj_acc/ s, t_tot, t_model, t_search, t_transfer]
 
