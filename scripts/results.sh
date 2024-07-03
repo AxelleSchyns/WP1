@@ -5,7 +5,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=14
+nb_models=9
 
 # path to data
 #path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -39,19 +39,19 @@ weights=("$common_path/resnet/model2/last_epoch"
           )
 
 # Extractors
-extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light' 'retccl' 'ibot_vits' 'ibot_vits' 'ibot_vits' 'ctranspath' 'uni' 'cdpath' 'cdpath' 'phikon')
+extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light' 'ret_ccl' 'ibot_vits' 'ibot_vits' 'ibot_vits' 'ctranspath' 'uni' 'cdpath' 'cdpath' 'phikon')
 
 # Number of features
-num_features=(128 128 384 384 384 256 256 256 768 384 384 384 768 512 512 512 2048)
+num_features=(128 128 384 384 384 256 256 256 2048 384 384 384 768 512 512 512 2048)
 
 # Type of measure
 #measures=('stat' 'all' 'weighted')
 measures=('all')
 # Output files
-output_file='cam17_2.log'
-warnings_file='warnings_cam17_2.log'
+output_file='cam17_3.log'
+warnings_file='warnings_cam17_3.log'
 
-for ((nb=2; nb<nb_models; nb++)); do
+for ((nb=8; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
