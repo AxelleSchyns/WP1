@@ -131,11 +131,13 @@ class iBot():
         self.patch_size = 16
     def load_weights(self, weight_path):
         # load pretrained weights
+        print(weight_path)
+        print(os.path.isfile(weight_path))
         if os.path.isfile(weight_path):
             state_dict = torch.load(weight_path)
             
             # Uncomment this line if using the pre-trained weights
-            #state_dict = state_dict["state_dict"] # when using pre-trained wieghts
+            state_dict = state_dict["state_dict"] # when using pre-trained wieghts
             if "teacher" in state_dict:
                 print(f"Take key teacher in provided checkpoint dict")
                 state_dict = state_dict["teacher"]
