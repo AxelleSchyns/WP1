@@ -1,0 +1,96 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.7070515155792236
+Time of the transfer: 76.10330653190613
+Time of the indexing: 4.324353933334351
+T_indexing = 93.16050601005554
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  [0.7590823]
+top-5 accuracy :  [0.90376408]
+top-1 accuracy proj :  [0.93196344]
+top-5 accuracy proj :  [0.95688381]
+top-1 accuracy sim :  [0.93331668]
+top-5 accuracy sim :  [0.95792476]
+maj accuracy class :  [0.77021006]
+maj accuracy proj :  [0.93295235]
+maj accuracy sim :  [0.93482606]
+f1 score :  0.7590822975870756
+t_tot: 1798.428467988968
+t_model: 176.56392407417297
+t_transfer: 93.5138943195343
+t_search: 1510.266043663025
+weighted
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  [0.62417774]
+top-5 accuracy :  [0.80274118]
+top-1 accuracy proj :  [0.91282982]
+top-5 accuracy proj :  [0.95999887]
+top-1 accuracy sim :  [0.91409882]
+top-5 accuracy sim :  [0.96171999]
+maj accuracy class :  [0.5725919]
+maj accuracy proj :  [0.91728549]
+maj accuracy sim :  [0.91893146]
+f1 score :  0.752279226279011
+t_tot: 1799.4698717594147
+t_model: 174.7801103591919
+t_transfer: 98.1892397403717
+t_search: 1508.439739227295
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 4 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.5865323543548584
+Time of the transfer: 76.19946265220642
+Time of the indexing: 4.176606178283691
+T_indexing = 93.46682929992676
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  [0.76877355]
+top-5 accuracy :  [0.88987779]
+top-1 accuracy proj :  [0.92661295]
+top-5 accuracy proj :  [0.94517311]
+top-1 accuracy sim :  [0.9287469]
+top-5 accuracy sim :  [0.94808777]
+maj accuracy class :  [0.7774759]
+maj accuracy proj :  [0.92584265]
+maj accuracy sim :  [0.92837216]
+f1 score :  0.7687735515166656
+t_tot: 1801.5998260974884
+t_model: 176.27918314933777
+t_transfer: 94.99230718612671
+t_search: 1512.1343367099762
+weighted
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  [0.6605436]
+top-5 accuracy :  [0.81587062]
+top-1 accuracy proj :  [0.93521776]
+top-5 accuracy proj :  [0.95862801]
+top-1 accuracy sim :  [0.93637083]
+top-5 accuracy sim :  [0.95970035]
+maj accuracy class :  [0.62889874]
+maj accuracy proj :  [0.92919341]
+maj accuracy sim :  [0.9303039]
+f1 score :  0.7560501812966759
+t_tot: 1801.650162935257
+t_model: 176.62333464622498
+t_transfer: 94.7709846496582
+t_search: 1511.9554159641266

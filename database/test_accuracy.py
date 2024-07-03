@@ -132,6 +132,7 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
 
     return predictions, predictions_maj, top_1_acc, top_5_acc, maj_acc
 
+        
 
 # Creates and displays the confusion matrix relative to top-1 and maj accuracy 
 def display_cm(weight, measure, ground_truth, data, predictions, predictions_maj):
@@ -162,7 +163,7 @@ def display_cm(weight, measure, ground_truth, data, predictions, predictions_maj
     #plt.show()
     # save the confusion matrix
     fold_path = weight[0:weight.rfind("/")]
-    plt.savefig(fold_path + '/confusion_matrix_top1_'+measure+ '.png')
+    plt.savefig(fold_path + '/crc_confusion_matrix_top1_'+measure+ '.png')
     # Confusion matrix based on maj_class accuracy:
     columns = []
     columns_lab = []
@@ -179,7 +180,43 @@ def display_cm(weight, measure, ground_truth, data, predictions, predictions_maj
     sn.heatmap(df_cm, annot=True, xticklabels=True, yticklabels=True)
     #plt.show()
     # save the confusion matrix
-    plt.savefig(fold_path + '/confusion_matrix_maj_'+measure+'.png')
+    plt.savefig(fold_path + '/crc_confusion_matrix_maj_'+measure+'.png')
+
+def display_precision_recall(weight, measure, ground_truth, predictions):
+    from sklearn.metrics import average_precision_score, precision_recall_curve
+    from sklearn.preprocessing import label_binarize
+    from sklearn.metrics import PrecisionRecallDisplay
+
+    classes = np.unique(ground_truth)
+    Y_test = label_binarize(ground_truth, classes=classes)
+    y_score = label_binarize(predictions, classes=classes)
+    # For each class
+    precision = dict()
+    recall = dict()
+    average_precision = dict()
+    for i in range(67):
+        precision[i], recall[i], _ = precision_recall_curve(Y_test[:, i], y_score[:, i])
+        average_precision[i] = average_precision_score(Y_test[:, i], y_score[:, i])
+
+    # A "micro-average": quantifying score on all classes jointly
+    precision["micro"], recall["micro"], _ = precision_recall_curve(
+        Y_test.ravel(), y_score.ravel()
+    )
+    average_precision["micro"] = average_precision_score(Y_test, y_score, average="micro")
+
+    from collections import Counter
+
+    display = PrecisionRecallDisplay(
+        recall=recall["micro"],
+        precision=precision["micro"],
+        average_precision=average_precision["micro"],
+        prevalence_pos_label=Counter(Y_test.ravel())[1] / Y_test.size,
+    )
+    display.plot(plot_chance_level=True)
+    _ = display.ax_.set_title("Micro-averaged over all classes")
+    fold_path = weight[0:weight.rfind("/")]
+    plt.savefig(fold_path + '/crc_prec_recall_curve_'+measure+'.png')
+    
 
 
 # Compute the metrics per class of the dataset 
@@ -311,10 +348,7 @@ class TestDataset(Dataset):
         
         img = Image.open(self.img_list[idx]).convert('RGB')
 
-        if not self.transformer:
-            return self.feat_extract(img), self.img_list[idx]
-
-        return self.feat_extract(images=img, return_tensors='pt')['pixel_values'], self.img_list[idx]
+        return self.feat_extract(img), self.img_list[idx]
 
 
 # Main function of the file, calls the different computation functions and display functions given the value of the parameters
@@ -386,7 +420,10 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
 
         # Compute accuracy 
         predictions, predictions_maj, top_1_acc, top_5_acc, maj_acc = compute_results(names, data, predictions, class_im, proj_im, top_1_acc,top_5_acc,maj_acc,predictions_maj, weights)
-
+    if measure == 'weighted':
+        f1 = sklearn.metrics.f1_score(ground_truth, predictions, average = "weighted")
+    else:
+        f1 = sklearn.metrics.f1_score(ground_truth, predictions, average = "micro")
 
     if measure == 'weighted':
         s = len(data.classes) # In weighted, each result was already divided by the length of the class
@@ -404,6 +441,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
         print("maj accuracy class : ", maj_acc[0] / s)
         print("maj accuracy proj : ", maj_acc[1] / s)
         print("maj accuracy sim : ", maj_acc[2] / s)
+        print("f1 score : ", f1)
 
         print('t_tot:', t_tot)
         print('t_model:', t_model)
@@ -413,6 +451,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
     # Display results in graphics
     if see_cms:
         display_cm(model_weight, measure, ground_truth, data, predictions, predictions_maj)
+        display_precision_recall(model_weight, measure, ground_truth, predictions)
     
     return [top_1_acc[0]/ s, top_5_acc[0]/ s, top_1_acc[1]/ s, top_5_acc[1]/ s, top_1_acc[2]/ s, top_5_acc[2]/ s, maj_acc[0]/ s, maj_acc[1]/ s, maj_acc[2]/ s, t_tot, t_model, t_search, t_transfer]
     
