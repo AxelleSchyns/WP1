@@ -99,7 +99,7 @@ def display_cm(weight, measure, ground_truth, data, predictions, predictions_maj
     #plt.show()
     # save the confusion matrix
     fold_path = weight[0:weight.rfind("/")]
-    plt.savefig(fold_path + '/confusion_matrix_top1_'+measure+ '.png')
+    plt.savefig(fold_path + '/cam_confusion_matrix_top1_'+measure+ '.png')
     # Confusion matrix based on maj_class accuracy:
     columns = []
     columns_lab = []
@@ -116,7 +116,7 @@ def display_cm(weight, measure, ground_truth, data, predictions, predictions_maj
     sn.heatmap(df_cm, annot=True, xticklabels=True, yticklabels=True)
     #plt.show()
     # save the confusion matrix
-    plt.savefig(fold_path + '/confusion_matrix_maj_'+measure+'.png')
+    plt.savefig(fold_path + '/cam_confusion_matrix_maj_'+measure+'.png')
 
 def display_precision_recall(weight, measure, ground_truth, predictions):
     from sklearn.metrics import average_precision_score, precision_recall_curve
@@ -151,7 +151,7 @@ def display_precision_recall(weight, measure, ground_truth, predictions):
     display.plot(plot_chance_level=True)
     _ = display.ax_.set_title("Micro-averaged over all classes")
     fold_path = weight[0:weight.rfind("/")]
-    plt.savefig(fold_path + '/crc_prec_recall_curve_'+measure+'.png')
+    plt.savefig(fold_path + '/cam_prec_recall_curve_'+measure+'.png')
     
 
 
