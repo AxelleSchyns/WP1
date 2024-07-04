@@ -190,3 +190,49 @@ Time of the transfer: 5.403541088104248
 Time of the indexing: 7.264901399612427
 T_indexing = 29.284103631973267
 632.5419485569
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 17 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/0190.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+
+    A token is already saved on your machine. Run `huggingface-cli whoami` to get more information or `huggingface-cli logout` if you want to log out.
+    Setting a new token will erase the existing one.
+    To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens .
+Add token as git credential? (Y/n) Token is valid (permission: read).
+Your token has been saved to /home/labsig/.cache/huggingface/token
+Login successful
+635.5314929485321
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 17 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/0190.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+
+    A token is already saved on your machine. Run `huggingface-cli whoami` to get more information or `huggingface-cli logout` if you want to log out.
+    Setting a new token will erase the existing one.
+    To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens .
+Add token as git credential? (Y/n) Token is valid (permission: read).
+Your token has been saved to /home/labsig/.cache/huggingface/token
+Login successful
+Time of the model: 2.532318592071533
+Time of the transfer: 808.2028179168701
+Time of the indexing: 4.060320854187012
+T_indexing = 826.3991191387177
+140.01583099365234
