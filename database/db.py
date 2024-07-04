@@ -100,7 +100,8 @@ class Database:
                 t_im = time.time() - t
             elif extractor == "uni":
                 t = time.time()
-                out = self.model.model(images)
+                out = self.model.model.model(images)
+                
                 t_im = time.time() - t
             else: # TODO check ok for DINO, ctrasnpath et byol_light
                 t = time.time()
@@ -116,7 +117,6 @@ class Database:
             if np.isnan(out.numpy()).any():
                 print("Nan in output")
             self.add(out.numpy(), list(filenames))
-
             t_im_ind = time.time() - t
             t_indexing = t_indexing + t_im_ind
             t_model = t_model + t_im
@@ -148,7 +148,7 @@ class Database:
             t_model = time.time() - t
         elif extractor == "uni":
             t_model = time.time()
-            out = self.model.model(image)
+            out = self.model.model.model(image)
             t_model = time.time() - t_model
         else:
             t_model = time.time()

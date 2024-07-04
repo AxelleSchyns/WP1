@@ -5,7 +5,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=5
+nb_models=16
 
 # path to data
 #path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -32,19 +32,19 @@ weights=("$common_path/resnet/v9_alan/last_epoch" "$common_path/deit/version_18/
 extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 
 'byol_light' 'byol_light' 
  'ret_ccl' 'phikon' 'ctranspath' 'ibot_vits' 'ibot_vits'
- 'ibot_vits' 'byol_light' 'cdpath' 'cdpath' )
+ 'ibot_vits' 'byol_light' 'cdpath' 'uni' )
 
 # Number of features
-num_features=(128 128 384 384 384 256 256 2048 768 768 384 384 384 256 512 512)
+num_features=(128 128 384 384 384 256 256 2048 768 768 384 384 384 256 512 1024)
 
 # Type of measure
 #measures=('stat' 'all' 'weighted')
 measures=('all')
 # Output files
-output_file='crc.log'
-warnings_file='warningS_crc.log'
+output_file='crc_uni.log'
+warnings_file='warnings_uni_crc.log'
 
-for ((nb=0; nb<nb_models; nb++)); do
+for ((nb=15; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
@@ -53,7 +53,7 @@ for ((nb=0; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$warnings_file" 
     echo "Weights: ${weights[nb]}" >> "$output_file"
     echo "Indexing" >> "$output_file"
-    python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --num_features "${num_features[nb]}" --rewrite --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
+    #python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --num_features "${num_features[nb]}" --rewrite --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
 
     for i in "${!measures[@]}"; do
         echo "${measures[i]}" >> "$output_file" 

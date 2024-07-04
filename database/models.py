@@ -22,7 +22,7 @@ archs_weighted = {"resnet": models.resnet50(weights='ResNet50_Weights.DEFAULT'),
                   "ret_ccl": ResNet_ret.resnet50(num_classes=128, mlp=False, two_branch=False, normlinear = True),
                   "cdpath": cdpath(), "phikon":ViTModel.from_pretrained("owkin/phikon", add_pooling_layer=False), 
                   "ibot_vits": iBot("vit_small"), "ibot_vitb": iBot("vit_base"), 'ctranspath': ctranspath(), 
-                  "byol_light": BYOL(67), }#"uni": UNIModel()
+                  "byol_light": BYOL(1000)}#"uni": UNIModel()
 
 
 class Model(nn.Module):
