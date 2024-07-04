@@ -418,3 +418,395 @@ t_tot: 93.61844992637634
 t_model: 15.540199041366577
 t_transfer: 0.8239552974700928
 t_search: 75.82209920883179
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/resnet/v9_alan/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.8773634433746338
+Time of the transfer: 60.766895055770874
+Time of the indexing: 4.045458078384399
+T_indexing = 77.03837943077087
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8356545961002786
+top-5 accuracy :  0.9353760445682451
+maj accuracy class :  0.8498607242339833
+f1 score :  0.8356545961002786
+t_tot: 49.002538442611694
+t_model: 12.701714277267456
+t_transfer: 0.7304346561431885
+t_search: 34.28964018821716
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/deit/version_18/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 2.0121395587921143
+Time of the transfer: 227.66545915603638
+Time of the indexing: 3.6855123043060303
+T_indexing = 243.87679147720337
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8066852367688022
+top-5 accuracy :  0.9164345403899722
+maj accuracy class :  0.8172701949860725
+f1 score :  0.8066852367688022
+t_tot: 70.25731182098389
+t_model: 14.023975849151611
+t_transfer: 18.772058248519897
+t_search: 36.10924577713013
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.514045238494873
+Time of the transfer: 71.81422972679138
+Time of the indexing: 3.8200526237487793
+T_indexing = 87.70156526565552
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.935933147632312
+top-5 accuracy :  0.9778551532033426
+maj accuracy class :  0.9383008356545961
+f1 score :  0.935933147632312
+t_tot: 135.80055832862854
+t_model: 15.905951261520386
+t_transfer: 5.81376838684082
+t_search: 112.68092155456543
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 4 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.542597770690918
+Time of the transfer: 71.69031286239624
+Time of the indexing: 3.7253165245056152
+T_indexing = 87.55496215820312
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.9438718662952646
+top-5 accuracy :  0.9800835654596101
+maj accuracy class :  0.9488857938718663
+f1 score :  0.9438718662952646
+t_tot: 130.00772333145142
+t_model: 14.438402652740479
+t_transfer: 6.256732940673828
+t_search: 107.97174906730652
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 5 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.502920150756836
+Time of the transfer: 71.5926787853241
+Time of the indexing: 3.6920461654663086
+T_indexing = 87.55811953544617
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.9540389972144847
+top-5 accuracy :  0.9834261838440111
+maj accuracy class :  0.9604456824512535
+f1 score :  0.9540389972144847
+t_tot: 134.588702917099
+t_model: 15.64464259147644
+t_transfer: 5.8378870487213135
+t_search: 111.70960903167725
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 8 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ret/ret_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.5626285076141357
+Time of the transfer: 61.01152443885803
+Time of the indexing: 4.3800578117370605
+T_indexing = 78.16197943687439
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.914066852367688
+top-5 accuracy :  0.973816155988858
+maj accuracy class :  0.9229805013927577
+f1 score :  0.914066852367688
+t_tot: 590.7211081981659
+t_model: 13.149178743362427
+t_transfer: 0.93540358543396
+t_search: 575.1622152328491
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 9 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.493922233581543
+Time of the transfer: 227.8358964920044
+Time of the indexing: 3.8721511363983154
+T_indexing = 244.0664758682251
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.9504178272980501
+top-5 accuracy :  0.9760445682451253
+maj accuracy class :  0.9573816155988858
+f1 score :  0.9504178272980501
+t_tot: 249.97819876670837
+t_model: 13.131441593170166
+t_transfer: 23.63928508758545
+t_search: 211.8202612400055
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 10 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ctranspath/ctranspath.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 2.6352407932281494
+Time of the transfer: 111.97507405281067
+Time of the indexing: 3.8963499069213867
+T_indexing = 129.042884349823
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.9607242339832869
+top-5 accuracy :  0.9844011142061281
+maj accuracy class :  0.963091922005571
+f1 score :  0.9607242339832869
+t_tot: 237.47003173828125
+t_model: 21.948347091674805
+t_transfer: 1.8984100818634033
+t_search: 212.24615502357483
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 11 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Time of the model: 1.603745937347412
+Time of the transfer: 71.62994265556335
+Time of the indexing: 3.6616604328155518
+T_indexing = 87.6098370552063
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+top-1 accuracy :  0.9316155988857938
+top-5 accuracy :  0.979108635097493
+maj accuracy class :  0.9466573816155989
+f1 score :  0.9316155988857938
+t_tot: 127.98712205886841
+t_model: 13.332271099090576
+t_transfer: 6.991184234619141
+t_search: 106.33593702316284
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 13 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Time of the model: 1.578199863433838
+Time of the transfer: 71.67748856544495
+Time of the indexing: 3.7010080814361572
+T_indexing = 87.61193466186523
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+top-1 accuracy :  0.9254874651810585
+top-5 accuracy :  0.973816155988858
+maj accuracy class :  0.936908077994429
+f1 score :  0.9254874651810585
+t_tot: 128.7392406463623
+t_model: 13.963005781173706
+t_transfer: 6.599639892578125
+t_search: 106.82352471351624
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 14 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/epoch=99-step=500400.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.860663652420044
+Time of the transfer: 60.94629430770874
+Time of the indexing: 3.923274040222168
+T_indexing = 77.2671582698822
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.7093314763231198
+top-5 accuracy :  0.9029247910863509
+maj accuracy class :  0.7043175487465181
+f1 score :  0.7093314763231198
+t_tot: 85.99261403083801
+t_model: 13.191097497940063
+t_transfer: 1.0477566719055176
+t_search: 70.43406939506531
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 15 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/CAMELYON17.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.3138489723205566
+Time of the transfer: 5.691314458847046
+Time of the indexing: 4.216286897659302
+T_indexing = 21.79902195930481
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.5285515320334262
+top-5 accuracy :  0.777715877437326
+maj accuracy class :  0.4883008356545961
+f1 score :  0.5285515320334262
+t_tot: 150.7186496257782
+t_model: 6.76170539855957
+t_transfer: 0.7698333263397217
+t_search: 141.80379581451416
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 16 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/0190.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+
+    A token is already saved on your machine. Run `huggingface-cli whoami` to get more information or `huggingface-cli logout` if you want to log out.
+    Setting a new token will erase the existing one.
+    To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens .
+Add token as git credential? (Y/n) Token is valid (permission: read).
+[1m[31mCannot authenticate through git-credential as no helper is defined on your machine.
+You might have to re-authenticate when pushing to the Hugging Face Hub.
+Run the following command in your terminal in case you want to set the 'store' credential helper as default.
+
+git config --global credential.helper store
+
+Read https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage for more details.[0m
+Token has not been saved to git credential helper.
+Your token has been saved to /home/labsig/.cache/huggingface/token
+Login successful
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+
+    A token is already saved on your machine. Run `huggingface-cli whoami` to get more information or `huggingface-cli logout` if you want to log out.
+    Setting a new token will erase the existing one.
+    To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens .
+Add token as git credential? (Y/n) Token is valid (permission: read).
+Your token has been saved to /home/labsig/.cache/huggingface/token
+Login successful
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 16 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/0190.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+
+    A token is already saved on your machine. Run `huggingface-cli whoami` to get more information or `huggingface-cli logout` if you want to log out.
+    Setting a new token will erase the existing one.
+    To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens .
+Add token as git credential? (Y/n) Token is valid (permission: read).
+Your token has been saved to /home/labsig/.cache/huggingface/token
+Login successful
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+
+    A token is already saved on your machine. Run `huggingface-cli whoami` to get more information or `huggingface-cli logout` if you want to log out.
+    Setting a new token will erase the existing one.
+    To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens .
+Add token as git credential? (Y/n) Token is valid (permission: read).
+Your token has been saved to /home/labsig/.cache/huggingface/token
+Login successful
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 16 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/0190.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+
+    A token is already saved on your machine. Run `huggingface-cli whoami` to get more information or `huggingface-cli logout` if you want to log out.
+    Setting a new token will erase the existing one.
+    To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens .
+Add token as git credential? (Y/n) Token is valid (permission: read).
+Your token has been saved to /home/labsig/.cache/huggingface/token
+Login successful
+hey
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+
+    A token is already saved on your machine. Run `huggingface-cli whoami` to get more information or `huggingface-cli logout` if you want to log out.
+    Setting a new token will erase the existing one.
+    To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens .
