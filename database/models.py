@@ -87,6 +87,7 @@ class Model(nn.Module):
                 self.model.load_state_dict(pretext_model, strict=True)
                 self.forward_function = self.model.forward
             elif model == "phikon" or model == "uni": 
+                #print(self.model)
                 pass
             elif model == "ctranspath":
                 self.model.head = nn.Identity()
