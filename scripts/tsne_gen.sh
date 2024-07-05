@@ -6,7 +6,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=16
+nb_models=17
 
 # Paths to data
 path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -31,17 +31,19 @@ weights=(
     "$common_path/byol_light/epoch=99-step=500400.ckpt"
     "$common_path/cdpath/CAMELYON17.ckpt"
     "$common_path/cdpath/0190.ckpt"
+    "$common_path/cdpath/0190.ckpt"
+
 )
 
 # Extractors
 extractors=(
     'resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 
     'byol_light' 'byol_light' 'ret_ccl' 'phikon' 'ctranspath'
-    'ibot_vits' 'ibot_vits' 'ibot_vits' 'byol_light' 'cdpath' 'cdpath'
+    'ibot_vits' 'ibot_vits' 'ibot_vits' 'byol_light' 'cdpath' 'cdpath' 'uni'
 )
 
 # Number of features
-num_features=(128 128 384 384 384 256 256 2048 768 768 384 384 384 256 512 512)
+num_features=(128 128 384 384 384 256 256 2048 768 768 384 384 384 256 512 512 1024)
 
 # Type of measure
 measures=('all')
@@ -50,7 +52,7 @@ measures=('all')
 output_file='output_tsne.log'
 warnings_file='warnings_tsne.log'
 
-for ((nb=0; nb<nb_models; nb++)); do
+for ((nb=16; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"

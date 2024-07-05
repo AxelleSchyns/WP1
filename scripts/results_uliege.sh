@@ -36,8 +36,8 @@ num_features=(128 128 384 384 384 256 256 2048 768 768 384 384 384 256 512 512)
 measures=('all' 'weighted')
 
 # Output files
-output_file='output_DINO11_02_07.log'
-warnings_file='warnings_DINO11_02_07.log'
+output_file='output_F1_all.log'
+warnings_file='warnings_F1_all.log'
 
 for ((nb=3; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
