@@ -1,6 +1,5 @@
 # ignore folders
 weights_folder/
-results/
 scripts/outputs
 
 # ignore database files
