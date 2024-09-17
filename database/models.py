@@ -22,7 +22,7 @@ archs_weighted = {"resnet": models.resnet50(weights='ResNet50_Weights.DEFAULT'),
                   "ret_ccl": ResNet_ret.resnet50(num_classes=128, mlp=False, two_branch=False, normlinear = True),
                   "cdpath": cdpath(), "phikon":ViTModel.from_pretrained("owkin/phikon", add_pooling_layer=False), 
                   "ibot_vits": iBot("vit_small"), "ibot_vitb": iBot("vit_base"), 'ctranspath': ctranspath(), 
-                  "byol_light": BYOL(67), }#"uni": UNIModel()
+                  "byol_light": BYOL(67),"uni": UNIModel()}#"uni": UNIModel()
 
 
 class Model(nn.Module):
@@ -94,7 +94,12 @@ class Model(nn.Module):
                 self.model.load_state_dict(torch.load(weight)['model'])
                 self.forward_function = self.model.forward
             elif model == "byol_light":
-                self.model.load_state_dict(torch.load(weight)["state_dict"])
+                try:
+                    self.model.load_state_dict(torch.load(weight)["state_dict"])
+                except:
+                    self.model = BYOL(1000).to(device=device)
+                    self.model.load_state_dict(torch.load(weight)["state_dict"])
+                    
                 self.forward_function = self.model.forward
             else:
                 try:
