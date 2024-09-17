@@ -37,10 +37,26 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
     already_found_5 = 0
     already_found_5_proj = 0
     already_found_5_sim = 0
+    prop = []
     if len(data.classes) == 1:
         idx_class = 0
     else:
         idx_class = data.conversion[class_im]
+
+    for i in range(len(names)):
+        class_retr = utils.get_class(names[i])
+        if class_retr == class_im:  
+            if len(prop) == 0:
+                prop.append(1) 
+            else:
+                prop.append(prop[-1] + 1)   
+        else:
+            if len(prop) == 0:
+                prop.append(0)
+            else:
+                prop.append(prop[-1])  
+    for i in range(len(names)):
+        prop[i] = prop[i] / (i+1) 
     for j in range(len(similar)):
         # Gets the class and project of the retrieved image
         class_retr = utils.get_class(similar[j])
@@ -121,6 +137,7 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
                     if j == 0:
                         top_1_acc[2] += weights[idx_class]
                 already_found_5_sim += 1
+        
     if already_found_5 > 2:
         maj_acc[0] += weights[idx_class]
     if already_found_5_proj > 2:
@@ -130,7 +147,7 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
     # Get label of the majority class for confusion matrix
     predictions_maj.append(data.conversion[max(set(temp), key = temp.count)])
 
-    return predictions, predictions_maj, top_1_acc, top_5_acc, maj_acc
+    return predictions, predictions_maj, top_1_acc, top_5_acc, maj_acc, prop
 
         
 
@@ -217,6 +234,15 @@ def display_precision_recall(weight, measure, ground_truth, predictions):
     fold_path = weight[0:weight.rfind("/")]
     plt.savefig(fold_path + '/uliege_prec_recall_curve_'+measure+'.png')
     
+def display_prec_im(weight, props, data, measure):
+    print(props)
+    plt.figure()    
+    props = props / data.__len__()
+    plt.plot(props)
+    plt.xlabel('Number of images')
+    plt.ylabel('Proportion of correct images')
+    fold_path = weight[0:weight.rfind("/")]
+    plt.savefig(fold_path + '/uliege_prec_im_'+measure+'.png')
 
 
 # Compute the metrics per class of the dataset 
@@ -385,6 +411,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
     top_1_acc = np.zeros((3,1)) # in order: class - project - similarity 
     top_5_acc = np.zeros((3,1))
     maj_acc = np.zeros((3,1))
+    props = np.zeros((10,1))
 
     nbr_per_class = Counter()
 
@@ -419,7 +446,10 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
 
 
         # Compute accuracy 
-        predictions, predictions_maj, top_1_acc, top_5_acc, maj_acc = compute_results(names, data, predictions, class_im, proj_im, top_1_acc,top_5_acc,maj_acc,predictions_maj, weights)
+        predictions, predictions_maj, top_1_acc, top_5_acc, maj_acc, prop = compute_results(names, data, predictions, class_im, proj_im, top_1_acc,top_5_acc,maj_acc,predictions_maj, weights)
+
+        for el in range(len(prop)):
+            props[el] += prop[el]
     
     if measure == 'weighted':
         f1 = sklearn.metrics.f1_score(ground_truth, predictions, average = "weighted")
@@ -451,8 +481,9 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
 
     # Display results in graphics
     if see_cms:
-        display_cm(model_weight, measure, ground_truth, data, predictions, predictions_maj)
-        display_precision_recall(model_weight, measure, ground_truth, predictions)
+        #display_cm(model_weight, measure, ground_truth, data, predictions, predictions_maj)
+        #display_precision_recall(model_weight, measure, ground_truth, predictions)
+        display_prec_im(model_weight, props, data, measure)
     
     return [top_1_acc[0]/ s, top_5_acc[0]/ s, top_1_acc[1]/ s, top_5_acc[1]/ s, top_1_acc[2]/ s, top_5_acc[2]/ s, maj_acc[0]/ s, maj_acc[1]/ s, maj_acc[2]/ s, t_tot, t_model, t_search, t_transfer]
     

@@ -54,7 +54,26 @@ def summary_image(path):
 def count_im_class(path, class_):
     images = os.listdir(os.path.join(path, class_))
     return len(images)
+def count_all_classes(path):
+    min = -1
+    min_name = ""
+    max = 0
+    max_name = ""
+    tot = 0
+    for c in os.listdir(path):
+        count = count_im_class(path, c)
+        tot += count
+        if count < min or min == -1:
+            min = count
+            min_name = c
+        if count > max:
+            max = count
+            max_name = c
 
+        print("For class "+str(c)+": "+str(count)+" images")
+    print("The class with the minimum number of images is "+str(min_name)+" with "+str(min)+" images")
+    print("The class with the maximum number of images is "+str(max_name)+" with "+str(max)+" images")
+    print("The total number of images is "+str(tot))
 # Count the number of images in Camelyon_16_0 and janowczyk6_0
 def count_maj(train, test, val):
     sets = [train, test, val]
@@ -381,10 +400,11 @@ def diversity():
 if __name__ == "__main__":
     val = "/home/labarvr4090/Documents/Axelle/cytomine/Data/validation"
     train = "/home/labarvr4090/Documents/Axelle/cytomine/Data/train"
-    test = "/home/labarvr4090/Documents/Axelle/cytomine/Data/test"
+    test = '/home/labsig/Documents/Axelle/cytomine/Data/our/test'
 
     #summary_image(train)
 
+    count_all_classes(test)
     #count_maj(train, test, val)
 
     #bar_plot(train, test, val)
@@ -395,7 +415,7 @@ if __name__ == "__main__":
     #p2 = '/home/labarvr4090/Documents/Axelle/cytomine/Data/train/janowczyk6_0/8863_idx5_x651_y1551_class0.png'
     #p3 = '/home/labarvr4090/Documents/Axelle/cytomine/Data/train/iciar18_micro_113351562/17_118316818_512_0_512_512.png'
     #paths = [p, p2, p3]
-    vis_transf(p)
+    #vis_transf(p)
 
     #resized_vis(paths)
 

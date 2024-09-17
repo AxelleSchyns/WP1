@@ -1,0 +1,682 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/resnet/v9_alan/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.8672637939453125
+Time of the transfer: 60.79961133003235
+Time of the indexing: 3.813722610473633
+T_indexing = 76.94901585578918
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8357938718662953
+top-5 accuracy :  0.9353760445682451
+maj accuracy class :  0.8498607242339833
+t_tot: 49.71842098236084
+t_model: 12.905044794082642
+t_transfer: 1.025712013244629
+t_search: 34.49600052833557
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/deit/version_18/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 2.0206239223480225
+Time of the transfer: 227.55296635627747
+Time of the indexing: 3.5626614093780518
+T_indexing = 243.8812861442566
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8066852367688022
+top-5 accuracy :  0.9164345403899722
+maj accuracy class :  0.8172701949860725
+t_tot: 68.83369088172913
+t_model: 13.270272254943848
+t_transfer: 19.280373573303223
+t_search: 34.98888087272644
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.4987883567810059
+Time of the transfer: 71.77075815200806
+Time of the indexing: 3.7583603858947754
+T_indexing = 87.60930347442627
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.935933147632312
+top-5 accuracy :  0.9778551532033426
+maj accuracy class :  0.9383008356545961
+t_tot: 128.46579146385193
+t_model: 13.90979528427124
+t_transfer: 6.63926887512207
+t_search: 106.57225608825684
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 4 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.5742902755737305
+Time of the transfer: 71.65220713615417
+Time of the indexing: 3.5939364433288574
+T_indexing = 87.48830723762512
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.9438718662952646
+top-5 accuracy :  0.9800835654596101
+maj accuracy class :  0.9488857938718663
+t_tot: 128.28534865379333
+t_model: 13.809320211410522
+t_transfer: 6.759498357772827
+t_search: 106.39737367630005
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 5 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.5220465660095215
+Time of the transfer: 71.57408261299133
+Time of the indexing: 3.654122829437256
+T_indexing = 87.48129057884216
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.9540389972144847
+top-5 accuracy :  0.9834261838440111
+maj accuracy class :  0.9604456824512535
+t_tot: 128.4649395942688
+t_model: 14.03441333770752
+t_transfer: 6.43023157119751
+t_search: 106.66299557685852
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 6 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/v2_alan/epoch=67-step=112132.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.7592740058898926
+Time of the transfer: 60.88453435897827
+Time of the indexing: 4.045086145401001
+T_indexing = 77.53954148292542
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8391364902506964
+top-5 accuracy :  0.9374651810584959
+maj accuracy class :  0.8469359331476323
+f1 score :  0.8391364902506964
+t_tot: 87.62480044364929
+t_model: 13.884373903274536
+t_transfer: 0.8285233974456787
+t_search: 71.57094764709473
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 7 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/v1_alan/epoch=45-step=75854.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.8519580364227295
+Time of the transfer: 60.846065044403076
+Time of the indexing: 3.947068452835083
+T_indexing = 77.16083097457886
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.781058495821727
+top-5 accuracy :  0.9317548746518106
+maj accuracy class :  0.7899721448467967
+f1 score :  0.781058495821727
+t_tot: 93.61844992637634
+t_model: 15.540199041366577
+t_transfer: 0.8239552974700928
+t_search: 75.82209920883179
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 8 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ret/ret_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.6935997009277344
+Time of the transfer: 60.98165845870972
+Time of the indexing: 4.479904890060425
+T_indexing = 78.05816221237183
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.914066852367688
+top-5 accuracy :  0.973816155988858
+maj accuracy class :  0.9229805013927577
+t_tot: 580.7334187030792
+t_model: 12.467628717422485
+t_transfer: 0.9951541423797607
+t_search: 565.8356420993805
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 9 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: phikon
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.4731473922729492
+Time of the transfer: 227.5891296863556
+Time of the indexing: 3.777567148208618
+T_indexing = 243.91006565093994
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.9504178272980501
+top-5 accuracy :  0.9760445682451253
+maj accuracy class :  0.9573816155988858
+t_tot: 249.50287222862244
+t_model: 13.28016710281372
+t_transfer: 23.410109043121338
+t_search: 211.45483303070068
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 10 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ctranspath/ctranspath.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 2.6645686626434326
+Time of the transfer: 111.8834900856018
+Time of the indexing: 3.8241801261901855
+T_indexing = 128.95692825317383
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.9607242339832869
+top-5 accuracy :  0.9844011142061281
+maj accuracy class :  0.963091922005571
+t_tot: 236.7675497531891
+t_model: 21.24262762069702
+t_transfer: 2.460162878036499
+t_search: 211.66943454742432
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 11 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Time of the model: 1.5170373916625977
+Time of the transfer: 71.69427347183228
+Time of the indexing: 3.6490516662597656
+T_indexing = 87.59334874153137
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+top-1 accuracy :  0.9316155988857938
+top-5 accuracy :  0.979108635097493
+maj accuracy class :  0.9466573816155989
+t_tot: 127.74399900436401
+t_model: 13.412033557891846
+t_transfer: 6.816121816635132
+t_search: 106.20608711242676
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 12 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/vit_small_backbone/checkpoint_teacher.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/vit_small_backbone/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.5146405696868896
+Time of the transfer: 71.39460325241089
+Time of the indexing: 3.7720491886138916
+T_indexing = 87.27113962173462
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/vit_small_backbone/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.9235376044568245
+top-5 accuracy :  0.9777158774373259
+maj accuracy class :  0.9298050139275766
+f1 score :  0.9235376044568245
+t_tot: 134.25622653961182
+t_model: 15.519728660583496
+t_transfer: 5.967050790786743
+t_search: 111.35132074356079
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 13 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Time of the model: 1.581324577331543
+Time of the transfer: 71.88449954986572
+Time of the indexing: 3.6066739559173584
+T_indexing = 87.8754780292511
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+top-1 accuracy :  0.9254874651810585
+top-5 accuracy :  0.973816155988858
+maj accuracy class :  0.936908077994429
+t_tot: 128.6631932258606
+t_model: 13.830299615859985
+t_transfer: 6.515252351760864
+t_search: 106.98577570915222
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 14 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/epoch=99-step=500400.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.842299222946167
+Time of the transfer: 60.94541597366333
+Time of the indexing: 3.886629581451416
+T_indexing = 77.31900548934937
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.7093314763231198
+top-5 accuracy :  0.9029247910863509
+maj accuracy class :  0.7043175487465181
+t_tot: 86.20493268966675
+t_model: 13.31054401397705
+t_transfer: 1.045745611190796
+t_search: 70.52530980110168
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 15 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/CAMELYON17.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.3284294605255127
+Time of the transfer: 5.665663957595825
+Time of the indexing: 4.263677597045898
+T_indexing = 21.8268563747406
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.5285515320334262
+top-5 accuracy :  0.777715877437326
+maj accuracy class :  0.4883008356545961
+t_tot: 150.0950083732605
+t_model: 6.6945788860321045
+t_transfer: 0.7823600769042969
+t_search: 141.22648882865906
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 16 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/0190.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.2837984561920166
+Time of the transfer: 5.679615497589111
+Time of the indexing: 4.279385328292847
+T_indexing = 21.9117534160614
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.23272980501392757
+top-5 accuracy :  0.5915041782729805
+maj accuracy class :  0.15362116991643454
+t_tot: 150.9431607723236
+t_model: 6.87922739982605
+t_transfer: 0.758617639541626
+t_search: 141.9269301891327
+
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 16 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/0190.ckpt
+Indexing
+Login successful
+Time of the model: 2.383568525314331
+Time of the transfer: 760.9123158454895
+Time of the indexing: 3.780461311340332
+T_indexing = 778.0751945972443
+all
+ 
+Login successful
+top-1 accuracy :  0.9598885793871866
+top-5 accuracy :  0.9725626740947075
+maj accuracy class :  0.9646239554317548
+f1 score :  0.9598885793871866
+t_tot: 379.4169054031372
+t_model: 21.166122674942017
+t_transfer: 70.17378115653992
+t_search: 286.6944010257721
+
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model UNI --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Time of the model: 2.383568525314331
+Time of the transfer: 760.9123158454895
+Time of the indexing: 3.780461311340332
+T_indexing = 778.0751945972443
+all
+ 
+Login successful
+top-1 accuracy :  0.9598885793871866
+top-5 accuracy :  0.9725626740947075
+maj accuracy class :  0.9646239554317548
+f1 score :  0.9598885793871866
+t_tot: 379.4169054031372
+t_model: 21.166122674942017
+t_transfer: 70.17378115653992
+t_search: 286.6944010257721
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/resnet/v9_alan/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.8773634433746338
+Time of the transfer: 60.766895055770874
+Time of the indexing: 4.045458078384399
+T_indexing = 77.03837943077087
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8356545961002786
+top-5 accuracy :  0.9353760445682451
+maj accuracy class :  0.8498607242339833
+f1 score :  0.8356545961002786
+t_tot: 49.002538442611694
+t_model: 12.701714277267456
+t_transfer: 0.7304346561431885
+t_search: 34.28964018821716
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/deit/version_18/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 2.0121395587921143
+Time of the transfer: 227.66545915603638
+Time of the indexing: 3.6855123043060303
+T_indexing = 243.87679147720337
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.8066852367688022
+top-5 accuracy :  0.9164345403899722
+maj accuracy class :  0.8172701949860725
+f1 score :  0.8066852367688022
+t_tot: 70.25731182098389
+t_model: 14.023975849151611
+t_transfer: 18.772058248519897
+t_search: 36.10924577713013
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.514045238494873
+Time of the transfer: 71.81422972679138
+Time of the indexing: 3.8200526237487793
+T_indexing = 87.70156526565552
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.935933147632312
+top-5 accuracy :  0.9778551532033426
+maj accuracy class :  0.9383008356545961
+f1 score :  0.935933147632312
+t_tot: 135.80055832862854
+t_model: 15.905951261520386
+t_transfer: 5.81376838684082
+t_search: 112.68092155456543
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 4 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.542597770690918
+Time of the transfer: 71.69031286239624
+Time of the indexing: 3.7253165245056152
+T_indexing = 87.55496215820312
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_pretrained/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.9438718662952646
+top-5 accuracy :  0.9800835654596101
+maj accuracy class :  0.9488857938718663
+f1 score :  0.9438718662952646
+t_tot: 130.00772333145142
+t_model: 14.438402652740479
+t_transfer: 6.256732940673828
+t_search: 107.97174906730652
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 5 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 1.502920150756836
+Time of the transfer: 71.5926787853241
+Time of the indexing: 3.6920461654663086
+T_indexing = 87.55811953544617
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/Dino/Vit_scratch/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+top-1 accuracy :  0.9540389972144847
+top-5 accuracy :  0.9834261838440111
+maj accuracy class :  0.9604456824512535
+f1 score :  0.9540389972144847
+t_tot: 134.588702917099
+t_model: 15.64464259147644
+t_transfer: 5.8378870487213135
+t_search: 111.70960903167725
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 8 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ret/ret_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.5626285076141357
+Time of the transfer: 61.01152443885803
+Time of the indexing: 4.3800578117370605
+T_indexing = 78.16197943687439
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.914066852367688
+top-5 accuracy :  0.973816155988858
+maj accuracy class :  0.9229805013927577
+f1 score :  0.914066852367688
+t_tot: 590.7211081981659
+t_model: 13.149178743362427
+t_transfer: 0.93540358543396
+t_search: 575.1622152328491
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 9 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.493922233581543
+Time of the transfer: 227.8358964920044
+Time of the indexing: 3.8721511363983154
+T_indexing = 244.0664758682251
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.9504178272980501
+top-5 accuracy :  0.9760445682451253
+maj accuracy class :  0.9573816155988858
+f1 score :  0.9504178272980501
+t_tot: 249.97819876670837
+t_model: 13.131441593170166
+t_transfer: 23.63928508758545
+t_search: 211.8202612400055
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 10 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ctranspath/ctranspath.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 2.6352407932281494
+Time of the transfer: 111.97507405281067
+Time of the indexing: 3.8963499069213867
+T_indexing = 129.042884349823
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.9607242339832869
+top-5 accuracy :  0.9844011142061281
+maj accuracy class :  0.963091922005571
+f1 score :  0.9607242339832869
+t_tot: 237.47003173828125
+t_model: 21.948347091674805
+t_transfer: 1.8984100818634033
+t_search: 212.24615502357483
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 11 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Time of the model: 1.603745937347412
+Time of the transfer: 71.62994265556335
+Time of the indexing: 3.6616604328155518
+T_indexing = 87.6098370552063
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/finetuned/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+top-1 accuracy :  0.9316155988857938
+top-5 accuracy :  0.979108635097493
+maj accuracy class :  0.9466573816155989
+f1 score :  0.9316155988857938
+t_tot: 127.98712205886841
+t_model: 13.332271099090576
+t_transfer: 6.991184234619141
+t_search: 106.33593702316284
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 13 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Time of the model: 1.578199863433838
+Time of the transfer: 71.67748856544495
+Time of the indexing: 3.7010080814361572
+T_indexing = 87.61193466186523
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/ibot/scratch_vit_small/checkpoint24.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+top-1 accuracy :  0.9254874651810585
+top-5 accuracy :  0.973816155988858
+maj accuracy class :  0.936908077994429
+f1 score :  0.9254874651810585
+t_tot: 128.7392406463623
+t_model: 13.963005781173706
+t_transfer: 6.599639892578125
+t_search: 106.82352471351624
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 14 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/byol_light/epoch=99-step=500400.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.860663652420044
+Time of the transfer: 60.94629430770874
+Time of the indexing: 3.923274040222168
+T_indexing = 77.2671582698822
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.7093314763231198
+top-5 accuracy :  0.9029247910863509
+maj accuracy class :  0.7043175487465181
+f1 score :  0.7093314763231198
+t_tot: 85.99261403083801
+t_model: 13.191097497940063
+t_transfer: 1.0477566719055176
+t_search: 70.43406939506531
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 15 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder/cdpath/CAMELYON17.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.3138489723205566
+Time of the transfer: 5.691314458847046
+Time of the indexing: 4.216286897659302
+T_indexing = 21.79902195930481
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+top-1 accuracy :  0.5285515320334262
+top-5 accuracy :  0.777715877437326
+maj accuracy class :  0.4883008356545961
+f1 score :  0.5285515320334262
+t_tot: 150.7186496257782
+t_model: 6.76170539855957
+t_transfer: 0.7698333263397217
+t_search: 141.80379581451416
+
