@@ -94,7 +94,12 @@ class Model(nn.Module):
                 self.model.load_state_dict(torch.load(weight)['model'])
                 self.forward_function = self.model.forward
             elif model == "byol_light":
-                self.model.load_state_dict(torch.load(weight)["state_dict"])
+                try:
+                    self.model.load_state_dict(torch.load(weight)["state_dict"])
+                except:
+                    self.model = BYOL(1000).to(device=device)
+                    self.model.load_state_dict(torch.load(weight)["state_dict"])
+                    
                 self.forward_function = self.model.forward
             else:
                 try:

@@ -488,15 +488,21 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
     return [top_1_acc[0]/ s, top_5_acc[0]/ s, top_1_acc[1]/ s, top_5_acc[1]/ s, top_1_acc[2]/ s, top_5_acc[2]/ s, maj_acc[0]/ s, maj_acc[1]/ s, maj_acc[2]/ s, t_tot, t_model, t_search, t_transfer]
     
 # This function executes the random protocol 50 times for stability of the results
-def stat(model, dataset, db_name, extractor, project_name, class_name):
-    # Do 50 times the experiment
-    top_1_acc = np.zeros((3,10))
-    top_5_acc = np.zeros((3,10))
-    maj_acc = np.zeros((3,10))
+def stat(model, model_weight, dataset, db_name, extractor, project_name, class_name, protocol):
+    nb_exp = 5
 
-    ts = np.zeros((4,10))
-    for i in range(10):
-        top_1_acc[0][i], top_5_acc[0][i], top_1_acc[1][i], top_5_acc[1][i], top_1_acc[2][i], top_5_acc[2][i], maj_acc[0][i], maj_acc[1][i], maj_acc[2][i], ts[0][i], ts[1][i], ts[2][i], ts[3][i] =  test(model, "",  dataset, db_name, extractor, "random", project_name, class_name, False, stat = True)
+    if protocol == 'random':
+        nb_images = 1020
+    else:
+        nb_images = len(os.listdir(dataset))
+
+    top_1_acc = np.zeros((3, nb_exp))
+    top_5_acc = np.zeros((3, nb_exp))
+    maj_acc = np.zeros((3, nb_exp))
+
+    ts = np.zeros((4,nb_exp))
+    for i in range(nb_exp):
+        top_1_acc[0][i], top_5_acc[0][i], top_1_acc[1][i], top_5_acc[1][i], top_1_acc[2][i], top_5_acc[2][i], maj_acc[0][i], maj_acc[1][i], maj_acc[2][i], ts[0][i], ts[1][i], ts[2][i], ts[3][i] =  test(model, model_weight,  dataset, db_name, extractor, protocol, project_name, class_name, False, stat = True)
 
 
     print("Top 1 accuracy: ", np.mean(top_1_acc[0]), " +- ", np.std(top_1_acc[0]))
@@ -508,11 +514,11 @@ def stat(model, dataset, db_name, extractor, project_name, class_name):
     print("Top 1 accuracy on sim: ", np.mean(top_1_acc[2]), " +- ", np.std(top_1_acc[2]))
     print("Top 5 accuracy on sim: ", np.mean(top_5_acc[2]), " +- ", np.std(top_5_acc[2]))
     print("Maj accuracy on sim: ", np.mean(maj_acc[2]), " +- ", np.std(maj_acc[2]))
-    print('t_tot:', np.mean(ts[0]/1020), "+-", np.std(ts[0]/1020))
-    print('t_model:', np.mean(ts[1]/1020), "+-", np.std(ts[1]/1020))
-    print('t_transfer:', np.mean(ts[3]/1020), "+-", np.std(ts[3]/1020))
-    print('t model complet:', np.mean((ts[1]+ts[3])/1020), "+-", np.std((ts[1]+ts[3])/1020))
-    print('t_search:', np.mean(ts[2]/1020), "+-", np.std(ts[2]/1020))
+    print('t_tot:', np.mean(ts[0]/nb_images), "+-", np.std(ts[0]/nb_images))
+    print('t_model:', np.mean(ts[1]/nb_images), "+-", np.std(ts[1]/nb_images))
+    print('t_transfer:', np.mean(ts[3]/nb_images), "+-", np.std(ts[3]/nb_images))
+    print('t model complet:', np.mean((ts[1]+ts[3])/nb_images), "+-", np.std((ts[1]+ts[3])/nb_images))
+    print('t_search:', np.mean(ts[2]/nb_images), "+-", np.std(ts[2]/nb_images))
 
     return 0
 
@@ -554,8 +560,13 @@ if __name__ == "__main__":
 
     parser.add_argument(
         '--measure',
-        help='random samples from validation set <random>, remove camelyon16_0 and janowczyk6_0 <remove>, all in separated class <separated>, all <all>, weighted <weighted> or stat <stat>',
+        help='random samples from validation set <random>, remove camelyon16_0 and janowczyk6_0 <remove>, all in separated class <separated>, all <all>, weighted <weighted> ',
         default = 'random'
+    )
+
+    parser.add_argument(
+        '--stat',
+        action='store_true'
     )
     
     parser.add_argument(
@@ -614,7 +625,7 @@ if __name__ == "__main__":
         test_each_class(model, args.path, args.db_name, args.extractor, args.measure, args.name, args.excel_path)
     else:
         # Random protocol realised 50 times to make stat
-        if args.measure == "stat":
-            stat(model, args.path, args.db_name, args.extractor,args.project_name, args.class_name)
+        if args.stat == True:
+            stat(model, args.weights, args.path, args.db_name, args.extractor,args.project_name, args.class_name, args.measure)
         else: # Other protocols: weighted - default - remove - random 
             r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
