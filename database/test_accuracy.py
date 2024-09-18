@@ -488,7 +488,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
     return [top_1_acc[0]/ s, top_5_acc[0]/ s, top_1_acc[1]/ s, top_5_acc[1]/ s, top_1_acc[2]/ s, top_5_acc[2]/ s, maj_acc[0]/ s, maj_acc[1]/ s, maj_acc[2]/ s, t_tot, t_model, t_search, t_transfer]
     
 # This function executes the random protocol 50 times for stability of the results
-def stat(model, model_weight, dataset, db_name, extractor, project_name, class_name, protocol):
+def stat_results(model, model_weight, dataset, db_name, extractor, project_name, class_name, protocol):
     nb_exp = 5
 
     if protocol == 'random':
@@ -522,6 +522,43 @@ def stat(model, model_weight, dataset, db_name, extractor, project_name, class_n
 
     return 0
 
+def stat_process(model, model_weight, dataset, index_dataset, db_name, extractor, project_name, class_name, protocol):
+    nb_exp = 5
+
+    if protocol == 'random':
+        nb_images = 1020
+    else:
+        nb_images = len(os.listdir(dataset))
+
+    top_1_acc = np.zeros((3, nb_exp))
+    top_5_acc = np.zeros((3, nb_exp))
+    maj_acc = np.zeros((3, nb_exp))
+
+    ts = np.zeros((4,nb_exp))
+    for i in range(nb_exp):
+        print("Experiment number: ", i)
+        database = db.Database(db_name, model, load = False)
+        database.add_dataset(index_dataset, extractor)
+
+        top_1_acc[0][i], top_5_acc[0][i], top_1_acc[1][i], top_5_acc[1][i], top_1_acc[2][i], top_5_acc[2][i], maj_acc[0][i], maj_acc[1][i], maj_acc[2][i], ts[0][i], ts[1][i], ts[2][i], ts[3][i] =  test(model, model_weight,  dataset, db_name, extractor, protocol, project_name, class_name, False, stat = True)
+
+
+    print("Top 1 accuracy: ", np.mean(top_1_acc[0]), " +- ", np.std(top_1_acc[0]))
+    print("Top 5 accuracy: ", np.mean(top_5_acc[0]), " +- ", np.std(top_5_acc[0]))
+    print("Maj accuracy: ", np.mean(maj_acc[0]), " +- ", np.std(maj_acc[0]))
+    print("Top 1 accuracy on project: ", np.mean(top_1_acc[1]), " +- ", np.std(top_1_acc[1]))
+    print("Top 5 accuracy on project: ", np.mean(top_5_acc[1]), " +- ", np.std(top_5_acc[1]))
+    print("Maj accuracy on project: ", np.mean(maj_acc[1]), " +- ", np.std(maj_acc[1]))
+    print("Top 1 accuracy on sim: ", np.mean(top_1_acc[2]), " +- ", np.std(top_1_acc[2]))
+    print("Top 5 accuracy on sim: ", np.mean(top_5_acc[2]), " +- ", np.std(top_5_acc[2]))
+    print("Maj accuracy on sim: ", np.mean(maj_acc[2]), " +- ", np.std(maj_acc[2]))
+    print('t_tot:', np.mean(ts[0]/nb_images), "+-", np.std(ts[0]/nb_images))
+    print('t_model:', np.mean(ts[1]/nb_images), "+-", np.std(ts[1]/nb_images))
+    print('t_transfer:', np.mean(ts[3]/nb_images), "+-", np.std(ts[3]/nb_images))
+    print('t model complet:', np.mean((ts[1]+ts[3])/nb_images), "+-", np.std((ts[1]+ts[3])/nb_images))
+    print('t_search:', np.mean(ts[2]/nb_images), "+-", np.std(ts[2]/nb_images))
+
+    return 0
 if __name__ == "__main__":
     parser = ArgumentParser()
 
@@ -536,6 +573,11 @@ if __name__ == "__main__":
         '--path',
         default='patch/val'
     )
+
+    parser.add_argument(
+        '--path_indexed',   
+    )
+    
 
     parser.add_argument(
         '--extractor',
@@ -626,6 +668,6 @@ if __name__ == "__main__":
     else:
         # Random protocol realised 50 times to make stat
         if args.stat == True:
-            stat(model, args.weights, args.path, args.db_name, args.extractor,args.project_name, args.class_name, args.measure)
+            stat_process(model, args.weights, args.path, args.path_indexed, args.db_name, args.extractor,args.project_name, args.class_name, args.measure)
         else: # Other protocols: weighted - default - remove - random 
             r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
