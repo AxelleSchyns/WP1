@@ -365,3 +365,260 @@ Experiment number:  4
 Time of the model: 2.2666070461273193
 Time of the transfer: 43.159263610839844
 Time of the indexing: 7.411378383636475
+Top 1 accuracy:  0.7368600753648533  +-  1.7909198399104627e-05
+Top 5 accuracy:  0.8764453604813358  +-  2.2422771041327675e-05
+Maj accuracy:  0.7384735494347636  +-  7.789764092982138e-06
+Top 1 accuracy on project:  0.8944038473549435  +-  2.4099758296993388e-05
+Top 5 accuracy on project:  0.9339703953531947  +-  2.018478903009371e-05
+Maj accuracy on project:  0.8914975121270793  +-  5.099597657451033e-06
+Top 1 accuracy on sim:  0.9082880519642746  +-  6.266490514144706e-05
+Top 5 accuracy on sim:  0.9476401640538796  +-  1.4721270401283684e-05
+Maj accuracy on sim:  0.9069993546103721  +-  2.8240293061540188e-05
+t_tot: 133.7913103772633 +- 0.4713991601326957
+t_model: 3.110510186295011 +- 0.018109077178577574
+t_transfer: 0.03533765451231999 +- 0.0004020833034032549
+t model complet: 3.145847840807331 +- 0.018268800263675812
+t_search: 130.42166433690198 +- 0.4784454871356736
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 10 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model27/checkpoint_teacher.pth
+Indexing
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model27/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+Experiment number:  0
+Time of the model: 2.695894241333008
+Time of the transfer: 40.00558114051819
+Time of the indexing: 7.1185643672943115
+Experiment number:  1
+Time of the model: 2.3672091960906982
+Time of the transfer: 40.16623878479004
+Time of the indexing: 6.646676778793335
+Experiment number:  2
+Time of the model: 2.3391592502593994
+Time of the transfer: 40.18136739730835
+Time of the indexing: 6.616619825363159
+Experiment number:  3
+Time of the model: 2.4337007999420166
+Time of the transfer: 40.09606885910034
+Time of the indexing: 6.718444347381592
+Experiment number:  4
+Time of the model: 2.5229904651641846
+Time of the transfer: 40.0134859085083
+Time of the indexing: 7.00194525718689
+Top 1 accuracy:  0.7578289925676097  +-  2.3369292278891027e-05
+Top 5 accuracy:  0.9050985780609165  +-  1.529879297218993e-05
+Maj accuracy:  0.7705369225324257  +-  8.327608102742801e-06
+Top 1 accuracy on project:  0.9288135240355588  +-  2.761955147798822e-05
+Top 5 accuracy on project:  0.9558199571128181  +-  1.665521620552446e-05
+Maj accuracy on project:  0.9295005517040369  +-  8.327608102742801e-06
+Top 1 accuracy on sim:  0.9315616347094705  +-  2.988091540068794e-05
+Top 5 accuracy on sim:  0.9584743821955739  +-  1.665521620552446e-05
+Maj accuracy on sim:  0.9332646305664856  +-  6.583552266485185e-06
+t_tot: 29.827446336176855 +- 0.2641519341091808
+t_model: 3.5197748483116946 +- 0.06085701226724898
+t_transfer: 0.07141424008269807 +- 0.001405594296983242
+t model complet: 3.5911890883943927 +- 0.05976620715470904
+t_search: 26.03949589159951 +- 0.2035125861372696
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 11 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpoint_new.pth
+Indexing
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Experiment number:  0
+Time of the model: 2.822150468826294
+Time of the transfer: 39.899845123291016
+Time of the indexing: 7.1354663372039795
+Experiment number:  1
+Time of the model: 2.3659000396728516
+Time of the transfer: 40.07374691963196
+Time of the indexing: 6.602848529815674
+Experiment number:  2
+Time of the model: 2.450371026992798
+Time of the transfer: 40.0162239074707
+Time of the indexing: 7.008016347885132
+Experiment number:  3
+Time of the model: 2.5284905433654785
+Time of the transfer: 39.891584634780884
+Time of the indexing: 7.1019206047058105
+Experiment number:  4
+Time of the model: 2.5023319721221924
+Time of the transfer: 39.969818115234375
+Time of the indexing: 6.838674783706665
+Top 1 accuracy:  0.7678325318010535  +-  3.265335736131292e-05
+Top 5 accuracy:  0.8904482335061312  +-  1.2139470561554302e-05
+Maj accuracy:  0.7775133762205151  +-  1.0615659054390215e-05
+Top 1 accuracy on project:  0.9255345283450961  +-  4.24626362175467e-05
+Top 5 accuracy on project:  0.9436762225969646  +-  2.4099758296978043e-05
+Maj accuracy on project:  0.9243832365248892  +-  1.5298792972217124e-05
+Top 1 accuracy on sim:  0.9265546603376846  +-  4.2462636217546705e-05
+Top 5 accuracy on sim:  0.9449774113630213  +-  2.4099758296978043e-05
+Maj accuracy on sim:  0.9254866445985052  +-  1.5298792972241298e-05
+t_tot: 29.57674591719215 +- 0.216005307550897
+t_model: 3.4687312126159666 +- 0.061367386190905815
+t_transfer: 0.07100188554222904 +- 0.0010736142131488832
+t model complet: 3.539733098158196 +- 0.06124866972633417
+t_search: 25.841193100943496 +- 0.15526649085438157
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 12 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model31/checkpoint24.pth
+Indexing
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model31/checkpoint24.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Experiment number:  0
+Time of the model: 2.560302972793579
+Time of the transfer: 40.08031916618347
+Time of the indexing: 6.901243686676025
+Experiment number:  1
+Time of the model: 2.3870980739593506
+Time of the transfer: 40.102553606033325
+Time of the indexing: 6.8601953983306885
+Experiment number:  2
+Time of the model: 2.6017422676086426
+Time of the transfer: 39.91321539878845
+Time of the indexing: 7.153881549835205
+Experiment number:  3
+Time of the model: 2.538386821746826
+Time of the transfer: 39.97931957244873
+Time of the indexing: 6.964164972305298
+Experiment number:  4
+Time of the model: 2.492928981781006
+Time of the transfer: 40.00025653839111
+Time of the indexing: 6.842749834060669
+Top 1 accuracy:  0.7591031166073325  +-  3.016962660292007e-05
+Top 5 accuracy:  0.8913934170257948  +-  2.515571788892041e-05
+Maj accuracy:  0.768979659817209  +-  1.2139470561603806e-05
+Top 1 accuracy on project:  0.9329127891241438  +-  3.4461610470396064e-05
+Top 5 accuracy on project:  0.9488976328773969  +-  2.3183079811074824e-05
+Maj accuracy on project:  0.932319447046822  +-  1.2139470561603807e-05
+Top 1 accuracy on sim:  0.9332458934482544  +-  3.4461610470396064e-05
+Top 5 accuracy on sim:  0.9493556513230488  +-  2.3183079811110715e-05
+Maj accuracy on sim:  0.9327462369620886  +-  1.2139470561599999e-05
+t_tot: 29.72850655655363 +- 0.2451342325030778
+t_model: 3.4670791633093536 +- 0.05553188204454019
+t_transfer: 0.07897973772305161 +- 0.0031081890327628774
+t model complet: 3.5460589010324055 +- 0.054430939896424696
+t_search: 25.985826593370582 +- 0.19221690325398713
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 13 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ctranspath/model29/ctranspath.pth
+Indexing
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Experiment number:  0
+Time of the model: 3.1485416889190674
+Time of the transfer: 63.70735049247742
+Time of the indexing: 5.610783576965332
+Experiment number:  1
+Time of the model: 2.7561557292938232
+Time of the transfer: 63.765602827072144
+Time of the indexing: 5.283056020736694
+Experiment number:  2
+Time of the model: 2.932401180267334
+Time of the transfer: 63.55656099319458
+Time of the indexing: 5.78369140625
+Experiment number:  3
+Time of the model: 3.1337673664093018
+Time of the transfer: 63.35476517677307
+Time of the indexing: 6.19755744934082
+Experiment number:  4
+Time of the model: 2.8462185859680176
+Time of the transfer: 63.67158842086792
+Time of the indexing: 5.612937688827515
+Top 1 accuracy:  0.7642433327087628  +-  2.498282430830982e-05
+Top 5 accuracy:  0.8944787958278683  +-  2.2806094039725827e-05
+Maj accuracy:  0.7741053026044594  +-  1.3809775738997457e-05
+Top 1 accuracy on project:  0.9255095455207879  +-  2.46333969691723e-05
+Top 5 accuracy on project:  0.9484104678033851  +-  2.1835172655678173e-05
+Maj accuracy on project:  0.9260779047738014  +-  1.8149601080681565e-05
+Top 1 accuracy on sim:  0.93287115108363  +-  3.382690402277199e-05
+Top 5 accuracy on sim:  0.9537401369891534  +-  2.1835172655699342e-05
+Maj accuracy on sim:  0.9335165407115941  +-  2.2228630841389825e-05
+t_tot: 55.485851685680565 +- 0.14638786901997197
+t_model: 5.455161940873559 +- 0.03277005294248279
+t_transfer: 0.0379541333041974 +- 0.0002185239144207365
+t model complet: 5.493116074177757 +- 0.03285595429486208
+t_search: 49.77606370057633 +- 0.11292230737274817
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 14 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model26/placeholder.txt
+Indexing
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Experiment number:  0
+Time of the model: 1.9057579040527344
+Time of the transfer: 108.67629623413086
+Time of the indexing: 5.947461843490601
+Experiment number:  1
+Time of the model: 1.8925132751464844
+Time of the transfer: 108.52994322776794
+Time of the indexing: 6.2455549240112305
+Experiment number:  2
+Time of the model: 1.8034942150115967
+Time of the transfer: 108.52767491340637
+Time of the indexing: 5.795565843582153
+Experiment number:  3
+Time of the model: 1.8272345066070557
+Time of the transfer: 108.42759895324707
+Time of the indexing: 5.978702068328857
+Experiment number:  4
+Time of the model: 1.8604135513305664
+Time of the transfer: 108.72806143760681
+Time of the indexing: 6.03403902053833
+Top 1 accuracy:  0.78034684487748  +-  2.583572470174944e-05
+Top 5 accuracy:  0.8936043969770783  +-  2.633420906601096e-05
+Maj accuracy:  0.7892740407636417  +-  2.4278941123175244e-05
+Top 1 accuracy on project:  0.9427810047259175  +-  3.972015911630372e-05
+Top 5 accuracy on project:  0.9535964857493806  +-  2.6661354641326662e-05
+Maj accuracy on project:  0.9436033560260654  +-  2.824029306157293e-05
+Top 1 accuracy on sim:  0.9436241750463223  +-  3.9720159116302564e-05
+Top 5 accuracy on sim:  0.953929590073491  +-  2.6661354641326662e-05
+Maj accuracy on sim:  0.9444361168363417  +-  2.824029306157293e-05
+t_tot: 54.56651562149845 +- 0.13559167442577633
+t_model: 3.276080048262183 +- 0.025764542494748653
+t_transfer: 1.1826931312902649 +- 0.01617948821641508
+t model complet: 4.458773179552448 +- 0.01962653168276646
+t_search: 49.89203859514265 +- 0.12451320820110179
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 15 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/cdpath/model33/CAMELYON17.ckpt
+Indexing
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Experiment number:  0
+Time of the model: 2.4511876106262207
+Time of the transfer: 1.4497199058532715
+Time of the indexing: 9.557641983032227
+Experiment number:  1
+Time of the model: 1.9702448844909668
+Time of the transfer: 1.5077576637268066
+Time of the indexing: 9.509587049484253
+Experiment number:  2
+Time of the model: 1.937077283859253
+Time of the transfer: 1.5315208435058594
+Time of the indexing: 9.30595850944519
+Experiment number:  3
+Time of the model: 1.9815013408660889
+Time of the transfer: 1.470407247543335
+Time of the indexing: 9.581830263137817
+Experiment number:  4
+Time of the model: 1.9533653259277344
+Time of the transfer: 1.4926481246948242
+Time of the indexing: 9.509917259216309
