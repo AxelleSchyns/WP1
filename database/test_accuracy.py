@@ -43,8 +43,10 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
     else:
         idx_class = data.conversion[class_im]
 
+    # Fill prop with the proportion of correct images at each step 
     for i in range(len(names)):
         class_retr = utils.get_class(names[i])
+        # The image is correct, have to add 1 
         if class_retr == class_im:  
             if len(prop) == 0:
                 prop.append(1) 
