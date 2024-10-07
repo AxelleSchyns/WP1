@@ -18,8 +18,36 @@ from lightly.models.modules import BYOLPredictionHead, BYOLProjectionHead
 from lightly.utils.benchmarking import OnlineLinearClassifier
 from lightly.loss import NegativeCosineSimilarity
 from timm.models.layers import to_2tuple
+from timm.data import resolve_data_config
+from timm.data.transforms_factory import create_transform
+from timm.layers import SwiGLUPacked
 from torch import Tensor
 from huggingface_hub  import login
+
+class Virchow():
+    def __init__(self):
+        super().__init__()
+        login()
+        
+        from PIL import Image
+
+        # need to specify MLP layer and activation function for proper init
+        self.model = timm.create_model("hf-hub:paige-ai/Virchow2", pretrained=True, mlp_layer=SwiGLUPacked, act_layer=torch.nn.SiLU)
+        self.model = self.model.eval()
+
+        transforms = create_transform(**resolve_data_config(model.pretrained_cfg, model=model))
+
+        image = Image.open("/path/to/your/image.png")
+        image = transforms(image).unsqueeze(0)  # size: 1 x 3 x 224 x 224
+
+        output = model(image)  # size: 1 x 261 x 1280
+
+        class_token = output[:, 0]    # size: 1 x 1280
+        patch_tokens = output[:, 5:]  # size: 1 x 256 x 1280, tokens 1-4 are register tokens so we ignore those
+
+        # concatenate class token and average pool of patch tokens
+        embedding = torch.cat([class_token, patch_tokens.mean(1)], dim=-1)  # size: 1 x 2560
+
 
 # To use with uniEnv - different version of Timm 
 class UNIModel(nn.Module):
