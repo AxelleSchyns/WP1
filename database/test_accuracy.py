@@ -51,14 +51,17 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
             if len(prop) == 0:
                 prop.append(1) 
             else:
-                prop.append(prop[-1] + 1)   
+                #prop.append(prop[-1] + 1)   
+                prop.append(1)
         else:
             if len(prop) == 0:
                 prop.append(0)
             else:
-                prop.append(prop[-1])  
-    for i in range(len(names)):
-        prop[i] = prop[i] / (i+1) 
+                #prop.append(prop[-1])  
+                prop.append(0)
+    #for i in range(len(names)):
+        #prop[i] = prop[i] / (i+1) 
+        
     for j in range(len(similar)):
         # Gets the class and project of the retrieved image
         class_retr = utils.get_class(similar[j])
@@ -237,12 +240,12 @@ def display_precision_recall(weight, measure, ground_truth, predictions):
     plt.savefig(fold_path + '/uliege_prec_recall_curve_'+measure+'.png')
     
 def display_prec_im(weight, props, data, measure):
-    print(props)
     plt.figure()    
     props = props / data.__len__()
     plt.plot(props)
     plt.xlabel('Number of images')
     plt.ylabel('Proportion of correct images')
+    print("Proportions are:", props)
     fold_path = weight[0:weight.rfind("/")]
     plt.savefig(fold_path + '/uliege_prec_im_'+measure+'.png')
 
@@ -474,6 +477,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
         print("maj accuracy class : ", maj_acc[0] / s)
         print("maj accuracy proj : ", maj_acc[1] / s)
         print("maj accuracy sim : ", maj_acc[2] / s)
+        print("Props: ", props / s)
         print("f1 score : ", f1)
 
         print('t_tot:', t_tot)

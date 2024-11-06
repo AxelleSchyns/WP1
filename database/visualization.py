@@ -50,6 +50,279 @@ def summary_image(path):
     
     plt.show()
 
+def prob_per_class(path, path_queries):      
+    classes = os.listdir(path)
+    classes.sort()
+    count = 0
+    counts = []
+    for class_ in classes:
+        images = os.listdir(os.path.join(path, class_))
+        count += len(images)
+        counts.append(len(images))
+
+    queries_classes = os.listdir(path_queries)
+    queries_classes.sort()
+    props = []
+    tot_queries = 0
+    for query_c in queries_classes:
+        prp_c = []
+        print("Current class is",query_c)
+        queries = os.listdir(os.path.join(path_queries, query_c))
+        tot_queries += len(queries)
+        for query in queries:
+            prop = []
+            class_im = query_c
+            retrieved = random_draw(count, path, classes, counts)
+            # Fill prop with the proportion of correct images at each step 
+            for i in range(len(retrieved)):
+                class_retr = utils.get_class(retrieved[i])
+                # The image is correct, have to add 1 
+                if class_retr == class_im:  
+                    if len(prop) == 0:
+                        prop.append(1) 
+                    else:
+                        prop.append(prop[-1] + 1)   
+                else:
+                    if len(prop) == 0:
+                        prop.append(0)
+                    else:
+                        prop.append(prop[-1])  
+
+            for i in range(len(retrieved)):
+                prop[i] = prop[i] / (i+1) 
+            if len(prp_c) == 0:
+                prp_c = prop
+            else:
+                for el in range(len(prop)):
+                    prp_c[el] += prop[el] 
+        for el in range(len(prp_c)):
+            prp_c[el] = prp_c[el]/len(queries)
+        props.append(prp_c)
+    
+    plt.figure(figsize=(12, 8))
+    c = ["camelyon16_0", "janowczyk6_0", "janowczyk6_1", "tupac_mitosis_0", "mitos2014_2", "umcm_colorectal_04_LYMPHO", "ulg_lbtd_lba_4762", "ulg_bonemarrow_0"]
+    for i in range(len(props)) :
+        if queries_classes[i] in c:
+            plt.plot(props[i], label=queries_classes[i], marker='o')
+        #plt.plot(props[i], label=queries_classes[i], marker='o')
+    
+    plt.title('Proportion of Correct Images per Model')
+    plt.xlabel('Retrieval Step')
+    plt.ylabel('Proportion of Correct Images')
+    plt.xticks(np.arange(10), labels=np.arange(1, 11))  # Label steps 1 to 10
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+def prob_vs_size(path, path_queries):
+    classes = os.listdir(path)
+    classes.sort()
+    count = 0
+    counts = []
+    for class_ in classes:
+        images = os.listdir(os.path.join(path, class_))
+        count += len(images)
+        counts.append(len(images))
+
+    queries_classes = os.listdir(path_queries)
+    queries_classes.sort()
+    props_stat = []
+    tot_queries = 0
+    for i in range(50):
+        props = []
+        for query_c in queries_classes:
+            prop = 0
+            print("Current class is",query_c)
+            queries = os.listdir(os.path.join(path_queries, query_c))
+            tot_queries += len(queries)
+            for query in queries:
+                class_im = query_c
+                retrieved = random_draw(count, path, classes, counts, n = 1)
+                class_retr = utils.get_class(retrieved[0])
+                # The image is correct, have to add 1 
+                if class_retr == class_im:  
+                    prop += 1 
+            prop = prop/len(queries)
+            props.append(prop)
+        if len(props_stat) == 0:
+            props_stat = props
+        else:
+            for el in range(len(props)):
+                props_stat[el] += props[el]
+    for el in range(len(props_stat)):
+        props_stat[el] = props_stat[el]/50
+        
+    plt.figure(figsize=(12, 8))
+    
+    plt.scatter(counts, props_stat)
+    
+    plt.title('Proportion of Correct Images per size of the class')
+    plt.xlabel('Number of images in the indexing Set of the class')
+    plt.ylabel('Proportion of Correct Images') # Label steps 1 to 10
+    plt.grid()
+    plt.show()
+def plot_im_curve(path, path_queries):
+    # Model 1 Props
+    model_1_props = [
+        0.81835405, 0.81886411, 0.81869062, 0.81832802, 0.81773156,
+        0.81731657, 0.81703501, 0.81682645, 0.81672323, 0.81618679
+    ]
+
+    # Model 2 Props
+    model_2_props = [
+        0.79779527, 0.7977224, 0.79769811, 0.79744134, 0.79733308,
+        0.79706487, 0.79679, 0.79661118, 0.79624309, 0.79595382
+    ]
+
+    # Model 3 Props
+    model_3_props = [
+        0.7590823, 0.75592822, 0.75302743, 0.75145213, 0.74987196,
+        0.74838132, 0.74714259, 0.74604699, 0.74486638, 0.74384486
+    ]
+
+    # Model 4 Props
+    model_4_props = [
+        0.77414486, 0.77171944, 0.77169168, 0.77022568, 0.76930027,
+        0.76861047, 0.76808801,  0.76735656, 0.76656558, 0.76615348
+    ]
+
+    # Model 5 Props
+    model_5_props = [
+        0.76858618, 0.76640018, 0.76478671, 0.76403983, 0.76293173,
+        0.76225893, 0.76173226, 0.76118372, 0.76070387, 0.76017842
+    ]
+    
+    # Model 6 Props
+    model_6_props = [
+        0.74470676, 0.74472758, 0.74504334, 0.74433462, 0.74407387,
+        0.74328934, 0.74273937, 0.742228, 0.74161861, 0.74106552
+    ]
+
+    # Model 7 Props
+    model_7_props = [
+        0.74495659, 0.74407699, 0.74331536, 0.74289811, 0.7425978,
+        0.74252424, 0.74225161, 0.74184155, 0.74088069, 0.74046281
+    ]
+
+    # Model 8 Props
+    model_8_props = [
+        0.63808215, 0.63216955, 0.62810637, 0.62494795, 0.6220182,
+        0.61943525, 0.61750255, 0.61553125, 0.61375281, 0.61211355
+    ]
+
+    # Model 9 Props
+    model_9_props = [
+        0.73684758, 0.7322726, 0.72914455, 0.7271277, 0.72565736,
+        0.723801, 0.72246313, 0.72118257, 0.72005242, 0.71911186
+    ]
+
+    # Model 10 Props
+    model_10_props = [
+        0.75780193, 0.75546499, 0.7527325, 0.75037474, 0.74866862,
+        0.74689623, 0.74550384, 0.74432682, 0.74326678, 0.74230633
+    ]
+
+    model_11_props = [0.76778465, 0.76523952, 0.76405804, 0.76308736, 0.76263819, 
+                      0.76177836, 0.76097088, 0.76066064, 0.76003303, 0.75963192]
+
+    model_12_props = [0.75903025, 0.75691712, 0.75586576, 0.75480139, 0.75377345,
+                        0.75293028, 0.75217484, 0.75147815, 0.75074081, 0.75015406]
+
+    model_13_props = [0.76420378, 0.76188766, 0.76009202, 0.75831720, 0.75717944,
+                        0.75589178, 0.75491552, 0.75409614, 0.75331196, 0.75254513]
+
+    model_14_props = [ 0.78047384, 0.77723128, 0.77580344, 0.77432182, 0.77318927, 0.77228329, 0.77130901, 0.77078129, 0.77017537, 0.76955426]
+
+    model_15_props = [ 0.58391106, 0.58067370, 0.57777292, 0.57559386, 0.57398663, 0.57233395, 0.57088728, 0.56943403, 0.56823550, 0.56716112]
+   
+    model_16_props = [ 0.79346491, 0.79146108, 0.79071333, 0.78950149, 0.78865363, 
+                      0.7879843, 0.78728166, 0.78669743, 0.78607647, 0.7854829]
+    props = [11113.0, 11136.0, 11191.333333334209, 11155.0, 11172.399999999667, 11147.333333333503, 11149.571428567484, 11143.375, 11153.22222223129, 11148.100000003062]
+
+
+    """
+    # Count number of images of the test dataset
+    classes = os.listdir(path)
+    classes.sort()
+    count = 0
+    counts = []
+    for class_ in classes:
+        images = os.listdir(os.path.join(path, class_))
+        count += len(images)
+        counts.append(len(images))
+
+    queries_classes = os.listdir(path_queries)
+    props = []
+    tot_queries = 0
+    for query_c in queries_classes:
+        print("Current class is",query_c)
+        queries = os.listdir(os.path.join(path_queries, query_c))
+        tot_queries += len(queries)
+        for query in queries:
+            prop = []
+            class_im = query_c
+            retrieved = random_draw(count, path, classes, counts)
+            # Fill prop with the proportion of correct images at each step 
+            for i in range(len(retrieved)):
+                class_retr = utils.get_class(retrieved[i])
+                # The image is correct, have to add 1 
+                if class_retr == class_im:  
+                    if len(prop) == 0:
+                        prop.append(1) 
+                    else:
+                        prop.append(prop[-1] + 1)   
+                else:
+                    if len(prop) == 0:
+                        prop.append(0)
+                    else:
+                        prop.append(prop[-1])  
+
+            for i in range(len(retrieved)):
+                prop[i] = prop[i] / (i+1) 
+            if len(props) == 0:
+                props = prop
+            else:
+                for el in range(len(prop)):
+                    props[el] += prop[el] """
+    print(props)
+    # Normalize the accumulated props
+    for el in range(len(props)):
+        props[el] = props[el]/96066 
+    extractors = ["resnet", "deit", "dino_p", "dino_s", "dino_f", "byol_s", "byol_f", "byol_p", "ret_ccl", "ibot_p", "ibot_f", "ibot_s", "ctranspath", "phikon", "cdpath", "uni", "random"]   
+    model_prop = [model_1_props, model_2_props, model_3_props, model_4_props, model_5_props, model_6_props, model_7_props, model_8_props, model_9_props, model_10_props, model_11_props, model_12_props, model_13_props, model_14_props, model_15_props, model_16_props, props]
+    colors = [
+        "blue", "navy", "olive", "green", "lime", "orange", "coral",  "gold",  "red", "maroon", "purple", "brown", "pink", "gray", "cyan",
+        "teal","magenta"
+    ]
+
+    # Plotting the results
+    plt.figure(figsize=(12, 8))
+    for i in range(len(extractors)) :
+        plt.plot(model_prop[i], label=extractors[i], marker='o', color=colors[i])
+    
+    plt.title('Proportion of Correct Images per Model')
+    plt.xlabel('Retrieval Step')
+    plt.ylabel('Proportion of Correct Images')
+    plt.xticks(np.arange(10), labels=np.arange(1, 11))  # Label steps 1 to 10
+    plt.legend()
+    plt.grid()
+    plt.show()
+    
+def random_draw(count, path, classes, counts , n = 10):
+    
+    retrieved = []
+    for i in range(0, n):
+        idx = random.randint(0, count-1)
+        i = 0
+        for class_ in classes:
+            if idx < counts[i]:
+                images = os.listdir(os.path.join(path, class_))
+                retrieved.append(os.path.join(path, class_, images[idx]))
+                break
+            else:
+                idx -= counts[i]
+            i += 1
+    return retrieved
 # Count the number of images in a class
 def count_im_class(path, class_):
     images = os.listdir(os.path.join(path, class_))
@@ -398,13 +671,16 @@ def diversity():
 
 # Run the wanted function
 if __name__ == "__main__":
-    val = "/home/labarvr4090/Documents/Axelle/cytomine/Data/validation"
-    train = "/home/labarvr4090/Documents/Axelle/cytomine/Data/train"
+    val = "/home/labsig//Documents/Axelle/cytomine/Data/our/validation"
+    train = "/home/labsig//Documents/Axelle/cytomine/Data/our/train"
     test = '/home/labsig/Documents/Axelle/cytomine/Data/our/test'
 
+    #plot_im_curve(test, val)
+    #prob_per_class(test, val)
+    prob_vs_size(test, val)
     #summary_image(train)
 
-    count_all_classes(test)
+    #count_all_classes(test)
     #count_maj(train, test, val)
 
     #bar_plot(train, test, val)

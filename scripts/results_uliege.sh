@@ -42,10 +42,10 @@ num_features=(128 128 384 384 384 256 256 256 2048 384 384 384 768 768 512 1024)
 # Type of measure
 measures=('all')
 # Output files
-output_file='uliege_stat.log'
-warnings_file='warnings_uliege_stat.log'
+output_file='uliege_testGPU.log'
+warnings_file='warnings_testGPU.log'
 
-stat=true
+stat=false
 
 for ((nb=0; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"

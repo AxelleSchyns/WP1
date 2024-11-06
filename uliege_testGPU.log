@@ -1,0 +1,34 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/resnet/model2/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+hello
+hello2
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 2.774919271469116
+Time of the transfer: 42.97570538520813
+Time of the indexing: 6.538857460021973
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+hello
+hello2
+Loading FAISS index from file
+Failed to load FAISS index: Error in faiss::Index* faiss::read_index(faiss::IOReader*, int) at /project/faiss/faiss/impl/index_read.cpp:465: Error: 'ret == (1)' failed: read error in db: 0 != 1 (Success)
+Transferring index to GPU
+Failed to transfer index to GPU: 'Database' object has no attribute 'index'
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/deit/model5/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+hello
+hello2
+Transferring index to GPU
+Index transferred to GPU

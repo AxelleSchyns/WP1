@@ -15,29 +15,38 @@ import numpy as np
 # Class that represents the database
 class Database:
     def __init__(self, filename, model, load=False, device='cuda:0'):
+        print("hello")
         self.num_features = model.num_features
         self.model = model
         self.device = device
         self.filename = filename
 
-        res = faiss.StandardGpuResources() # Allocation of steams and temporary memory 
+        res = faiss.StandardGpuResources()  # Allocation of streams and temporary memory 
+        print("hello2")
 
         # A database was previously constructed
-        if load == True:
-            self.index = faiss.read_index(filename )
-            self.r = redis.Redis(host='localhost', port='6379', db=0)
+        if load:
+            print("Loading FAISS index from file")
+            try:
+                self.index = faiss.read_index(filename)
+            except RuntimeError as e:
+                print(f"Failed to load FAISS index: {e}")
+            self.r = redis.Redis(host='localhost', port=6379, db=0)
         else:
             # No database to load, has to build it 
             self.index = faiss.IndexFlatL2(self.num_features)
             self.index = faiss.IndexIDMap(self.index)
-            self.r = redis.Redis(host='localhost', port='6379', db=0)
+            self.r = redis.Redis(host='localhost', port=6379, db=0)
             self.r.flushdb()
+            self.r.set('last_id', 0)  # Set a value in Redis with key = last_id
 
-            self.r.set('last_id', 0) # Set a value in redis with key = last_id
-
-
-        if device == 'gpu':
-            self.index = faiss.index_cpu_to_gpu(res, 0, self.index)
+        if device == 'cuda:0':
+            print("Transferring index to GPU")
+            try:
+                self.index = faiss.index_cpu_to_gpu(res, 0, self.index)
+                print("Index transferred to GPU")
+            except Exception as e:
+                print(f"Failed to transfer index to GPU: {e}")
 
         
         if model.model_name == 'deit':
