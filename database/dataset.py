@@ -1,3 +1,4 @@
+from matplotlib import pyplot as plt
 import torch
 import os
 
@@ -140,7 +141,7 @@ class AddDataset(Dataset):
         self.root = root
         self.model_name = model_name
         self.list_img = []
-        self.transform = transforms.Compose(
+        """self.transform = transforms.Compose(
             [
                 transforms.Resize((224, 224)),
                 transforms.ToTensor(),
@@ -148,6 +149,12 @@ class AddDataset(Dataset):
                     mean=[0.485, 0.456, 0.406],
                     std=[0.229, 0.224, 0.225]
                 )
+            ]
+        )"""
+        self.transform = transforms.Compose(
+            [
+                transforms.Resize((224, 224)),
+                transforms.ToTensor(),
             ]
         )
     
@@ -158,7 +165,7 @@ class AddDataset(Dataset):
             self.transformer = False
 
         self.classes = os.listdir(root)
-                    
+        print(self.classes)
         for c in self.classes:
                 for dir, subdir, files in os.walk(os.path.join(root, c)):
                     for f in files:
@@ -168,7 +175,8 @@ class AddDataset(Dataset):
         return len(self.list_img)
 
     def __getitem__(self, idx):
-        img = Image.open(self.list_img[idx]).convert('RGB')
+        img = Image.open(self.list_img[idx]).convert('RGB') 
+        
         return self.transform(img), self.list_img[idx]
 
    

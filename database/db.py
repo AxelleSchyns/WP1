@@ -15,20 +15,18 @@ import numpy as np
 # Class that represents the database
 class Database:
     def __init__(self, filename, model, load=False, device='cuda:0'):
-        print("hello")
         self.num_features = model.num_features
         self.model = model
         self.device = device
         self.filename = filename
 
         res = faiss.StandardGpuResources()  # Allocation of streams and temporary memory 
-        print("hello2")
 
         # A database was previously constructed
         if load:
             print("Loading FAISS index from file")
             try:
-                self.index = faiss.read_index(filename)
+                self.index = faiss.read_index(self.filename)
             except RuntimeError as e:
                 print(f"Failed to load FAISS index: {e}")
             self.r = redis.Redis(host='localhost', port=6379, db=0)
@@ -86,7 +84,7 @@ class Database:
     def add_dataset(self, data_root, extractor):
         # Create a dataset from a directory root
         data = dataset.AddDataset(data_root, extractor)
-        loader = torch.utils.data.DataLoader(data, batch_size=128, num_workers=12, pin_memory=True, shuffle = True)
+        loader = torch.utils.data.DataLoader(data, batch_size=2, num_workers=12, pin_memory=True, shuffle = True)
         t_model = 0
         t_indexing = 0
         t_transfer = 0
@@ -132,7 +130,6 @@ class Database:
         print("Time of the model: "+str(t_model))
         print("Time of the transfer: "+str(t_transfer))
         print("Time of the indexing: "+str(t_indexing))
-        
         self.save()
         
 
@@ -246,7 +243,7 @@ class Database:
 
 
     def save(self):
-        if self.device != 'gpu':
+        if self.device != 'cuda:0':
             faiss.write_index(self.index, self.filename )
         else:
             faiss.write_index(faiss.index_gpu_to_cpu(self.index), self.filename)

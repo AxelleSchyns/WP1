@@ -48,10 +48,10 @@ num_features=(128 128 384 384 384 256 256 256 2048 384 384 384 768 1024 768 512 
 # Type of measure
 measures=('all')
 # Output files
-output_file='cam17_F1.log'
-warnings_file='warnings_cam17_F1.log'
+output_file='test_GPU.log'
+warnings_file='warnings_test_GPU.log'
 
-for ((nb=14; nb<nb_models; nb++)); do
+for ((nb=0; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
@@ -60,11 +60,11 @@ for ((nb=14; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$warnings_file" 
     echo "Weights: ${weights[nb]}" >> "$output_file"
     echo "Indexing" >> "$output_file"
-    python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --num_features "${num_features[nb]}" --rewrite --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
+    python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --num_features "${num_features[nb]}" --db_name new_db --rewrite --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
 
     for i in "${!measures[@]}"; do
         echo "${measures[i]}" >> "$output_file" 
         echo "${measures[i]}" >> "$warnings_file"
-        python database/test_cam_acc.py --num_features "${num_features[nb]}" --path "$path_validation" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
+        python database/test_cam_acc.py --num_features "${num_features[nb]}" --path "$path_validation" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --db_name new_db --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
     done
 done

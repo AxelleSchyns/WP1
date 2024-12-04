@@ -20,8 +20,8 @@ def list_of_ints(string):
 # File to retrieve images from the database
 class ImageRetriever:
 
-    def __init__(self, db_name, model):
-        self.db = Database(db_name, model, False)
+    def __init__(self, db_name, model, load=False):
+        self.db = Database(db_name, model, load)
 
     def retrieve(self, image, extractor, nrt_neigh=10):
         return self.db.search(image,extractor,nrt_neigh= nrt_neigh)
@@ -91,13 +91,14 @@ def oneQueryOneModel(args):
                          weight=args.weights, device=device)
     
             
-    retriever = ImageRetriever(args.db_name, model)
+    retriever = ImageRetriever(args.db_name, model, True)
 
     # Retrieve the most similar images
     ret_values = retriever.retrieve(feat_extract(Image.open(args.path).convert('RGB')), args.extractor, args.nrt_neigh)
     dir = args.results_dir
-
+    print(ret_values)
     names = ret_values[0]
+    print(names)
     dist = ret_values[1]
 
     names_only = []
@@ -121,13 +122,13 @@ def oneQueryOneModel(args):
     plt.axis('off')
     for i in range(2,12):
         #class_name = utils.get_new_name(class_names[i-2]) # to use if uliege dataset 
-        class_name = class_names[i-2]
+        #class_name = class_names[i-2]
         plt.subplot(2,6,i)
         plt.imshow(Image.open(names[i-2]).convert('RGB'))
         # Write the distance and rank right below each of the image
         #plt.text(2, 45, str(dist[i-2])+ str(i-1), fontsize=8)
         # Change title font size
-        plt.title(class_name,fontsize=8)
+        #plt.title(class_name,fontsize=8)
 
         plt.axis('off')
     plt.savefig(os.path.join(dir, "3_nearest_images.png"))
@@ -224,7 +225,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--num_features',
         help='number of features to extract. Must match the number of extractors',
-        default=128,
+        default=[128],
         type=list_of_ints
     )
 

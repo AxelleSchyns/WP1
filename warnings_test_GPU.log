@@ -1,0 +1,114 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Some weights of DeiTForImageClassification were not initialized from the model checkpoint at facebook/deit-base-distilled-patch16-224 and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Some weights of the model checkpoint at owkin/phikon were not used when initializing ViTModel: ['pooler.dense.bias', 'pooler.dense.weight']
+- This IS expected if you are initializing ViTModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ViTModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3587.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Traceback (most recent call last):
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/add_images.py", line 85, in <module>
+    database.add_dataset(args.path, args.extractor)
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/db.py", line 136, in add_dataset
+    self.save()
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/db.py", line 250, in save
+    faiss.write_index(self.index, self.filename )
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/faiss/swigfaiss.py", line 9843, in write_index
+    return _swigfaiss.write_index(*args)
+RuntimeError: Error in void faiss::write_index(const faiss::Index*, faiss::IOWriter*) at /project/faiss/faiss/impl/index_write.cpp:590: don't know how to serialize this type of index
+all
+Some weights of DeiTForImageClassification were not initialized from the model checkpoint at facebook/deit-base-distilled-patch16-224 and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Some weights of the model checkpoint at owkin/phikon were not used when initializing ViTModel: ['pooler.dense.bias', 'pooler.dense.weight']
+- This IS expected if you are initializing ViTModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ViTModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3587.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Traceback (most recent call last):
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/test_cam_acc.py", line 432, in <module>
+    r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.class_name, True)
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/test_cam_acc.py", line 337, in test
+    display_precision_recall(model_weight, measure, ground_truth, predictions)
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/test_cam_acc.py", line 134, in display_precision_recall
+    precision[i], recall[i], _ = precision_recall_curve(Y_test[:, i], y_score[:, i])
+IndexError: index 1 is out of bounds for axis 1 with size 1
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Some weights of DeiTForImageClassification were not initialized from the model checkpoint at facebook/deit-base-distilled-patch16-224 and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Some weights of the model checkpoint at owkin/phikon were not used when initializing ViTModel: ['pooler.dense.bias', 'pooler.dense.weight']
+- This IS expected if you are initializing ViTModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ViTModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3587.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Traceback (most recent call last):
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/add_images.py", line 85, in <module>
+    database.add_dataset(args.path, args.extractor)
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/db.py", line 120, in add_dataset
+    out = out.cpu()
+KeyboardInterrupt
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/add_images.py", line 1, in <module>
+    import models
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/models.py", line 12, in <module>
+    from loss import MarginLoss, ProxyNCA_prob, NormSoftmax, SoftTriple
+  File "/home/axelle/Documents/Doctorat/WP1/WP1/database/loss.py", line 4, in <module>
+    import sklearn
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/sklearn/__init__.py", line 96, in <module>
+    from .base import clone
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/sklearn/base.py", line 19, in <module>
+    from .utils._estimator_html_repr import _HTMLDocumentationLinkMixin, estimator_html_repr
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/sklearn/utils/__init__.py", line 13, in <module>
+    from ._chunking import gen_batches, gen_even_slices
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/sklearn/utils/_chunking.py", line 8, in <module>
+    from ._param_validation import Interval, validate_params
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/sklearn/utils/_param_validation.py", line 14, in <module>
+    from .validation import _is_arraylike_not_scalar
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/sklearn/utils/validation.py", line 29, in <module>
+    from ..utils._array_api import _asarray_with_order, _is_numpy_namespace, get_namespace
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/sklearn/utils/_array_api.py", line 11, in <module>
+    from .fixes import parse_version
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 20, in <module>
+    import scipy.stats
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/scipy/stats/__init__.py", line 606, in <module>
+    from ._stats_py import *
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/scipy/stats/_stats_py.py", line 42, in <module>
+    from scipy.optimize import milp, LinearConstraint
+  File "/home/axelle/anaconda3/envs/WP1/lib/python3.9/site-packages/scipy/optimize/__init__.py", line 439, in <module>
+    from ._milp import milp
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 982, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 925, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1349, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1321, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1477, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1435, in _get_spec
+KeyboardInterrupt
