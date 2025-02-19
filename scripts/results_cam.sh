@@ -24,21 +24,19 @@ weights=("$common_path/resnet/model2/last_epoch"
         "$common_path/Dino/model11/pretrained_vit_small_checkpoint.pth"
         "$common_path/Dino/model12/checkpoint0099_scratch.pth"
         "$common_path/Dino/model13/checkpoint0099_pretrained.pth"
-        "$common_path/byol_light/model15/epoch=67-step=112132.ckpt"
-        "$common_path/byol_light/model18/epoch=45-step=75854.ckpt"
+        "$common_path/byol_light/model15/epoch=99-step=164900.ckpt"
+        "$common_path/byol_light/model18/epoch=99-step=164900.ckpt"
         "$common_path/byol_light/model19/epoch=99-step=500400.ckpt"
         "$common_path/retccl/model24/ret_pretrained.pth"
         "$common_path/ibot/model27/checkpoint_teacher.pth"
-        "$common_path/ibot/model30/checkpoint_new.pth"
-        "$common_path/ibot/model31/checkpoint24.pth"
+        "$common_path/ibot/model30/checkpointv1_99.pth"
+        "$common_path/ibot/model31/checkpointV0_0085.pth"
         "$common_path/ctranspath/model29/ctranspath.pth"
         "$common_path/uni/model32/placeholder.txt"
         "$common_path/phikon/model26/placeholder.txt"
         "$common_path/cdpath/model33/CAMELYON17.ckpt"
-        #"$common_path/cdpath/model25/0190.ckpt"
-    
+        
           )
-
 # Extractors
 extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light' 'ret_ccl' 'ibot_vits' 'ibot_vits' 'ibot_vits' 'ctranspath' 'uni' 'phikon' 'cdpath' 'cdpath' )
 

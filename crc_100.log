@@ -1,0 +1,63 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/resnet/model2/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 2.3056938648223877
+Time of the transfer: 40.809345960617065
+Time of the indexing: 5.267180442810059
+T_indexing = 53.269718408584595
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+top-1 accuracy :  0.8357938718662953
+top-5 accuracy :  0.9353760445682451
+maj accuracy class :  0.8498607242339833
+f1 score :  0.8357938718662953
+t_tot: 50.755159854888916
+t_model: 13.23075008392334
+t_transfer: 0.131483793258667
+t_search: 36.55147695541382
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/deit/model5/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Time of the model: 1.8087058067321777
+Time of the transfer: 104.72614169120789
+Time of the indexing: 3.9045774936676025
+T_indexing = 115.38156747817993
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+top-1 accuracy :  0.8066852367688022
+top-5 accuracy :  0.9164345403899722
+maj accuracy class :  0.8172701949860725
+f1 score :  0.8066852367688022
+t_tot: 64.80564498901367
+t_model: 17.159361362457275
+t_transfer: 5.594951629638672
+t_search: 41.13694667816162
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model11/pretrained_vit_small_checkpoint.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model11/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+Time of the model: 2.0210583209991455
+Time of the transfer: 38.22750949859619
+Time of the indexing: 4.860823392868042
+T_indexing = 50.055569648742676
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model11/pretrained_vit_small_checkpoint.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file

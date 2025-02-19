@@ -58,11 +58,6 @@ class TrainingDataset(Dataset):
                             i += 1
                     cpt_c += 1
         
-        # 4. Create the transformation to apply to the images (depends on model)
-        if model_name == 'deit':
-            self.transformer = True
-        else: 
-            self.transformer = False
             
         self.transform = transforms.Compose(
                 [
@@ -141,31 +136,28 @@ class AddDataset(Dataset):
         self.root = root
         self.model_name = model_name
         self.list_img = []
-        """self.transform = transforms.Compose(
-            [
+        if model_name == "hoptim":
+            self.transform = transforms.Compose([
                 transforms.Resize((224, 224)),
                 transforms.ToTensor(),
                 transforms.Normalize(
-                    mean=[0.485, 0.456, 0.406],
-                    std=[0.229, 0.224, 0.225]
-                )
-            ]
-        )"""
-        self.transform = transforms.Compose(
-            [
-                transforms.Resize((224, 224)),
-                transforms.ToTensor(),
-            ]
-        )
-    
-        if model_name == 'deit':
-            self.transformer = True
-        
+                    mean=[0.707223, 0.578729, 0.703617], 
+                    std=[0.211883, 0.230117, 0.177517]
+                    ),
+            ])
         else:
-            self.transformer = False
+            self.transform = transforms.Compose(
+                [
+                    transforms.Resize((224, 224)),
+                    transforms.ToTensor(),
+                    transforms.Normalize(
+                        mean=[0.485, 0.456, 0.406],
+                        std=[0.229, 0.224, 0.225]
+                    )
+                ]
+            )
 
         self.classes = os.listdir(root)
-        print(self.classes)
         for c in self.classes:
                 for dir, subdir, files in os.walk(os.path.join(root, c)):
                     for f in files:

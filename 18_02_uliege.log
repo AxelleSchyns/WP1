@@ -1,0 +1,334 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/resnet/model2/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 2.8429994583129883
+Time of the transfer: 42.96311378479004
+Time of the indexing: 6.967495441436768
+T_indexing = 57.74727177619934
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.82187246]
+top-5 accuracy :  [0.92997523]
+top-1 accuracy proj :  [0.94498574]
+top-5 accuracy proj :  [0.97034331]
+top-1 accuracy sim :  [0.94554785]
+top-5 accuracy sim :  [0.97101992]
+maj accuracy class :  [0.84302459]
+maj accuracy proj :  [0.94456936]
+maj accuracy sim :  [0.94541253]
+Props:  [[0.82187246]
+ [0.82024858]
+ [0.82074824]
+ [0.81784398]
+ [0.81740678]
+ [0.81679262]
+ [0.81613682]
+ [0.81404451]
+ [0.81577249]
+ [0.81407574]]
+f1 score :  0.8218724626819062
+t_tot: 373.701208114624
+t_model: 289.25396370887756
+t_transfer: 1.9790561199188232
+t_search: 72.79778289794922
+Proportions are: [[0.82187246]
+ [0.82024858]
+ [0.82074824]
+ [0.81784398]
+ [0.81740678]
+ [0.81679262]
+ [0.81613682]
+ [0.81404451]
+ [0.81577249]
+ [0.81407574]]
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 6 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/byol_light/model15/epoch=99-step=164900.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 2.640918254852295
+Time of the transfer: 43.11496186256409
+Time of the indexing: 6.955923795700073
+T_indexing = 57.685343503952026
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.73918972]
+top-5 accuracy :  [0.90296255]
+top-1 accuracy proj :  [0.93551308]
+top-5 accuracy proj :  [0.95753961]
+top-1 accuracy sim :  [0.93601274]
+top-5 accuracy sim :  [0.95785189]
+maj accuracy class :  [0.75560552]
+maj accuracy proj :  [0.93555472]
+maj accuracy sim :  [0.93601274]
+Props:  [[0.73918972]
+ [0.7355568 ]
+ [0.73529657]
+ [0.73293361]
+ [0.73319385]
+ [0.73201757]
+ [0.72870735]
+ [0.73138259]
+ [0.72818687]
+ [0.72997731]]
+f1 score :  0.7391897237316012
+t_tot: 388.87782049179077
+t_model: 298.2940049171448
+t_transfer: 1.9726459980010986
+t_search: 79.02917718887329
+Proportions are: [[0.73918972]
+ [0.7355568 ]
+ [0.73529657]
+ [0.73293361]
+ [0.73319385]
+ [0.73201757]
+ [0.72870735]
+ [0.73138259]
+ [0.72818687]
+ [0.72997731]]
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 7 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/byol_light/model18/epoch=99-step=164900.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 2.6212806701660156
+Time of the transfer: 43.18958520889282
+Time of the indexing: 6.834686279296875
+T_indexing = 57.75115132331848
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.75426269]
+top-5 accuracy :  [0.89424979]
+top-1 accuracy proj :  [0.94091562]
+top-5 accuracy proj :  [0.95006558]
+top-1 accuracy sim :  [0.94096767]
+top-5 accuracy sim :  [0.95009681]
+maj accuracy class :  [0.77175067]
+maj accuracy proj :  [0.9420919]
+maj accuracy sim :  [0.94223763]
+Props:  [[0.75426269]
+ [0.75157704]
+ [0.74883934]
+ [0.74854787]
+ [0.74664293]
+ [0.74566444]
+ [0.7434368 ]
+ [0.74256241]
+ [0.74328066]
+ [0.74268732]]
+f1 score :  0.7542626943976016
+t_tot: 383.7640128135681
+t_model: 293.35114908218384
+t_transfer: 1.9650874137878418
+t_search: 78.67271542549133
+Proportions are: [[0.75426269]
+ [0.75157704]
+ [0.74883934]
+ [0.74854787]
+ [0.74664293]
+ [0.74566444]
+ [0.7434368 ]
+ [0.74256241]
+ [0.74328066]
+ [0.74268732]]
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 9 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/retccl/model24/ret_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 2.6370365619659424
+Time of the transfer: 43.26393222808838
+Time of the indexing: 8.765390634536743
+T_indexing = 60.878040075302124
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.7368684]
+top-5 accuracy :  [0.87644952]
+top-1 accuracy proj :  [0.89442675]
+top-5 accuracy proj :  [0.93397248]
+top-1 accuracy sim :  [0.90818812]
+top-5 accuracy sim :  [0.94766098]
+maj accuracy class :  [0.73847147]
+maj accuracy proj :  [0.89150168]
+maj accuracy sim :  [0.90700144]
+Props:  [[0.7368684 ]
+ [0.7276664 ]
+ [0.72283638]
+ [0.72112922]
+ [0.7197864 ]
+ [0.71454   ]
+ [0.71427977]
+ [0.71232278]
+ [0.71106323]
+ [0.71055316]]
+f1 score :  0.7368684029729561
+t_tot: 463.30948853492737
+t_model: 294.3849444389343
+t_transfer: 2.1945741176605225
+t_search: 157.21904134750366
+Proportions are: [[0.7368684 ]
+ [0.7276664 ]
+ [0.72283638]
+ [0.72112922]
+ [0.7197864 ]
+ [0.71454   ]
+ [0.71427977]
+ [0.71232278]
+ [0.71106323]
+ [0.71055316]]
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 14 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model26/placeholder.txt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 1.7894268035888672
+Time of the transfer: 108.87403154373169
+Time of the indexing: 6.577465295791626
+T_indexing = 122.44227600097656
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.77923511]
+top-5 accuracy :  [0.89362522]
+top-1 accuracy proj :  [0.94157142]
+top-5 accuracy proj :  [0.95361522]
+top-1 accuracy sim :  [0.94241459]
+top-5 accuracy sim :  [0.95394833]
+maj accuracy class :  [0.78928029]
+maj accuracy proj :  [0.94360127]
+maj accuracy sim :  [0.94443403]
+Props:  [[0.77923511]
+ [0.77479025]
+ [0.77363479]
+ [0.76945017]
+ [0.76902338]
+ [0.76762851]
+ [0.76553619]
+ [0.76688943]
+ [0.76573397]
+ [0.76367289]]
+f1 score :  0.7792351091957612
+t_tot: 447.574045419693
+t_model: 297.1226558685303
+t_transfer: 38.779940366744995
+t_search: 101.68319463729858
+Proportions are: [[0.77923511]
+ [0.77479025]
+ [0.77363479]
+ [0.76945017]
+ [0.76902338]
+ [0.76762851]
+ [0.76553619]
+ [0.76688943]
+ [0.76573397]
+ [0.76367289]]
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/deit/model5/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+torch.cuda.FloatTensor
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/deit/model5/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 2.0323853492736816
+Time of the transfer: 111.32496929168701
+Time of the indexing: 5.4062817096710205
+T_indexing = 123.90250968933105
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.79722274]
+top-5 accuracy :  [0.91935753]
+top-1 accuracy proj :  [0.94216476]
+top-5 accuracy proj :  [0.96456603]
+top-1 accuracy sim :  [0.94246664]
+top-5 accuracy sim :  [0.96476381]
+maj accuracy class :  [0.81864551]
+maj accuracy proj :  [0.9421023]
+maj accuracy sim :  [0.94241459]
+Props:  [[0.79722274]
+ [0.79765994]
+ [0.7958591 ]
+ [0.7953178 ]
+ [0.79582787]
+ [0.79523453]
+ [0.79438095]
+ [0.79304853]
+ [0.79324631]
+ [0.79439136]]
+f1 score :  0.7972227426977286
+t_tot: 421.6606774330139
+t_model: 300.5989718437195
+t_transfer: 38.353973150253296
+t_search: 72.97789645195007
+Proportions are: [[0.79722274]
+ [0.79765994]
+ [0.7958591 ]
+ [0.7953178 ]
+ [0.79582787]
+ [0.79523453]
+ [0.79438095]
+ [0.79304853]
+ [0.79324631]
+ [0.79439136]]

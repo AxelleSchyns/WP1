@@ -2,7 +2,6 @@ import models
 import time
 import os
 
-from arch import UNIModel
 from db import Database
 from argparse import ArgumentParser
 
@@ -35,7 +34,7 @@ if __name__ == "__main__":
 
     parser.add_argument(
         '--num_features',
-        help='number of features to extract',
+        help='number of features to extract, for the supervised models - Default: 128',
         default=128,
         type=int
     )
@@ -72,15 +71,15 @@ if __name__ == "__main__":
     # Load the feature extractor 
     model = models.Model(model=args.extractor, num_features=args.num_features, weight=args.weights,
                            device=device)
-    #model = UNIModel()
+    
     if model is None:
         print("Unkown feature extractor")
         exit(-1)
-
     # Initialize the database
     database = Database(args.db_name, model, load = not args.rewrite)
-
     # Indexed the images in the database
+    print(model)
+    print(model.model_name)
     t = time.time()
     database.add_dataset(args.path, args.extractor)
     print("T_indexing = "+str(time.time() - t))

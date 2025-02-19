@@ -19,20 +19,6 @@ from lightly.utils.benchmarking import OnlineLinearClassifier
 from lightly.loss import NegativeCosineSimilarity
 from timm.models.layers import to_2tuple
 from torch import Tensor
-from huggingface_hub  import login
-
-# To use with uniEnv - different version of Timm 
-class UNIModel(nn.Module):
-    def __init__(self):
-        super(UNIModel, self).__init__()
-        login()
-        self.model = timm.create_model("hf-hub:MahmoodLab/uni", pretrained=True, init_values=1e-5, dynamic_img_size=True)
-        self.model = self.model.to(device='cuda:0')
-        self.model_name = "uni"
-        self.transform = None
-        self.num_features = 1024
-        self.eval()
-
 
 class BYOL(LightningModule):
     def __init__(self, num_classes: int) -> None:
@@ -72,12 +58,14 @@ class DINO():
         self.model = self.model.backbone
     def load_weights(self, weight_path):
         state_dict = torch.load(weight_path)
-        # remove `module.` prefix
-        state_dict = {k.replace("module.", ""): v for k, v in state_dict['student'].items()}
-        # remove `backbone.` prefix induced by multicrop wrapper
-        state_dict = {k: v for k, v  in state_dict.items() if k.startswith("backbone.")}
-        state_dict = {k.replace("backbone.", ""): v for k, v in state_dict.items()}
+        if 'student' in state_dict.keys():
+            # remove `module.` prefix
+            state_dict = {k.replace("module.", ""): v for k, v in state_dict['student'].items()}
+            # remove `backbone.` prefix induced by multicrop wrapper
+            state_dict = {k: v for k, v  in state_dict.items() if k.startswith("backbone.")}
+            state_dict = {k.replace("backbone.", ""): v for k, v in state_dict.items()}
         msg = self.model.load_state_dict(state_dict, strict=False)
+        
         print('Pretrained weights found at {} and loaded with msg: {}'.format(weight_path, msg))
         self.model.eval()
 
@@ -214,5 +202,5 @@ class ConvStem(nn.Module):
         return x
 
 def ctranspath():
-    model = timm.create_model('swin_tiny_patch4_window7_224', embed_layer=ConvStem, pretrained=False)
+    model =  timm.create_model('swin_tiny_patch4_window7_224', embed_layer=ConvStem, pretrained=False)
     return model

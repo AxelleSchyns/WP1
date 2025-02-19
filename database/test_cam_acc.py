@@ -202,12 +202,6 @@ class TestDataset(Dataset):
                     std=[0.229, 0.224, 0.225]
                 )])
         
-        # Define the transforms 
-        if model.model_name == 'deit':
-            self.transformer = True
-        else:
-            self.transformer = False
-
         self.dic_img = defaultdict(list)
         self.img_list = []
 

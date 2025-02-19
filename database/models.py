@@ -1,6 +1,7 @@
 import torch
 import dataset
 import time
+import timm
 
 import numpy as np
 import torchvision.models as models
@@ -12,25 +13,29 @@ from transformers import DeiTForImageClassification
 from loss import MarginLoss, ProxyNCA_prob, NormSoftmax, SoftTriple
 from transformers import  ViTModel
 from argparse import ArgumentParser
-from arch import  UNIModel, DINO, cdpath, iBot, ctranspath, BYOL
+from arch import DINO, cdpath, iBot, ctranspath, BYOL
 from utils import create_weights_folder, model_saving, write_info
+
+from huggingface_hub  import login
  
-
-archs_weighted = {"resnet": models.resnet50(weights='ResNet50_Weights.DEFAULT'), 
-                  "deit": DeiTForImageClassification.from_pretrained('facebook/deit-base-distilled-patch16-224'), 
-                  "dino_vit": DINO("vit_small"), "dino_resnet": DINO("resnet50"), "dino_tiny": DINO("vit_tiny"), # 'vit_tiny', 'vit_small', 'vit_base', n'importe lequel des CNNs de torchvision
-                  "ret_ccl": ResNet_ret.resnet50(num_classes=128, mlp=False, two_branch=False, normlinear = True),
-                  "cdpath": cdpath(), "phikon":ViTModel.from_pretrained("owkin/phikon", add_pooling_layer=False), 
-                  "ibot_vits": iBot("vit_small"), "ibot_vitb": iBot("vit_base"), 'ctranspath': ctranspath(), 
-                  "byol_light": BYOL(67),  }#"uni": UNIModel(), }
-
+archs_weighted = {"resnet": [models.resnet50(weights='ResNet50_Weights.DEFAULT'), 128], 
+                  "deit": [DeiTForImageClassification.from_pretrained('facebook/deit-base-distilled-patch16-224'),128], 
+                  "dino_vit": [DINO("vit_small"), 384], "dino_resnet": [DINO("resnet50"), 384], 
+                  "dino_tiny": [DINO("vit_tiny"), 384], # 'vit_tiny', 'vit_small', 'vit_base', n'importe lequel des CNNs de torchvision
+                  "ret_ccl": [ResNet_ret.resnet50(num_classes=128, mlp=False, two_branch=False, normlinear = True), 2048],
+                  "cdpath": [cdpath(), 512], "phikon": [ViTModel.from_pretrained("owkin/phikon", add_pooling_layer=False), 768],
+                  "ibot_vits": [iBot("vit_small"), 384], "ibot_vitb": [iBot("vit_base"), 384], "byol_light": [BYOL(67), 256], } 
+try:
+    archs_weighted["uni"] = [timm.create_model("vit_large_patch16_224", img_size=224, patch_size=16, init_values=1e-5, num_classes=0, dynamic_img_size=True), 1024]
+    archs_weighted["hoptim"] = [timm.create_model("hf-hub:bioptimus/H-optimus-0", pretrained=True, init_values=1e-5, dynamic_img_size=False), 1536]
+except Exception as e:
+   archs_weighted["ctranspath"] =  [ctranspath(), 768]
 
 class Model(nn.Module):
     def __init__(self, model='resnet', eval=True, batch_size=32, num_features=128,
                  weight='weights', device='cuda:0', freeze=False, parallel = True):
         super(Model, self).__init__()
         self.parallel = parallel
-        self.num_features = num_features
         self.norm = nn.functional.normalize
         self.weight = weight
         self.model_name = model
@@ -47,8 +52,10 @@ class Model(nn.Module):
         #--------------------------------------------------------------------------------------------------------------
         if model in ['resnet', 'deit']:
             self.forward_function = self.forward_model
+            self.num_features = num_features
         
-        self.model = archs_weighted[model].to(device=device) # TODO: change when archs are tested
+        self.model = archs_weighted[model][0].to(device=device)
+        self.num_features = archs_weighted[model][1]
         self.model = self.model.to(device=device)
         #----------------------------------------------------------------------------------------------------------------
         #                                  Freeze of model parameters
@@ -76,37 +83,31 @@ class Model(nn.Module):
                     module.train = lambda _: None
 
         if eval == True:
-            
             if model in ['dino_vit', 'dino_resnet','dino_tiny', "cdpath", "ibot_vits" , "ibot_vitb"]:
                 self.model.load_weights(weight)
                 self.model = self.model.model
-                self.forward_function = self.model.forward
-            elif model == "ret_ccl":
-                pretext_model = torch.load(weight)
-                self.model.fc = nn.Identity()
-                self.model.load_state_dict(pretext_model, strict=True)
-                self.forward_function = self.model.forward
-            elif model == "phikon" or model == "uni": 
-                #print(self.model)
-                pass
-            elif model == "ctranspath":
-                self.model.head = nn.Identity()
-                self.model.load_state_dict(torch.load(weight)['model'])
-                self.forward_function = self.model.forward
-            elif model == "byol_light":
+            elif model == "byol_light" :
                 try:
                     self.model.load_state_dict(torch.load(weight)["state_dict"])
                 except:
                     self.model = BYOL(1000).to(device=device)
                     self.model.load_state_dict(torch.load(weight)["state_dict"])
-                    
-                self.forward_function = self.model.forward
+            elif model == "ret_ccl":
+                pretext_model = torch.load(weight)
+                self.model.fc = nn.Identity()
+                self.model.load_state_dict(pretext_model, strict=True)
+            elif model == "phikon" or model == "hoptim": 
+                pass
+            elif model == "ctranspath":
+                self.model.head = nn.Identity()
+                self.model.load_state_dict(torch.load(weight)['model'])
+            elif model == "uni":
+                self.model.load_state_dict(torch.load(weight))
             else:
                 try:
                     self.load_state_dict(torch.load(weight))
                 except Exception as e:
                     try:
-                        
                         checkpoint = torch.load(weight)
                         self.model.load_state_dict(checkpoint['model_state_dict'])
                         #self.model.load_state_dict(checkpoint)
@@ -114,6 +115,7 @@ class Model(nn.Module):
                         print("Error with the loading of the model's weights: ", e) 
                         print("Exiting...")
                         exit(-1)
+            self.forward_function = self.model.forward
             self.eval()
             self.eval = True
         else:
@@ -307,7 +309,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--num_features',
         type=int,
-        help='number of features to use',
+        help='number of features to use if supervised models - Default 128',
         default=128
     )
 

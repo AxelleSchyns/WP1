@@ -38,29 +38,26 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
     already_found_5_proj = 0
     already_found_5_sim = 0
     prop = []
+    ev_prop = []
     if len(data.classes) == 1:
         idx_class = 0
     else:
         idx_class = data.conversion[class_im]
 
-    # Fill prop with the proportion of correct images at each step 
+    # Proportion of correct image at each step independantly 
     for i in range(len(names)):
         class_retr = utils.get_class(names[i])
-        # The image is correct, have to add 1 
         if class_retr == class_im:  
-            if len(prop) == 0:
-                prop.append(1) 
-            else:
-                #prop.append(prop[-1] + 1)   
-                prop.append(1)
+            prop.append(1) 
         else:
-            if len(prop) == 0:
-                prop.append(0)
-            else:
-                #prop.append(prop[-1])  
-                prop.append(0)
-    #for i in range(len(names)):
-        #prop[i] = prop[i] / (i+1) 
+            prop.append(0)
+
+    # Evolution of proportion of correct image at each step independantly 
+    for i in range(len(names)): # additive prop 
+        if i == 0:
+            ev_prop.append(prop[i])
+        else:
+            ev_prop.append( (prop[i] + (ev_prop[i-1] * i)) / (i+1) )
         
     for j in range(len(similar)):
         # Gets the class and project of the retrieved image
@@ -74,7 +71,10 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
             if class_retr in data.conversion:
                 predictions.append(data.conversion[class_retr])
             else:
-                predictions.append("other") # to keep a trace of the data for the cm
+                print(class_retr)
+                print(data.conversion)
+                print(len(data.conversion))
+                predictions.append(len(data.conversion)+1) # to keep a trace of the data for the cm
         
         # Class retrieved is same as query
         if class_retr == class_im: 
@@ -150,7 +150,7 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
     if already_found_5_sim > 2:
         maj_acc[2] += weights[idx_class]
     # Get label of the majority class for confusion matrix
-    predictions_maj.append(data.conversion[max(set(temp), key = temp.count)])
+    #predictions_maj.append(data.conversion[max(set(temp), key = temp.count)])
 
     return predictions, predictions_maj, top_1_acc, top_5_acc, maj_acc, prop
 
@@ -297,12 +297,6 @@ class TestDataset(Dataset):
                     std=[0.229, 0.224, 0.225]
                 )])
         
-        # Define the transforms 
-        if model.model_name == 'deit':
-            self.transformer = True
-        else:
-            self.transformer = False
-
         self.dic_img = defaultdict(list)
         self.img_list = []
 
@@ -428,7 +422,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
     t_model = 0
     t_transfer = 0
     t_tot = 0
-
+    print(model.num_features)
     # For each image in the dataset, search for the 5 most similar images in the database and compute the accuracy
     for i, (image, filename) in enumerate(loader):
             
@@ -509,7 +503,6 @@ def stat_results(model, model_weight, dataset, db_name, extractor, project_name,
     ts = np.zeros((4,nb_exp))
     for i in range(nb_exp):
         top_1_acc[0][i], top_5_acc[0][i], top_1_acc[1][i], top_5_acc[1][i], top_1_acc[2][i], top_5_acc[2][i], maj_acc[0][i], maj_acc[1][i], maj_acc[2][i], ts[0][i], ts[1][i], ts[2][i], ts[3][i] =  test(model, model_weight,  dataset, db_name, extractor, protocol, project_name, class_name, False, stat = True)
-
 
     print("Top 1 accuracy: ", np.mean(top_1_acc[0]), " +- ", np.std(top_1_acc[0]))
     print("Top 5 accuracy: ", np.mean(top_5_acc[0]), " +- ", np.std(top_5_acc[0]))

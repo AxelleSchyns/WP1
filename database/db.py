@@ -38,7 +38,7 @@ class Database:
             self.r.flushdb()
             self.r.set('last_id', 0)  # Set a value in Redis with key = last_id
 
-        if device == 'cuda:0':
+        if 'cuda' in device:
             print("Transferring index to GPU")
             try:
                 self.index = faiss.index_cpu_to_gpu(res, 0, self.index)
@@ -46,18 +46,11 @@ class Database:
             except Exception as e:
                 print(f"Failed to transfer index to GPU: {e}")
 
-        
-        if model.model_name == 'deit':
-                self.transformer = True
-                self.feat_extract = None # TODO check that it is still working 
-        else:
-                self.feat_extract = None     
-                self.transformer = False     
+            
 
     # x = vector of images 
     def add(self, x, names, labels=None, generalise=0):
         last_id = int(self.r.get('last_id').decode('utf-8'))
-        
         # Add x.shape ids and images to the current list of ids of Faiss. 
         self.index.add_with_ids(x, np.arange(last_id, last_id + x.shape[0])) 
         # Previous command not working on cpu ! work when adding one by one
@@ -84,18 +77,13 @@ class Database:
     def add_dataset(self, data_root, extractor):
         # Create a dataset from a directory root
         data = dataset.AddDataset(data_root, extractor)
-        loader = torch.utils.data.DataLoader(data, batch_size=2, num_workers=12, pin_memory=True, shuffle = True)
+        loader = torch.utils.data.DataLoader(data, batch_size=128, num_workers=12, pin_memory=True, shuffle = True)
         t_model = 0
         t_indexing = 0
         t_transfer = 0
         for i, (images, filenames) in enumerate(loader):
             images = images.view(-1, 3, 224, 224).to(device=next(self.model.parameters()).device)
-
-            if extractor == 'byol':
-                t = time.time()
-                out, emb = self.model.model(images, return_embedding=True)
-                t_im = time.time() - t
-            elif extractor == "cdpath":
+            if extractor == "cdpath":
                 t = time.time()
                 images = arch.scale_generator(images, 224, 1, 112, rescale_size=224)
                 out = self.model.model.encode(images)
@@ -105,14 +93,19 @@ class Database:
                 outputs = self.model.model(images)  
                 out = outputs.last_hidden_state[:, 0, :]
                 t_im = time.time() - t
-            elif extractor == "uni":
+            elif extractor == "hoptim":
                 t = time.time()
-                out = self.model.model.model(images)
-                
+                with torch.autocast(device_type="cuda", dtype=torch.float16):
+                    with torch.inference_mode():
+                        out = self.model(images)
+                        out = out.contiguous()
                 t_im = time.time() - t
-            else: # TODO check ok for DINO, ctrasnpath et byol_light
+            else: 
                 t = time.time()
                 out = self.model(images)
+                if not isinstance(out, torch.Tensor):
+                    out = out.logits
+                out = out.contiguous()
                 t_im = time.time() - t   
             t = time.time()
             out = out.cpu()
@@ -138,11 +131,7 @@ class Database:
     def search(self, x, extractor, generalise=0, nrt_neigh=10):
         image = x.view(-1, 3, 224, 224).to(device=next(self.model.parameters()).device)
         t_model = 0
-        if extractor == 'byol':
-            t_model = time.time()
-            out, emb = self.model.model(image, return_embedding=True)
-            t_model = time.time() - t_model
-        elif extractor == "cdpath":
+        if extractor == "cdpath":
             t = time.time()
             image = arch.scale_generator(image, 224, 1, 112, rescale_size=224)
             out = self.model.model.encode(image)
@@ -152,13 +141,18 @@ class Database:
             outputs = self.model.model(image)  
             out = outputs.last_hidden_state[:, 0, :]
             t_model = time.time() - t
-        elif extractor == "uni":
-            t_model = time.time()
-            out = self.model.model.model(image)
-            t_model = time.time() - t_model
+        elif extractor == "hoptim":
+            t = time.time()
+            with torch.autocast(device_type="cuda", dtype=torch.float16):
+                with torch.inference_mode():
+                    out = self.model(image)
+                    out = out.contiguous()
+            t_im = time.time() - t
         else:
             t_model = time.time()
             out = self.model(image)
+            if not isinstance(out, torch.Tensor):
+                 out = out.logits
             t_model = time.time() - t_model
         t_transfer = time.time()
         out = out.cpu()
@@ -243,7 +237,7 @@ class Database:
 
 
     def save(self):
-        if self.device != 'cuda:0':
+        if self.device is not 'cuda:0': # TODO change
             faiss.write_index(self.index, self.filename )
         else:
             faiss.write_index(faiss.index_gpu_to_cpu(self.index), self.filename)
