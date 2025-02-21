@@ -41,8 +41,8 @@ extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_
 # Type of measure
 measures=('all')
 # Output files
-output_file='18_02_uliege.log'
-warnings_file='warnings_18_02_uliege.log'
+output_file='scripts/logs/18_02_uliege.log'
+warnings_file='scripts/logs/warnings_18_02_uliege.log'
 
 stat=false
 
