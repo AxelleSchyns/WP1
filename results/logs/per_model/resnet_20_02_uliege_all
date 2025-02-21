@@ -1,0 +1,19 @@
+Time of the model: 2.607600450515747
+Time of the transfer: 43.21780204772949
+Time of the indexing: 6.376554012298584
+T_indexing = 57.22718572616577
+top-1 accuracy :  [0.82175796]
+top-5 accuracy :  [0.93007932]
+top-1 accuracy proj :  [0.94487123]
+top-5 accuracy proj :  [0.9704474]
+top-1 accuracy sim :  [0.94544376]
+top-5 accuracy sim :  [0.97112402]
+maj accuracy class :  [0.84298295]
+maj accuracy proj :  [0.94453813]
+maj accuracy sim :  [0.94539171]
+f1 score :  0.8217579580704932
+t_tot: 369.070205450058
+t_model: 285.10815715789795
+t_transfer: 1.9547111988067627
+t_search: 72.39991426467896
+Proportions are: [[0.82175796]

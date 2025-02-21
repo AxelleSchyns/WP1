@@ -18,31 +18,31 @@ common_path='/home/labsig/Documents/Axelle/cytomine/WP1/weights_folder'
 weights=("$common_path/resnet/model2/last_epoch"
         "$common_path/deit/model5/last_epoch"
         "$common_path/Dino/model11/dino_deitsmall16_pretrain.pth"
-        "$common_path/Dino/model12/checkpoint0099_scratch.pth"
         "$common_path/Dino/model13/checkpoint0099_pretrained.pth"
-        "$common_path/byol_light/model15/epoch=99-step=164900.ckpt"
-        "$common_path/byol_light/model18/epoch=99-step=164900.ckpt"
+        "$common_path/Dino/model12/checkpoint0099_scratch.pth"
         "$common_path/byol_light/model19/epoch=99-step=500400.ckpt"
-        "$common_path/retccl/model24/ret_pretrained.pth"
+        "$common_path/byol_light/model18/epoch=99-step=164900.ckpt"
+        "$common_path/byol_light/model15/epoch=99-step=164900.ckpt"
         "$common_path/ibot/model27/checkpoint_teacher.pth"
         "$common_path/ibot/model30/checkpointv1_99.pth"
         "$common_path/ibot/model31/checkpointV0_0085.pth"
-        "$common_path/ctranspath/model29/ctranspath.pth"
-        "$common_path/phikon/model26/placeholder.txt"
+        "$common_path/retccl/model24/ret_pretrained.pth"
         "$common_path/cdpath/model33/CAMELYON17.ckpt"
-        "$common_path/uni/model32/uni"
+        "$common_path/phikon/model26/placeholder.txt"
+        "$common_path/ctranspath/model29/ctranspath.pth"
+        "$common_path/uni/model32/placeholder.txt"
         "$common_path/hoptimus/model34/placeholder.txt"
           )
 
 # Extractors
-extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light' 'ret_ccl' 'ibot_vits' 'ibot_vits' 'ibot_vits' 'ctranspath' 'phikon' 'cdpath' 'uni' 'hoptim')
+extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light'  'ibot_vits' 'ibot_vits' 'ibot_vits' 'ret_ccl'  'cdpath' 'phikon' 'ctranspath'  'uni' 'hoptim')
 
 
 # Type of measure
 measures=('all')
 # Output files
-output_file='20_test_uliege.log'
-warnings_file='warnings_20_test_uliege.log'
+output_file='scripts/logs/21_02_uliege.log'
+warnings_file='scripts/logs/warnings_21_02_uliege.log'
 
 stat=false
 
