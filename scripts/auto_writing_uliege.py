@@ -1,8 +1,8 @@
 import pandas as pd
 import re
 import numpy as np
-log_file = "results_uliege_one.log"
-excel_file = "output_cam.xlsx"
+log_file = "test_output.log"
+excel_file = "output.xlsx"
 
 # Read the log file
 with open(log_file, "r") as file:
