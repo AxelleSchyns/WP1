@@ -78,8 +78,6 @@ if __name__ == "__main__":
     # Initialize the database
     database = Database(args.db_name, model, load = not args.rewrite)
     # Indexed the images in the database
-    print(model)
-    print(model.model_name)
     t = time.time()
     database.add_dataset(args.path, args.extractor)
     print("T_indexing = "+str(time.time() - t))

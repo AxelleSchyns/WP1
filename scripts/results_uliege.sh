@@ -6,7 +6,7 @@
 
 
 # Number of models to test
-nb_models=2
+nb_models=16
 
 # path to data
 path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -30,7 +30,7 @@ weights=("$common_path/resnet/model2/last_epoch"
         "$common_path/ctranspath/model29/ctranspath.pth"
         "$common_path/phikon/model26/placeholder.txt"
         "$common_path/cdpath/model33/CAMELYON17.ckpt"
-        "$common_path/uni/model32/placeholder.txt"
+        "$common_path/uni/model32/uni"
         "$common_path/hoptimus/model34/placeholder.txt"
           )
 
@@ -41,12 +41,12 @@ extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_
 # Type of measure
 measures=('all')
 # Output files
-output_file='18_02_uliege.log'
-warnings_file='warnings_18_02_uliege.log'
+output_file='20_test_uliege.log'
+warnings_file='warnings_20_test_uliege.log'
 
 stat=false
 
-for ((nb=1; nb<nb_models; nb++)); do
+for ((nb=15; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 

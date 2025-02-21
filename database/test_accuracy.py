@@ -245,7 +245,6 @@ def display_prec_im(weight, props, data, measure):
     plt.plot(props)
     plt.xlabel('Number of images')
     plt.ylabel('Proportion of correct images')
-    print("Proportions are:", props)
     fold_path = weight[0:weight.rfind("/")]
     plt.savefig(fold_path + '/uliege_prec_im_'+measure+'.png')
 
