@@ -421,7 +421,6 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
     t_model = 0
     t_transfer = 0
     t_tot = 0
-    print(model.num_features)
     # For each image in the dataset, search for the 5 most similar images in the database and compute the accuracy
     for i, (image, filename) in enumerate(loader):
             

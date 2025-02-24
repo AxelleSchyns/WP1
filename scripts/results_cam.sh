@@ -56,6 +56,6 @@ for ((nb=0; nb<nb_models; nb++)); do
     for i in "${!measures[@]}"; do
         echo "${measures[i]}" >> "$output_file" 
         echo "${measures[i]}" >> "$warnings_file"
-        python database/test_cam_acc.py  --path "$path_validation" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --db_name new_db --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
+        python database/test_cam_acc.py  --path "$path_validation" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
     done
 done

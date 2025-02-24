@@ -1,0 +1,219 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/resnet/model2/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 5.06695556640625
+Time of the transfer: 141.2252335548401
+Time of the indexing: 14.01159954071045
+T_indexing = 168.94668745994568
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.7300882420352968
+top-5 accuracy :  0.8973470089388036
+maj accuracy class :  0.7566181526472611
+f1 score :  0.7300882420352968
+t_tot: 563.4924216270447
+t_model: 450.33041310310364
+t_transfer: 3.362929344177246
+t_search: 90.16789436340332
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/deit/model5/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 5.051354169845581
+Time of the transfer: 341.68010663986206
+Time of the indexing: 16.547405004501343
+T_indexing = 371.50918793678284
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.6912388264955306
+top-5 accuracy :  0.8901558560623424
+maj accuracy class :  0.7178260371304148
+f1 score :  0.6912388264955306
+t_tot: 594.7931621074677
+t_model: 475.51436018943787
+t_transfer: 3.388982057571411
+t_search: 95.49787306785583
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 3 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model11/dino_deitsmall16_pretrain.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 4 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model13/checkpoint0099_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model13/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 5.411015272140503
+Time of the transfer: 120.89149141311646
+Time of the indexing: 19.596720218658447
+T_indexing = 155.03161358833313
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model13/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.769080907632363
+top-5 accuracy :  0.8854286041714416
+maj accuracy class :  0.7909981663992666
+f1 score :  0.769080907632363
+t_tot: 623.5230202674866
+t_model: 486.800240278244
+t_transfer: 3.5888054370880127
+t_search: 110.46200489997864
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 5 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model12/checkpoint0099_scratch.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model12/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 4.933314800262451
+Time of the transfer: 121.1596782207489
+Time of the indexing: 19.169406175613403
+T_indexing = 154.44192910194397
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/Dino/model12/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.7801684620673849
+top-5 accuracy :  0.8925338070135228
+maj accuracy class :  0.7980747192298877
+f1 score :  0.7801684620673849
+t_tot: 608.644939661026
+t_model: 476.55973410606384
+t_transfer: 3.500636100769043
+t_search: 108.54890894889832
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 6 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol_light/model19/epoch=99-step=500400.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 5.716187238693237
+Time of the transfer: 140.78875756263733
+Time of the indexing: 18.124765872955322
+T_indexing = 173.15752577781677
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.6635915654366262
+top-5 accuracy :  0.8864886545954619
+maj accuracy class :  0.6949633279853312
+f1 score :  0.6635915654366262
+t_tot: 597.2090718746185
+t_model: 472.97902488708496
+t_transfer: 2.968308448791504
+t_search: 100.58818101882935
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 7 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol_light/model18/epoch=99-step=164900.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 8 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/byol_light/model15/epoch=99-step=164900.ckpt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 9 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model27/checkpoint_teacher.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model27/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 5.482129335403442
+Time of the transfer: 120.79572224617004
+Time of the indexing: 20.451066970825195
+T_indexing = 154.89284133911133
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model27/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.7028707311482925
+top-5 accuracy :  0.8715619986247994
+maj accuracy class :  0.7159637863855145
+f1 score :  0.7028707311482925
+t_tot: 600.6558117866516
+t_model: 472.52997636795044
+t_transfer: 3.3826730251312256
+t_search: 105.16659116744995
+-----------------------------------------------------------------------------------------------
+------------------------------------- Model 10 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model30/checkpointv1_99.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 5.144901990890503
+Time of the transfer: 121.47555041313171
+Time of the indexing: 18.385562658309937
+T_indexing = 153.79088807106018
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
