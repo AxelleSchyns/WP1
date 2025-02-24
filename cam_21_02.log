@@ -196,24 +196,4 @@ t_tot: 600.6558117866516
 t_model: 472.52997636795044
 t_transfer: 3.3826730251312256
 t_search: 105.16659116744995
------------------------------------------------------------------------------------------------
-------------------------------------- Model 10 --------------------------------------------------
------------------------------------------------------------------------------------------------
-Weights: /home/axelle/Documents/Doctorat/WP1/WP1/weights_folder/ibot/model30/checkpointv1_99.pth
-Indexing
-Model vit_small 16x16 built.
-Model vit_base 16x16 built.
-Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
-Transferring index to GPU
-Index transferred to GPU
-Time of the model: 5.144901990890503
-Time of the transfer: 121.47555041313171
-Time of the indexing: 18.385562658309937
-T_indexing = 153.79088807106018
-all
-Model vit_small 16x16 built.
-Model vit_base 16x16 built.
-Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
-Loading FAISS index from file
-Transferring index to GPU
-Index transferred to GPU
+
