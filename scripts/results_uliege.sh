@@ -36,6 +36,7 @@ weights=("$common_path/resnet/model2/last_epoch"
 
 # Extractors
 extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light'  'ibot_vits' 'ibot_vits' 'ibot_vits' 'ret_ccl'  'cdpath' 'phikon' 'ctranspath'  'uni' 'hoptim')
+models_name=('ResNet' 'DeiT' 'DINO pre' 'DINO fine' 'DINO scratch' 'BYOL pre' 'BYOL fine' 'BYOL scratch' 'iBOT pre' 'iBOT fine' 'iBOT scratch' 'RetCCL' 'CDPath' 'Phikon' 'CTransPath' 'Uni' 'Hoptimus')
 
 
 # Type of measure
@@ -48,10 +49,10 @@ stat=false
 
 for ((nb=15; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
-    echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$output_file"
+    echo "------------------------------------- ${models_name[nb]}  --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
     echo "-----------------------------------------------------------------------------------------------" >> "$warnings_file"
-    echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$warnings_file"
+    echo "------------------------------------- ${models_name[nb]}  --------------------------------------------------" >> "$warnings_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$warnings_file" 
     echo "Weights: ${weights[nb]}" >> "$output_file"
     echo "Indexing" >> "$output_file"

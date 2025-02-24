@@ -110,9 +110,7 @@ class Database:
             t = time.time()
             out = out.cpu()
             t_transfer = t_transfer + time.time() - t
-
             t = time.time()
-            
              # check if out contains nan
             if np.isnan(out.numpy()).any():
                 print("Nan in output")
