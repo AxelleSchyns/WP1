@@ -1,15 +1,66 @@
 from argparse import ArgumentParser
-import pandas as pd
 import re
 import numpy as np
-from openpyxl import Workbook
+from openpyxl import load_workbook, Workbook
+import os
+
+def get_unique_sheet_name(wb, base_name):
+    """Generate a unique sheet name if base_name already exists."""
+    existing_sheets = wb.sheetnames
+    if base_name not in existing_sheets:
+        return base_name  # Name is unique, use it
+
+    # Find the next available numeric identifier
+    count = 1
+    while f"{base_name}_{count}" in existing_sheets:
+        count += 1
+    return f"{base_name}_{count}"
 
 # Allows to write in an excel file all results from either uliege, cam or crc file for all models at once
+# Writes in a new sheet of an existing excel file or creates a new one if it does not exist
+
+# ---------- Arguments ----------
+parser = ArgumentParser()
+parser.add_argument(
+    "--log_file",
+    type=str,
+    required=True,
+    help="Path to the log file",
+)
+parser.add_argument(
+    "--excel_file",
+    type=str,
+    required=True,
+    help="Path to the Excel file",
+)
+parser.add_argument(
+    "--sheet_name",
+    type=str,
+    required=False,
+    help="Name of the sheet to write in",
+)
+parser.add_argument(
+    "--nb_models",
+    type=int,
+    required=False,
+    help="Number of models to write in the excel file",
+)
+args = parser.parse_args()
 
 
-# Create a new workbook and select the active worksheet
-wb = Workbook()
-ws = wb.active
+# ---------- Setting up of Excel file ----------
+# Check if the file exists
+if os.path.exists(args.excel_file):
+    wb = load_workbook(args.excel_file)  # Load existing file
+    print(f"File '{args.excel_file}' found. Adding a new sheet.")
+else:
+    wb = Workbook()  # Create a new workbook
+    print(f"File '{args.excel_file}' not found. Creating a new Excel file.")
+
+# Ensure sheet name is unique
+unique_sheet_name = get_unique_sheet_name(wb, args.sheet_name)
+ws = wb.create_sheet(unique_sheet_name)  # Create the new sheet
+print(f"Sheet '{unique_sheet_name}' added successfully.")
 
 # Merge cells
 ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=5)   # Slot 1 (A1:E1)
@@ -20,25 +71,7 @@ ws.cell(row = 2, column = 3, value= "Top-1")
 ws.cell(row = 2, column = 4, value= "Top-5")
 ws.cell(row = 2, column = 5, value= "Maj")
 
-parser = ArgumentParser()
-
-parser.add_argument(
-    "--log_file",
-    type=str,
-    required=True,
-    help="Path to the log file",
-)
-
-parser.add_argument(
-    "--excel_file",
-    type=str,
-    required=True,
-    help="Path to the Excel file",
-)
-
-args = parser.parse_args()
-
-
+# ---------- Extracting numbers from log file ----------
 log_file = args.log_file
 
 # Read the log file
@@ -49,10 +82,9 @@ with open(log_file, "r") as file:
 numbers = re.findall(r'\b(?:0(?:\.\d+)?|\d+\.\d+|\d+e[+-]?\d+)\b', log_content) #re.findall(r'\b\d+\.\d+\b', log_content)
 
 print(str(len(numbers)) + " numbers were retrieved")
-print(numbers)
-mul = int(len(numbers) / 16)
+mul = int(len(numbers) / args.nb_models)
 
-for j in range(16):
+for j in range(args.nb_models):
     ws.cell(row = 3 + j, column = 1, value= np.round(np.float64(numbers[j * mul +3]), 2))
     ws.cell(row = 3 + j, column = 2, value= np.round(np.float64(numbers[j * mul + 17]), 2))
     ws.cell(row = 3 + j, column = 3, value= np.round(np.float64(numbers[j * mul + 4])*100, 2))

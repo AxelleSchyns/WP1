@@ -1,3 +1,5 @@
+# Write the results for all three protocols for ONE model in an excel file (will overwite the excel!)
+
 import pandas as pd
 import re
 import numpy as np
