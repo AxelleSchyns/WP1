@@ -466,3 +466,11 @@ Model vit_base 16x16 built.
 Loading FAISS index from file
 Transferring index to GPU
 Index transferred to GPU
+top-1 accuracy :  0.9267132706853083
+top-5 accuracy :  0.9676254870501948
+maj accuracy class :  0.9338184735273894
+f1 score :  0.9267132706853083
+t_tot: 667.4866302013397
+t_model: 0
+t_transfer: 346.03085017204285
+t_search: 45.48069977760315

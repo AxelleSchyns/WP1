@@ -106,12 +106,19 @@ numbers = re.findall(r'\b(?:0(?:\.\d+)?|\d+\.\d+|\d+e[+-]?\d+)\b', log_content) 
 
 print(str(len(numbers)) + " numbers were retrieved")
 mul = int(len(numbers) / args.nb_models)
-
-for j in range(args.nb_models):
-    ws.cell(row = 3 + j, column = 2, value= np.round(np.float64(numbers[j * mul +3]), 2))
-    ws.cell(row = 3 + j, column = 3, value= np.round(np.float64(numbers[j * mul + 17]), 2))
-    ws.cell(row = 3 + j, column = 4, value= np.round(np.float64(numbers[j * mul + 4])*100, 2))
-    ws.cell(row = 3 + j, column = 5, value= np.round(np.float64(numbers[j * mul + 5])*100, 2))
-    ws.cell(row = 3 + j, column = 6, value= np.round(np.float64(numbers[j * mul + 10])*100, 2))
+if "Uliege" in args.dataset:
+    for j in range(args.nb_models):
+        ws.cell(row = 3 + j, column = 2, value= np.round(np.float64(numbers[j * mul +3]), 2))
+        ws.cell(row = 3 + j, column = 3, value= np.round(np.float64(numbers[j * mul + 17]), 2))
+        ws.cell(row = 3 + j, column = 4, value= np.round(np.float64(numbers[j * mul + 4])*100, 2))
+        ws.cell(row = 3 + j, column = 5, value= np.round(np.float64(numbers[j * mul + 5])*100, 2))
+        ws.cell(row = 3 + j, column = 6, value= np.round(np.float64(numbers[j * mul + 10])*100, 2))
+elif "Cam" in args.dataset:
+    for j in range(args.nb_models):
+        ws.cell(row = 3 + j, column = 2, value= np.round(np.float64(numbers[j * mul +3]), 2))
+        ws.cell(row = 3 + j, column = 3, value= np.round(np.float64(numbers[j * mul + 11]), 2))
+        ws.cell(row = 3 + j, column = 4, value= np.round(np.float64(numbers[j * mul + 4])*100, 2))
+        ws.cell(row = 3 + j, column = 5, value= np.round(np.float64(numbers[j * mul + 5])*100, 2))
+        ws.cell(row = 3 + j, column = 6, value= np.round(np.float64(numbers[j * mul + 6])*100, 2))
 
 wb.save(args.excel_file)
