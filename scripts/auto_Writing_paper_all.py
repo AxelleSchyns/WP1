@@ -113,7 +113,7 @@ if "Uliege" in args.dataset:
         ws.cell(row = 3 + j, column = 4, value= np.round(np.float64(numbers[j * mul + 4])*100, 2))
         ws.cell(row = 3 + j, column = 5, value= np.round(np.float64(numbers[j * mul + 5])*100, 2))
         ws.cell(row = 3 + j, column = 6, value= np.round(np.float64(numbers[j * mul + 10])*100, 2))
-elif "Cam" in args.dataset:
+elif "Cam" in args.dataset or 'crc' in args.dataset:
     for j in range(args.nb_models):
         ws.cell(row = 3 + j, column = 2, value= np.round(np.float64(numbers[j * mul +3]), 2))
         ws.cell(row = 3 + j, column = 3, value= np.round(np.float64(numbers[j * mul + 11]), 2))
