@@ -5,15 +5,18 @@
 # aschyns
 
 # Number of models to test
-nb_models=15
+nb_models=17
 
 # path to data
-path_test='/home/axelle/Documents/Doctorat/WP1/data/Camelyon17/cm17_changed/test'
-path_validation='/home/axelle/Documents/Doctorat/WP1/data/Camelyon17/cm17_changed/validation'
+#path_test='/home/axelle/Documents/Doctorat/WP1/data/Camelyon17/cm17_changed/test'
+#path_validation='/home/axelle/Documents/Doctorat/WP1/data/Camelyon17/cm17_changed/validation'
+path_test='/home/labsig/Documents/Axelle/cytomine/Data/cam17/test' 
+path_validation='/home/labsig/Documents/Axelle/cytomine/Data/cam17/validation'
 
 # path to weights (each model)
-#common_path='/home/labsig/Documents/Axelle/cytomine/cbir-tfe/weights_folder'
-common_path='/home/axelle/Documents/Doctorat/WP1/WP1/weights_folder' 
+#common_path='/home/axelle/Documents/Doctorat/WP1/WP1/weights_folder' 
+# path to weights (each model)
+common_path='/home/labsig/Documents/Axelle/cytomine/WP1/weights_folder'
 weights=("$common_path/resnet/model2/last_epoch"
         "$common_path/deit/model5/last_epoch"
         "$common_path/Dino/model11/dino_deitsmall16_pretrain.pth"
@@ -35,19 +38,21 @@ weights=("$common_path/resnet/model2/last_epoch"
 
 # Extractors
 extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light'  'ibot_vits' 'ibot_vits' 'ibot_vits' 'ret_ccl'  'cdpath' 'phikon' 'ctranspath'  'uni' 'hoptim')
+models_name=('ResNet' 'DeiT' 'DINO pre' 'DINO fine' 'DINO scratch' 'BYOL pre' 'BYOL fine' 'BYOL scratch' 'iBOT pre' 'iBOT fine' 'iBOT scratch' 'RetCCL' 'CDPath' 'Phikon' 'CTransPath' 'Uni' 'Hoptimus')
 
 # Type of measure
 measures=('all')
 # Output files
-output_file='cam_21_02.log'
-warnings_file='warnings_cam_21_02.log'
+output_file='cam_24_02.log'
+warnings_file='warnings_cam_24_02.log'
 
-for ((nb=0; nb<nb_models; nb++)); do
+for ((nb=15; nb<nb_models; nb++)); do
+    
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
-    echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$output_file"
+    echo "------------------------------------- ${models_name[nb]}  --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
     echo "-----------------------------------------------------------------------------------------------" >> "$warnings_file"
-    echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$warnings_file"
+    echo "------------------------------------- ${models_name[nb]} --------------------------------------------------" >> "$warnings_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$warnings_file" 
     echo "Weights: ${weights[nb]}" >> "$output_file"
     echo "Indexing" >> "$output_file"
