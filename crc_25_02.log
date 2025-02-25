@@ -320,12 +320,24 @@ Model vit_small 16x16 built.
 Model vit_base 16x16 built.
 Transferring index to GPU
 Index transferred to GPU
+Time of the model: 2.2636349201202393
+Time of the transfer: 41.689231872558594
+Time of the indexing: 8.00195837020874
+T_indexing = 57.85895824432373
 all
 Model vit_small 16x16 built.
 Model vit_base 16x16 built.
 Loading FAISS index from file
 Transferring index to GPU
 Index transferred to GPU
+top-1 accuracy :  0.914066852367688
+top-5 accuracy :  0.973816155988858
+maj accuracy class :  0.9229805013927577
+f1 score :  0.914066852367688
+t_tot: 33.22888898849487
+t_model: 21.124847173690796
+t_transfer: 0.19181537628173828
+t_search: 11.21194314956665
 -----------------------------------------------------------------------------------------------
 ------------------------------------- CDPath --------------------------------------------------
 -----------------------------------------------------------------------------------------------
