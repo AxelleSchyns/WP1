@@ -5,7 +5,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=18
+nb_models=15
 
 # path to data
 #path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -33,25 +33,26 @@ weights=("$common_path/resnet/model2/last_epoch"
         "$common_path/cdpath/model33/CAMELYON17.ckpt"
         "$common_path/phikon/model26/placeholder.txt"
         "$common_path/ctranspath/model29/ctranspath.pth"
-        "$common_path/uni/model32/placeholder.txt"
+        "$common_path/uni/model32/uni"
         "$common_path/hoptimus/model34/placeholder.txt"
           )
 
 # Extractors
 extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light'  'ibot_vits' 'ibot_vits' 'ibot_vits' 'ret_ccl'  'cdpath' 'phikon' 'ctranspath'  'uni' 'hoptim')
+models_name=('ResNet' 'DeiT' 'DINO pre' 'DINO fine' 'DINO scratch' 'BYOL pre' 'BYOL fine' 'BYOL scratch' 'iBOT pre' 'iBOT fine' 'iBOT scratch' 'RetCCL' 'CDPath' 'Phikon' 'CTransPath' 'Uni' 'Hoptimus')
 
 # Type of measure
 measures=('all')
 # Output files
-output_file='crc_21.log'
-warnings_file='warnings_21.log'
+output_file='crc_25_02.log'
+warnings_file='warnings_25_02.log'
 
-for ((nb=0; nb<nb_models; nb++)); do
+for ((nb=14; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
-    echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$output_file"
+    echo "------------------------------------- ${models_name[nb]} --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
     echo "-----------------------------------------------------------------------------------------------" >> "$warnings_file"
-    echo "------------------------------------- Model $((nb+1)) --------------------------------------------------" >> "$warnings_file"
+    echo "------------------------------------- ${models_name[nb]} --------------------------------------------------" >> "$warnings_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$warnings_file" 
     echo "Weights: ${weights[nb]}" >> "$output_file"
     echo "Indexing" >> "$output_file"

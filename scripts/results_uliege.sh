@@ -30,7 +30,7 @@ weights=("$common_path/resnet/model2/last_epoch"
         "$common_path/cdpath/model33/CAMELYON17.ckpt"
         "$common_path/phikon/model26/placeholder.txt"
         "$common_path/ctranspath/model29/ctranspath.pth"
-        "$common_path/uni/model32/placeholder.txt"
+        "$common_path/uni/model32/uni"
         "$common_path/hoptimus/model34/placeholder.txt"
           )
 
