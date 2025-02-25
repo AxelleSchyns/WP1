@@ -5,7 +5,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=17
+nb_models=16
 
 # path to data
 #path_test='/home/axelle/Documents/Doctorat/WP1/data/Camelyon17/cm17_changed/test'
@@ -32,7 +32,7 @@ weights=("$common_path/resnet/model2/last_epoch"
         "$common_path/cdpath/model33/CAMELYON17.ckpt"
         "$common_path/phikon/model26/placeholder.txt"
         "$common_path/ctranspath/model29/ctranspath.pth"
-        "$common_path/uni/model32/placeholder.txt"
+        "$common_path/uni/model32/uni"
         "$common_path/hoptimus/model34/placeholder.txt"
           )
 
