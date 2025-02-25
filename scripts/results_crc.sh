@@ -5,7 +5,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=15
+nb_models=12
 
 # path to data
 #path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -47,7 +47,7 @@ measures=('all')
 output_file='crc_25_02.log'
 warnings_file='warnings_25_02.log'
 
-for ((nb=14; nb<nb_models; nb++)); do
+for ((nb=11; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- ${models_name[nb]} --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
