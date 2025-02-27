@@ -145,7 +145,7 @@ def oneQueryOneModel(args):
 def mulQueriesMulModels(args):
     names_tot = []
     class_names_tot = []
-
+    print("hey")
     q_classes = []
     for path in args.path:
         plt.figure()
@@ -271,8 +271,8 @@ if __name__ == "__main__":
                 mean=[0.485, 0.456, 0.406],
                 std=[0.229, 0.224, 0.225]
             )])
-    
-
+    print(args.path)
+    print(len(args.path))
     if len(args.path)== 1 and os.path.isfile(args.path[0]): # one single image as query 
         if len(args.extractor) == 1:
             args.extractor = args.extractor[0]

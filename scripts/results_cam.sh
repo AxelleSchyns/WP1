@@ -5,7 +5,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=16
+nb_models=10
 
 # path to data
 #path_test='/home/axelle/Documents/Doctorat/WP1/data/Camelyon17/cm17_changed/test'
@@ -26,7 +26,7 @@ weights=("$common_path/resnet/model2/last_epoch"
         "$common_path/byol_light/model18/epoch=99-step=164900.ckpt"
         "$common_path/byol_light/model15/epoch=99-step=164900.ckpt"
         "$common_path/ibot/model27/checkpoint_teacher.pth"
-        "$common_path/ibot/model30/checkpointv1_99.pth"
+        "$common_path/ibot/model30/checkpoint_24.pth"
         "$common_path/ibot/model31/checkpointV0_0085.pth"
         "$common_path/retccl/model24/ret_pretrained.pth"
         "$common_path/cdpath/model33/CAMELYON17.ckpt"
@@ -46,7 +46,7 @@ measures=('all')
 output_file='cam_24_02.log'
 warnings_file='warnings_cam_24_02.log'
 
-for ((nb=15; nb<nb_models; nb++)); do
+for ((nb=9; nb<nb_models; nb++)); do
     
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- ${models_name[nb]}  --------------------------------------------------" >> "$output_file"

@@ -501,3 +501,94 @@ t_tot: 296.35801219940186
 t_model: 207.1908700466156
 t_transfer: 46.9723744392395
 t_search: 38.64364409446716
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT fine  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpointv1_99.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpointv1_99.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 1.8157527446746826
+Time of the transfer: 32.971067905426025
+Time of the indexing: 5.871223211288452
+T_indexing = 45.081093549728394
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpointv1_99.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.8138608755443503
+top-5 accuracy :  0.9300366720146688
+maj accuracy class :  0.8333715333486134
+f1 score :  0.8138608755443503
+t_tot: 137.57796120643616
+t_model: 105.38685297966003
+t_transfer: 1.0671842098236084
+t_search: 27.70453691482544
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT fine  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpoint_new.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 1.7942278385162354
+Time of the transfer: 33.015618324279785
+Time of the indexing: 6.158788442611694
+T_indexing = 45.627954959869385
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpoint_new.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.8806154022461609
+top-5 accuracy :  0.9490602796241119
+maj accuracy class :  0.899782259912904
+f1 score :  0.8806154022461609
+t_tot: 145.57110691070557
+t_model: 113.02836894989014
+t_transfer: 1.020796775817871
+t_search: 28.087095975875854
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT fine  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model30/checkpoint_24.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+Transferring index to GPU
+Index transferred to GPU
+Time of the model: 1.8517653942108154
+Time of the transfer: 32.96016454696655
+Time of the indexing: 5.813697338104248
+T_indexing = 44.868122577667236
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Since no pretrained weights have been provided, we load the reference pretrained DINO weights.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  0.7224386889754756
+top-5 accuracy :  0.87517190006876
+maj accuracy class :  0.7409752463900986
+f1 score :  0.7224386889754756
+t_tot: 143.12863039970398
+t_model: 110.80058646202087
+t_transfer: 0.9557819366455078
+t_search: 28.017051219940186
