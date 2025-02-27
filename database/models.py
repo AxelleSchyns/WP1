@@ -16,7 +16,6 @@ from argparse import ArgumentParser
 from arch import DINO, cdpath, iBot, ctranspath, BYOL
 from utils import create_weights_folder, model_saving, write_info
 
-from huggingface_hub  import login
  
 archs_weighted = {"resnet": [models.resnet50(weights='ResNet50_Weights.DEFAULT'), 128], 
                   "deit": [DeiTForImageClassification.from_pretrained('facebook/deit-base-distilled-patch16-224'),128], 

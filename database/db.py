@@ -145,13 +145,13 @@ class Database:
                 with torch.inference_mode():
                     out = self.model(image)
                     out = out.contiguous()
-            t_im = time.time() - t
+            t_model = time.time() - t
         else:
-            t_model = time.time()
+            t = time.time()
             out = self.model(image)
             if not isinstance(out, torch.Tensor):
                  out = out.logits
-            t_model = time.time() - t_model
+            t_model = time.time() - t
         t_transfer = time.time()
         out = out.cpu()
         t_transfer = time.time() - t_transfer

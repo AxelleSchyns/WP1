@@ -561,6 +561,6 @@ maj accuracy proj :  [0.92103346]
 maj accuracy sim :  [0.93348323]
 f1 score :  0.7579580704932026
 t_tot: 1803.2339141368866
-t_model: 0
+t_model: 749.2426910400391
 t_transfer: 965.2666344642639
 t_search: 138.1202027797699
