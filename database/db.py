@@ -82,6 +82,8 @@ class Database:
         t_indexing = 0
         t_transfer = 0
         for i, (images, filenames) in enumerate(loader):
+            if i % 10 == 0:
+                print(f"Batch {i} / {len(loader)}")
             images = images.view(-1, 3, 224, 224).to(device=next(self.model.parameters()).device)
             if extractor == "cdpath":
                 t = time.time()
@@ -118,6 +120,7 @@ class Database:
             t_im_ind = time.time() - t
             t_indexing = t_indexing + t_im_ind
             t_model = t_model + t_im
+        print("HEY")
         print("Time of the model: "+str(t_model))
         print("Time of the transfer: "+str(t_transfer))
         print("Time of the indexing: "+str(t_indexing))
