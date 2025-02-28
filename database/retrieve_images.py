@@ -145,7 +145,6 @@ def oneQueryOneModel(args):
 def mulQueriesMulModels(args):
     names_tot = []
     class_names_tot = []
-    print("hey")
     q_classes = []
     for path in args.path:
         plt.figure()
@@ -184,7 +183,7 @@ def mulQueriesMulModels(args):
             plt.savefig(os.path.join(dir, q_classes[j]+"_"+utils.get_class(name)+"_"+extractor+"_"+str(i)+".png"))
         names_tot.append(names)
         class_names_tot.append(class_names)
-
+        print("The classes for extractor" +extractor + "are" +str(class_names))
     for j in range(len(args.path)):
         # Subplot of the image and the nearest images
         plt.figure(figsize=(7,4))
