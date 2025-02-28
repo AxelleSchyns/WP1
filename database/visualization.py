@@ -237,6 +237,10 @@ def plot_im_curve(path, path_queries):
    
     model_16_props = [ 0.79346491, 0.79146108, 0.79071333, 0.78950149, 0.78865363, 
                       0.7879843, 0.78728166, 0.78669743, 0.78607647, 0.7854829]
+    model_17_props = [0.75852018, 0.75883247, 0.76045635, 0.75952991, 0.75847855, 
+                      0.75757292, 0.75708367, 0.75379427, 0.75473112, 0.75465826]
+   
+
     props = [11113.0, 11136.0, 11191.333333334209, 11155.0, 11172.399999999667, 11147.333333333503, 11149.571428567484, 11143.375, 11153.22222223129, 11148.100000003062]
 
 
@@ -288,11 +292,11 @@ def plot_im_curve(path, path_queries):
     # Normalize the accumulated props
     for el in range(len(props)):
         props[el] = props[el]/96066 
-    extractors = ["resnet", "deit", "dino_p", "dino_s", "dino_f", "byol_s", "byol_f", "byol_p", "ret_ccl", "ibot_p", "ibot_f", "ibot_s", "ctranspath", "phikon", "cdpath", "uni", "random"]   
-    model_prop = [model_1_props, model_2_props, model_3_props, model_4_props, model_5_props, model_6_props, model_7_props, model_8_props, model_9_props, model_10_props, model_11_props, model_12_props, model_13_props, model_14_props, model_15_props, model_16_props, props]
+    extractors = ["resnet", "deit", "dino_p", "dino_s", "dino_f", "byol_s", "byol_f", "byol_p", "ret_ccl", "ibot_p", "ibot_f", "ibot_s", "ctranspath", "phikon", "cdpath", "uni", "hoptim", "random"]   
+    model_prop = [model_1_props, model_2_props, model_3_props, model_4_props, model_5_props, model_6_props, model_7_props, model_8_props, model_9_props, model_10_props, model_11_props, model_12_props, model_13_props, model_14_props, model_15_props, model_16_props, model_17_props, props]
     colors = [
         "blue", "navy", "olive", "green", "lime", "orange", "coral",  "gold",  "red", "maroon", "purple", "brown", "pink", "gray", "cyan",
-        "teal","magenta"
+        "teal", "yellow", "magenta"
     ]
 
     # Plotting the results
@@ -675,9 +679,9 @@ if __name__ == "__main__":
     train = "/home/labsig//Documents/Axelle/cytomine/Data/our/train"
     test = '/home/labsig/Documents/Axelle/cytomine/Data/our/test'
 
-    #plot_im_curve(test, val)
+    plot_im_curve(test, val)
     #prob_per_class(test, val)
-    prob_vs_size(test, val)
+    #prob_vs_size(test, val)
     #summary_image(train)
 
     #count_all_classes(test)
