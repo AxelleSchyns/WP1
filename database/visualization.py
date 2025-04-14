@@ -249,18 +249,10 @@ def plot_im_curve(path, path_queries):
 
     model_20_props = [0.78201445, 0.77857931, 0.77625799, 0.77541482, 0.77509212, 
                   0.77458206, 0.77127183, 0.77108446, 0.77159453, 0.77011638] # phikon2
-    """hoptimus1
-Props:  [[0.77797556]
- [0.77256261]
- [0.76896092]
- [0.76746195]
- [0.76522391]
- [0.76377699]
- [0.7626944 ]
- [0.76119543]
- [0.75981096]
- [0.75949868]]"""
-  
+    
+    model_21_props = [0.77797556, 0.77256261, 0.76896092, 0.76746195, 0.76522391, 
+                  0.76377699, 0.7626944, 0.76119543, 0.75981096, 0.75949868] # hoptim1
+
     props = [11113.0, 11136.0, 11191.333333334209, 11155.0, 11172.399999999667, 11147.333333333503, 11149.571428567484, 11143.375, 11153.22222223129, 11148.100000003062]
 
 
@@ -311,17 +303,30 @@ Props:  [[0.77797556]
     # Normalize the accumulated props
     for el in range(len(props)):
         props[el] = props[el]/96066 
-    extractors = ["resnet", "deit", "dino_p", "dino_s", "dino_f", "byol_s", "byol_f", "byol_p", "ret_ccl", "ibot_p", "ibot_f", "ibot_s", "ctranspath", "phikon", "cdpath", "uni", "hoptim", "uni2", "virchow2", "phikon2", "random"]   
-    model_prop = [model_1_props, model_2_props, model_3_props, model_4_props, model_5_props, model_6_props, model_7_props, model_8_props, model_9_props, model_10_props, model_11_props, model_12_props, model_13_props, model_14_props, model_15_props, model_16_props, model_17_props, model_18_props, model_19_props, model_20_props, props]
+    extractors = ["resnet", "deit", "dino_p", "dino_s", "dino_f", "byol_s", "byol_f", "byol_p", "ibot_p", "ibot_f", "ibot_s", "ret_ccl", "ctranspath", "phikon", "cdpath", "uni", "hoptim", "uni2", "virchow2", "phikon2", "hoptim1", "random"]   
+    model_prop = [model_1_props, model_2_props, model_3_props, model_4_props, model_5_props, model_6_props, model_7_props, model_8_props, model_10_props, model_11_props, model_12_props, model_9_props, model_13_props, model_14_props, model_15_props, model_16_props, model_17_props, model_18_props, model_19_props, model_20_props, model_21_props, props]
     colors = [
-        "blue", "navy", "olive", "green", "lime", "orange", "coral",  "gold",  "red", "maroon", "purple", "brown", "pink", "gray", "cyan",
-        "teal", "yellow", "magenta", "indigo", "turquoise", "peru"
+        "blue","cyan", "magenta", "lime", "coral",  "gold",  "red",  "purple", "pink", "gray", 
+        "teal", "green"
     ]
 
     # Plotting the results
     plt.figure(figsize=(12, 8))
-    for i in range(len(extractors)) :
+    for i in range(10) :
         plt.plot(model_prop[i], label=extractors[i], marker='o', color=colors[i])
+    plt.plot(model_prop[21], label=extractors[21], marker='o', color=colors[11])
+    plt.title('Proportion of Correct Images per Model')
+    plt.xlabel('Retrieval Step')
+    plt.ylabel('Proportion of Correct Images')
+    plt.xticks(np.arange(10), labels=np.arange(1, 11))  # Label steps 1 to 10
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+    # Plotting the results
+    plt.figure(figsize=(12, 8))
+    for i in range(11, len(extractors)-1) :
+        plt.plot(model_prop[i], label=extractors[i], marker='o', color=colors[i-11])
     
     plt.title('Proportion of Correct Images per Model')
     plt.xlabel('Retrieval Step')

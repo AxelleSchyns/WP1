@@ -59,5 +59,5 @@ for ((nb=20; nb<nb_models; nb++)); do
     echo "Weights: ${weights[nb]}" >> "$output_file"
     echo "Indexing" >> "$output_file"
     python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --rewrite --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
-    python database/tsne.py --namefig "images/tsne_$nb" >> "$output_file" 2>> "$warnings_file"
+    python database/tsne.py --namefig "images_paper/tsne_$nb" >> "$output_file" 2>> "$warnings_file"
 done

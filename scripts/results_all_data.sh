@@ -6,7 +6,7 @@
 
 
 # Number of models to test
-nb_models=21
+nb_models=10
 
 # path to data
 uliege_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -58,7 +58,7 @@ measures=('all' )
 stat=false
 current_date=$(date "+%Y-%m-%d %H:%M:%S") 
 
-for ((nb=20; nb<nb_models; nb++)); do
+for ((nb=9; nb<nb_models; nb++)); do
     output_file="$common_path/${models_name[nb]}_results.txt"
     warnings_file="$common_path/${models_name[nb]}_warnings.txt"
 

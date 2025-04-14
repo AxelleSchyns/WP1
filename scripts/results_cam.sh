@@ -5,7 +5,7 @@
 # aschyns
 
 # Number of models to test
-nb_models=18
+nb_models=10
 
 # path to data
 #path_test='/home/axelle/Documents/Doctorat/WP1/data/Camelyon17/cm17_changed/test'
@@ -47,12 +47,12 @@ models_name=('ResNet' 'DeiT' 'DINO pre' 'DINO fine' 'DINO scratch' 'BYOL pre' 'B
 # Type of measure
 measures=('all')
 # Output files
-output_file='cam_uni2.log'
-warnings_file='warnings_cam_uni2.log'
+output_file='ibot_fine_check.log'
+warnings_file='warnings_ibot_fine_check.log'
 
 current_date=$(date "+%Y-%m-%d %H:%M:%S") 
 
-for ((nb=17; nb<nb_models; nb++)); do
+for ((nb=9; nb<nb_models; nb++)); do
     
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- ${models_name[nb]}  --------------------------------------------------" >> "$output_file"
@@ -63,11 +63,11 @@ for ((nb=17; nb<nb_models; nb++)); do
     echo "Date is: ${current_date}" >> "$output_file"
     echo "Weights: ${weights[nb]}" >> "$output_file"
     echo "Indexing" >> "$output_file"
-    python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --rewrite --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
+    python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --rewrite --gpu_id 1 >> "$output_file" 2>> "$warnings_file"
 
     for i in "${!measures[@]}"; do
         echo "${measures[i]}" >> "$output_file" 
         echo "${measures[i]}" >> "$warnings_file"
-        python database/test_cam_acc.py  --path "$path_validation" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
+        python database/test_cam_acc.py  --path "$path_validation" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --gpu_id 1 >> "$output_file" 2>> "$warnings_file"
     done
 done
