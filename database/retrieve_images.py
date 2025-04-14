@@ -155,9 +155,8 @@ def mulQueriesMulModels(args):
     for i in range(len(args.extractor)):
         extractor = args.extractor[i]
         weights = args.weights[i]
-        num_features = args.num_features[i]
 
-        model = models.Model(model=extractor, num_features=num_features, 
+        model = models.Model(model=extractor,  
                          weight=weights, device=device)
         retriever = ImageRetriever(args.db_name, model)
 

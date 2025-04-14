@@ -43,37 +43,36 @@ if __name__ == "__main__":
             img = Image.open(os.path.join(args.input_dir, files))
             cropped_img = remove_blank_space(img)
             img_list_ssl.append(cropped_img)
-    
     # Med images
-    fig = plt.figure(figsize=(10, 3))  # Adjust figure size as needed
-    gs = GridSpec(2, 3, height_ratios=[1, 1], hspace=0, wspace=0.1)  # hspace=0 removes vertical gap
-    letters = ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']
+    fig = plt.figure(figsize=(20, 30))  # Adjust figure size as needed
+    gs = GridSpec(3, 2, height_ratios=[1, 1, 1], hspace=0, wspace=0)  # hspace=0 removes vertical gap
+    letters = ['(a)', '(b)', '(e)', '(c)', '(d)', '(f)']
     for i in range(3):
-        ax = fig.add_subplot(gs[0, i])
+        ax = fig.add_subplot(gs[i, 0])
         ax.imshow(img_list_med[i])  # Load images properly
         ax.axis('off')
-        ax.text(0.1, 0.25, letters[i], fontsize=12, ha="center", va="center", color="black", transform=ax.transAxes)
+        ax.text(0.1, 0.25, letters[i], fontsize=36, ha="center", va="center", color="black", transform=ax.transAxes)
 
     for i in range(3):
-        ax = fig.add_subplot(gs[1, i])
+        ax = fig.add_subplot(gs[i, 1])
         ax.imshow(img_list_med[i+3])
         ax.axis('off')
-        ax.text(0.1, 0.25, letters[i+3], fontsize=12, ha="center", va="center", color="black", transform=ax.transAxes)
+        ax.text(0.1, 0.25, letters[i+3], fontsize=36, ha="center", va="center", color="black", transform=ax.transAxes)
     plt.savefig(os.path.join(args.input_dir,"final_med.png"), bbox_inches="tight", pad_inches=0)
 
     # SSL images
-    fig = plt.figure(figsize=(10, 3))  # Adjust figure size as needed
-    gs = GridSpec(2, 3, height_ratios=[1, 1], hspace=0, wspace=0.1)  # hspace=0 removes vertical gap
-    letters = ['a)', 'b)', 'c)', 'd)', 'e)', 'f)']
+    fig = plt.figure(figsize=(20, 30))  # Adjust figure size as needed
+    gs = GridSpec(3, 2, height_ratios=[1, 1, 1], hspace=0, wspace=0.1)  # hspace=0 removes vertical gap
+    letters = ['(a)', '(b)', '(e))', '(c))', '(d))', '(f)']
     for i in range(3):
-        ax = fig.add_subplot(gs[0, i])
+        ax = fig.add_subplot(gs[i, 0])
         ax.imshow(img_list_ssl[i])  # Load images properly
         ax.axis('off')
-        ax.text(0.1, 0.25, letters[i], fontsize=12, ha="center", va="center", color="black", transform=ax.transAxes)
+        ax.text(0.1, 0.25, letters[i], fontsize=36, ha="center", va="center", color="black", transform=ax.transAxes)
     for i in range(3):
-        ax = fig.add_subplot(gs[1, i])
+        ax = fig.add_subplot(gs[i, 1])
         ax.imshow(img_list_ssl[i+3])
         ax.axis('off')
-        ax.text(0.1, 0.25, letters[i+3], fontsize=12, ha="center", va="center", color="black", transform=ax.transAxes)  
+        ax.text(0.1, 0.25, letters[i+3], fontsize=36, ha="center", va="center", color="black", transform=ax.transAxes)  
     plt.savefig(os.path.join(args.input_dir,"final_ssl.png"), bbox_inches="tight", pad_inches=0)
     

@@ -3,8 +3,8 @@
 import pandas as pd
 import re
 import numpy as np
-log_file = "test_output.log"
-excel_file = "output.xlsx"
+log_file = "temp.txt"
+excel_file = "results/excels/output_uliege.xlsx"
 
 # Read the log file
 with open(log_file, "r") as file:

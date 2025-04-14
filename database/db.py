@@ -83,6 +83,7 @@ class Database:
         t_transfer = 0
         for i, (images, filenames) in enumerate(loader):
             if i % 10 == 0:
+                pass
                 print(f"Batch {i} / {len(loader)}")
             images = images.view(-1, 3, 224, 224).to(device=next(self.model.parameters()).device)
             if extractor == "cdpath":
@@ -90,17 +91,26 @@ class Database:
                 images = arch.scale_generator(images, 224, 1, 112, rescale_size=224)
                 out = self.model.model.encode(images)
                 t_im = time.time() - t
-            elif extractor == "phikon":
+            elif extractor == "phikon" or extractor == "phikon2":
                 t = time.time()
                 outputs = self.model.model(images)  
                 out = outputs.last_hidden_state[:, 0, :]
                 t_im = time.time() - t
-            elif extractor == "hoptim":
+            elif extractor == "hoptim" or extractor == 'hoptim1':
                 t = time.time()
                 with torch.autocast(device_type="cuda", dtype=torch.float16):
                     with torch.inference_mode():
                         out = self.model(images)
                         out = out.contiguous()
+                t_im = time.time() - t
+            elif extractor == "virchow2":
+                t = time.time()
+                output = self.model(images)  # size: batch x 261 x 1280
+                class_token = output[:, 0]    # size: 1 x 1280
+                patch_tokens = output[:, 5:]  # size: 1 x 256 x 1280, tokens 1-4 are register tokens so we ignore those
+
+                # concatenate class token and average pool of patch tokens
+                out = torch.cat([class_token, patch_tokens.mean(1)], dim=-1)
                 t_im = time.time() - t
             else: 
                 t = time.time()
@@ -120,7 +130,6 @@ class Database:
             t_im_ind = time.time() - t
             t_indexing = t_indexing + t_im_ind
             t_model = t_model + t_im
-        print("HEY")
         print("Time of the model: "+str(t_model))
         print("Time of the transfer: "+str(t_transfer))
         print("Time of the indexing: "+str(t_indexing))
@@ -137,18 +146,28 @@ class Database:
             image = arch.scale_generator(image, 224, 1, 112, rescale_size=224)
             out = self.model.model.encode(image)
             t_model = time.time() - t
-        elif extractor == "phikon":
+        elif extractor == "phikon" or extractor == "phikon2":
             t = time.time()
             outputs = self.model.model(image)  
             out = outputs.last_hidden_state[:, 0, :]
             t_model = time.time() - t
-        elif extractor == "hoptim":
+        elif extractor == "hoptim" or extractor == "hoptim1":
             t = time.time()
             with torch.autocast(device_type="cuda", dtype=torch.float16):
                 with torch.inference_mode():
                     out = self.model(image)
                     out = out.contiguous()
             t_model = time.time() - t
+        elif extractor == "virchow2":
+            t = time.time()
+            output = self.model(image)  # size: batch x 261 x 1280
+            class_token = output[:, 0]    # size: 1 x 1280
+            patch_tokens = output[:, 5:]  # size: 1 x 256 x 1280, tokens 1-4 are register tokens so we ignore those
+
+            # concatenate class token and average pool of patch tokens
+            out = torch.cat([class_token, patch_tokens.mean(1)], dim=-1)
+            t_model = time.time() - t
+    
         else:
             t = time.time()
             out = self.model(image)

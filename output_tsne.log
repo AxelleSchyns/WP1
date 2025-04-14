@@ -1,0 +1,499 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- UNI V2  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/uni/model18/placeholder.txt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 4.342459440231323
+Time of the transfer: 1070.8784351348877
+Time of the indexing: 6.791502475738525
+T_indexing = 1088.9904704093933
+605.1967349052429
+-----------------------------------------------------------------------------------------------
+------------------------------------- Virchow V2  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/virchow/model19/virchow2
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 5.145191192626953
+Time of the transfer: 1061.9959619045258
+Time of the indexing: 7.644051790237427
+T_indexing = 1083.1081819534302
+661.2580962181091
+-----------------------------------------------------------------------------------------------
+------------------------------------- Phikon v2  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model20/placeholder.txt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 3.8317394256591797
+Time of the transfer: 411.6288146972656
+Time of the indexing: 6.143363952636719
+T_indexing = 428.1972074508667
+578.418710231781
+-----------------------------------------------------------------------------------------------
+------------------------------------- Hoptimus  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/hoptimus/model17/placeholder.txt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 6.0026562213897705
+Time of the transfer: 595.2795476913452
+Time of the indexing: 7.088385820388794
+T_indexing = 615.0622012615204
+606.1192851066589
+-----------------------------------------------------------------------------------------------
+------------------------------------- Uni  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/uni/model16/uni
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 3.2689428329467773
+Time of the transfer: 375.7017915248871
+Time of the indexing: 6.417905569076538
+T_indexing = 391.707364320755
+581.2397356033325
+-----------------------------------------------------------------------------------------------
+------------------------------------- Hoptimus1  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/hoptimus/model17/placeholder.txt
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
