@@ -45,14 +45,14 @@ do
   --results_dir $folder_name --path_index $path_camelyon_index
 done
   
-for ((i=0; i<= 0; i++))
+for ((i=1; i<= 0; i++))
 do
   folder_name="results/uliege"
   mkdir "$folder_name"
   python database/retrieve_images.py \
   --path "$common_our/camelyon16_0/27665488_9984_129024_768_768.png","$common_our/ulg_lbtd2_chimio_necrose_36362044/36360773_66312823.png","$common_our/patterns_no_aug_0/8124013_18091437.png","$common_our/janowczyk6_1/8867_idx5_x501_y1051_class1.png","$common_our/mitos2014_1/A10_113799388_52_1503_323_323_0.png","$common_our/tupac_mitosis_1/11104704_1371_589_250_250_5.png" \
-  --extractor "virchow2","phikon2"\
-  --weights "$common_path/virchow/model19/virchow2","$common_path/phikon/model20/placeholder.txt"\
+  --extractor "hoptim1"\
+  --weights "$common_path/phikon/model20/placeholder.txt"\
   --results_dir "$folder_name" \
   --path_index "$path_uliege_index"
 done
@@ -65,8 +65,8 @@ do
   
   python database/retrieve_images.py \
   --path "$common_cam/normal/patch_patient_020_node_2_x_5600_y_16288.png","$common_cam/tumor/patch_patient_020_node_2_x_704_y_15232.png" \
-  --extractor "virchow2","phikon2"\
-  --weights "$common_path/virchow/model19/virchow2","$common_path/phikon/model20/placeholder.txt"\
+  --extractor "hoptim1"\
+  --weights "$common_path/phikon/model20/placeholder.txt"\
   --results_dir $folder_name --path_index $path_camelyon_index
 
 done
@@ -79,8 +79,8 @@ do
   mkdir "$folder_name"
   python database/retrieve_images.py \
   --path  "$common_crc/BACK/BACK-TCGA-ADESWYYD.tif","$common_crc/LYM/LYM-TCGA-AAWGSCHH.tif","$common_crc/MUS/MUS-TCGA-AASRLCCT.tif","$common_crc/STR/STR-TCGA-AHKNISSH.tif" \
-  --extractor "virchow2","phikon2"\
-  --weights "$common_path/virchow/model19/virchow2","$common_path/phikon/model20/placeholder.txt"\
+   --extractor "hoptim1"\
+  --weights "$common_path/phikon/model20/placeholder.txt"\
   --results_dir $folder_name --path_index $path_crc_index
 
 done

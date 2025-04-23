@@ -6,7 +6,7 @@
 
 
 # Number of models to test
-nb_models=18
+nb_models=9
 
 # path to data
 path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -33,23 +33,26 @@ weights=("$common_path/resnet/model1/last_epoch"
         "$common_path/uni/model16/uni"
         "$common_path/hoptimus/model17/placeholder.txt"
         "$common_path/uni/model18/placeholder.txt"
+        "$common_path/virchow/model19/virchow2"
+        "$common_path/phikon/model20/placeholder.txt"
+        "$common_path/hoptimus/model17/placeholder.txt"
           )
 
 # Extractors
-extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light'  'ibot_vits' 'ibot_vits' 'ibot_vits' 'ret_ccl'  'cdpath' 'phikon' 'ctranspath'  'uni' 'hoptim' 'uni2')
-models_name=('ResNet' 'DeiT' 'DINO pre' 'DINO fine' 'DINO scratch' 'BYOL pre' 'BYOL fine' 'BYOL scratch' 'iBOT pre' 'iBOT fine' 'iBOT scratch' 'RetCCL' 'CDPath' 'Phikon' 'CTransPath' 'Uni' 'Hoptimus' 'UNI V2')
+extractors=('resnet' 'deit' 'dino_vit' 'dino_vit' 'dino_vit' 'byol_light' 'byol_light' 'byol_light'  'ibot_vits' 'ibot_vits' 'ibot_vits' 'ret_ccl'  'cdpath' 'phikon' 'ctranspath'  'uni' 'hoptim' 'uni2' 'virchow2' 'phikon2' 'hoptim1' )
+models_name=('ResNet' 'DeiT' 'DINO pre' 'DINO fine' 'DINO scratch' 'BYOL pre' 'BYOL fine' 'BYOL scratch' 'iBOT pre' 'iBOT fine' 'iBOT scratch' 'RetCCL' 'CDPath' 'Phikon' 'CTransPath' 'Uni' 'Hoptimus' 'UNI V2' 'Virchow V2' 'Phikon v2' 'Hoptimus1')
 
 
 # Type of measure
-measures=('all' 'weighted')
+measures=('all' )
 # Output files
-output_file='scripts/logs/univ2_uliege.log'
-warnings_file='scripts/logs/warnings_uni_V2_uliege.log'
+output_file='time_test_2.log'
+warnings_file='warnings_time_test_2.log'
 
 stat=false
 current_date=$(date "+%Y-%m-%d %H:%M:%S") 
 
-for ((nb=17; nb<nb_models; nb++)); do
+for ((nb=8; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- ${models_name[nb]} --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
@@ -69,7 +72,7 @@ for ((nb=17; nb<nb_models; nb++)); do
         if [ "$stat" = true ]; then
             python database/test_accuracy.py --path "$path_validation" --path_indexed "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --gpu_id 0 --stat >> "$output_file" 2>> "$warnings_file"
         else
-            python database/test_accuracy.py --path "$path_validation" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
+            CUDA_LAUNCH_BLOCKING=1 python database/test_accuracy.py --path "$path_validation" --extractor "${extractors[nb]}" --weights "${weights[nb]}" --measure "${measures[i]}" --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
         fi
     done
 done

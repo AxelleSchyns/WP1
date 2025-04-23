@@ -1,0 +1,622 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- ResNet --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-15 14:20:31
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/resnet/model1/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 3.0232317447662354
+Time of the transfer: 43.84130263328552
+Time of the indexing: 7.410489797592163
+T_indexing = 60.20646381378174
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.82168509]
+top-5 accuracy :  [0.93006891]
+top-1 accuracy proj :  [0.94481919]
+top-5 accuracy proj :  [0.97043699]
+top-1 accuracy sim :  [0.94542294]
+top-5 accuracy sim :  [0.97111361]
+maj accuracy class :  [0.84301418]
+maj accuracy proj :  [0.94455895]
+maj accuracy sim :  [0.94540212]
+Props:  [[0.82168509]
+ [0.82036308]
+ [0.82067537]
+ [0.81780234]
+ [0.81789603]
+ [0.81652197]
+ [0.81595986]
+ [0.8140341 ]
+ [0.81592863]
+ [0.81409656]]
+f1 score :  0.821685091499594
+t_tot: 372.19829392433167
+t_model: 286.74528455734253
+t_transfer: 2.6093521118164062
+t_search: 72.5255389213562
+-----------------------------------------------------------------------------------------------
+------------------------------------- DeiT --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-15 14:20:31
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/deit/model2/last_epoch
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 2.3643407821655273
+Time of the transfer: 115.21548509597778
+Time of the indexing: 6.263999700546265
+T_indexing = 130.50345659255981
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.79725397]
+top-5 accuracy :  [0.91931589]
+top-1 accuracy proj :  [0.94217517]
+top-5 accuracy proj :  [0.96454521]
+top-1 accuracy sim :  [0.94247705]
+top-5 accuracy sim :  [0.96474299]
+maj accuracy class :  [0.81864551]
+maj accuracy proj :  [0.9421023]
+maj accuracy sim :  [0.94241459]
+Props:  [[0.79725397]
+ [0.79751421]
+ [0.79595278]
+ [0.79522412]
+ [0.79587992]
+ [0.79529698]
+ [0.79430808]
+ [0.79297566]
+ [0.79344409]
+ [0.79430808]]
+f1 score :  0.797253971228114
+t_tot: 433.5550410747528
+t_model: 314.86946415901184
+t_transfer: 32.847492694854736
+t_search: 75.22562718391418
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-15 14:20:31
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model3/dino_deitsmall16_pretrain.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model3/dino_deitsmall16_pretrain.pth and loaded with msg: <All keys matched successfully>
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 3.219395875930786
+Time of the transfer: 39.89343476295471
+Time of the indexing: 8.829741716384888
+T_indexing = 58.79524207115173
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model3/dino_deitsmall16_pretrain.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.76304832]
+top-5 accuracy :  [0.9072929]
+top-1 accuracy proj :  [0.93358733]
+top-5 accuracy proj :  [0.95869506]
+top-1 accuracy sim :  [0.93506548]
+top-5 accuracy sim :  [0.9598297]
+maj accuracy class :  [0.77455083]
+maj accuracy proj :  [0.93532571]
+maj accuracy sim :  [0.93742843]
+Props:  [[0.76304832]
+ [0.75595944]
+ [0.75104616]
+ [0.74812108]
+ [0.74691358]
+ [0.74450898]
+ [0.74248954]
+ [0.73961651]
+ [0.74018904]
+ [0.73810713]]
+f1 score :  0.7630483209460163
+t_tot: 396.0031123161316
+t_model: 301.1789002418518
+t_transfer: 2.19490385055542
+t_search: 82.76007342338562
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO fine --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-15 14:20:31
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model4/checkpoint0099_pretrained.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model4/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 2.754650592803955
+Time of the transfer: 40.17119002342224
+Time of the indexing: 8.361261129379272
+T_indexing = 58.33460068702698
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model4/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.76732663]
+top-5 accuracy :  [0.88986738]
+top-1 accuracy proj :  [0.92508276]
+top-5 accuracy proj :  [0.94518352]
+top-1 accuracy sim :  [0.92722711]
+top-5 accuracy sim :  [0.94809818]
+maj accuracy class :  [0.77746549]
+maj accuracy proj :  [0.92583224]
+maj accuracy sim :  [0.92836175]
+Props:  [[0.76732663]
+ [0.76518227]
+ [0.76176795]
+ [0.76184082]
+ [0.75869715]
+ [0.75884288]
+ [0.75852018]
+ [0.75723981]
+ [0.75681302]
+ [0.75556388]]
+f1 score :  0.7673266296088106
+t_tot: 392.7930941581726
+t_model: 298.47591280937195
+t_transfer: 2.1744070053100586
+t_search: 82.20798110961914
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO scratch --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-15 14:20:31
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model5/checkpoint0099_scratch.pth
+Indexing
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model5/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 10 / 831
+Batch 20 / 831
+Batch 30 / 831
+Batch 40 / 831
+Batch 50 / 831
+Batch 60 / 831
+Batch 70 / 831
+Batch 80 / 831
+Batch 90 / 831
+Batch 100 / 831
+Batch 110 / 831
+Batch 120 / 831
+Batch 130 / 831
+Batch 140 / 831
+Batch 150 / 831
+Batch 160 / 831
+Batch 170 / 831
+Batch 180 / 831
+Batch 190 / 831
+Batch 200 / 831
+Batch 210 / 831
+Batch 220 / 831
+Batch 230 / 831
+Batch 240 / 831
+Batch 250 / 831
+Batch 260 / 831
+Batch 270 / 831
+Batch 280 / 831
+Batch 290 / 831
+Batch 300 / 831
+Batch 310 / 831
+Batch 320 / 831
+Batch 330 / 831
+Batch 340 / 831
+Batch 350 / 831
+Batch 360 / 831
+Batch 370 / 831
+Batch 380 / 831
+Batch 390 / 831
+Batch 400 / 831
+Batch 410 / 831
+Batch 420 / 831
+Batch 430 / 831
+Batch 440 / 831
+Batch 450 / 831
+Batch 460 / 831
+Batch 470 / 831
+Batch 480 / 831
+Batch 490 / 831
+Batch 500 / 831
+Batch 510 / 831
+Batch 520 / 831
+Batch 530 / 831
+Batch 540 / 831
+Batch 550 / 831
+Batch 560 / 831
+Batch 570 / 831
+Batch 580 / 831
+Batch 590 / 831
+Batch 600 / 831
+Batch 610 / 831
+Batch 620 / 831
+Batch 630 / 831
+Batch 640 / 831
+Batch 650 / 831
+Batch 660 / 831
+Batch 670 / 831
+Batch 680 / 831
+Batch 690 / 831
+Batch 700 / 831
+Batch 710 / 831
+Batch 720 / 831
+Batch 730 / 831
+Batch 740 / 831
+Batch 750 / 831
+Batch 760 / 831
+Batch 770 / 831
+Batch 780 / 831
+Batch 790 / 831
+Batch 800 / 831
+Batch 810 / 831
+Batch 820 / 831
+Batch 830 / 831
+Time of the model: 2.7239203453063965
+Time of the transfer: 40.063313722610474
+Time of the indexing: 8.115774393081665
+T_indexing = 57.751978158950806
+all
+Model vit_small 16x16 built.
+Model vit_base 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model5/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU

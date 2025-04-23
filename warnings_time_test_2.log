@@ -1,0 +1,103 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO fine --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO scratch --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+-----------------------------------------------------------------------------------------------
+------------------------------------- BYOL pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- BYOL fine --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- BYOL scratch --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT fine --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT scratch --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 670, in <module>
+    r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 431, in test
+    names, _, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(image, extractor)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 207, in search
+    distance, labels = self.index.search(out, nrt_neigh)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/__init__.py", line 322, in replacement_search
+    self.search_c(n, swig_ptr(x), k, swig_ptr(D), swig_ptr(I))
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/swigfaiss.py", line 8404, in search
+    return _swigfaiss.IndexIDMap_search(self, n, x, k, distances, labels)
+KeyboardInterrupt

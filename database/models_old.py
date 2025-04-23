@@ -8,14 +8,48 @@ import torchvision.models as models
 import torch.nn as nn
 import matplotlib.pyplot as plt
 import resnet_ret as ResNet_ret
-import arch
 
 from transformers import DeiTForImageClassification
 from loss import MarginLoss, ProxyNCA_prob, NormSoftmax, SoftTriple
 from transformers import  ViTModel, AutoModel
 from argparse import ArgumentParser
+from arch import DINO, cdpath, iBot, ctranspath, BYOL
 from utils import create_weights_folder, model_saving, write_info
 
+ 
+archs_weighted = {"resnet": [models.resnet50(weights='ResNet50_Weights.DEFAULT'), 128], 
+                  "deit": [DeiTForImageClassification.from_pretrained('facebook/deit-base-distilled-patch16-224'),128], 
+                  "dino_vit": [DINO("vit_small"), 384], "dino_resnet": [DINO("resnet50"), 384], 
+                  "dino_tiny": [DINO("vit_tiny"), 384], # 'vit_tiny', 'vit_small', 'vit_base', n'importe lequel des CNNs de torchvision
+                  "ret_ccl": [ResNet_ret.resnet50(num_classes=128, mlp=False, two_branch=False, normlinear = True), 2048],
+                  "cdpath": [cdpath(), 512], "phikon": [ViTModel.from_pretrained("owkin/phikon", add_pooling_layer=False), 768],
+                  "phikon2": [AutoModel.from_pretrained("owkin/phikon-v2"), 1024],
+                  "ibot_vits": [iBot("vit_small"), 384], "ibot_vitb": [iBot("vit_base"), 384], "byol_light": [BYOL(67), 256], } 
+try:
+    from timm.layers import SwiGLUPacked
+    timm_kwargs = {
+            'img_size': 224, 
+            'patch_size': 14, 
+            'depth': 24,
+            'num_heads': 24,
+            'init_values': 1e-5, 
+            'embed_dim': 1536,
+            'mlp_ratio': 2.66667*2,
+            'num_classes': 0, 
+            'no_embed_class': True,
+            'mlp_layer': timm.layers.SwiGLUPacked, 
+            'act_layer': torch.nn.SiLU, 
+            'reg_tokens': 8, 
+            'dynamic_img_size': True
+        }
+    archs_weighted["uni2"] = [ timm.create_model("hf-hub:MahmoodLab/UNI2-h", pretrained=True, **timm_kwargs), 1536]
+    archs_weighted["uni"] = [timm.create_model("vit_large_patch16_224", img_size=224, patch_size=16, init_values=1e-5, num_classes=0, dynamic_img_size=True), 1024]
+    archs_weighted["hoptim"] = [timm.create_model("hf-hub:bioptimus/H-optimus-0", pretrained=True, init_values=1e-5, dynamic_img_size=False), 1536]
+    archs_weighted['hoptim1'] = [timm.create_model("hf-hub:bioptimus/H-optimus-1", pretrained=True, init_values=1e-5, dynamic_img_size=False), 1536]
+    archs_weighted['virchow2'] = [timm.create_model("hf-hub:paige-ai/Virchow2", pretrained=True, mlp_layer=SwiGLUPacked, act_layer=torch.nn.SiLU), 2560]
+
+except Exception as e:
+   archs_weighted["ctranspath"] =  [ctranspath(), 768]
 
 class Model(nn.Module):
     def __init__(self, model='resnet', eval=True, batch_size=32, num_features=128,
@@ -40,9 +74,8 @@ class Model(nn.Module):
             self.forward_function = self.forward_model
             self.num_features = num_features
         
-        model_object = arch.load_model(model)
-        self.model = model_object[0]
-        self.num_features = model_object[1]
+        self.model = archs_weighted[model][0].to(device=device)
+        self.num_features = archs_weighted[model][1]
         self.model = self.model.to(device=device)
         #----------------------------------------------------------------------------------------------------------------
         #                                  Freeze of model parameters
@@ -77,7 +110,7 @@ class Model(nn.Module):
                 try:
                     self.model.load_state_dict(torch.load(weight)["state_dict"])
                 except:
-                    self.model = arch.BYOL(1000).to(device=device)
+                    self.model = BYOL(1000).to(device=device)
                     self.model.load_state_dict(torch.load(weight)["state_dict"])
             elif model == "ret_ccl":
                 pretext_model = torch.load(weight)

@@ -1,0 +1,478 @@
+-----------------------------------------------------------------------------------------------
+------------------------------------- ResNet --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-18 17:39:06
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/resnet/model1/last_epoch
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 49.03s | transfer: 0.05s | indexing: 5.40s
+T_indexing = 59.66515493392944
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.82190369]
+top-5 accuracy :  [0.92997523]
+top-1 accuracy proj :  [0.94501697]
+top-5 accuracy proj :  [0.97037453]
+top-1 accuracy sim :  [0.94561031]
+top-5 accuracy sim :  [0.97105115]
+maj accuracy class :  [0.84304541]
+maj accuracy proj :  [0.94455895]
+maj accuracy sim :  [0.94539171]
+f1 score :  0.8219036912122916
+t_tot: 524.5007257461548
+t_model: 441.64892768859863
+t_transfer: 2.3510286808013916
+t_search: 74.22353482246399
+-----------------------------------------------------------------------------------------------
+------------------------------------- DeiT --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-18 17:39:06
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/deit/model2/last_epoch
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 117.00s | transfer: 0.05s | indexing: 4.96s
+T_indexing = 127.20199418067932
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.7971707]
+top-5 accuracy :  [0.91934712]
+top-1 accuracy proj :  [0.94213353]
+top-5 accuracy proj :  [0.96457644]
+top-1 accuracy sim :  [0.94243541]
+top-5 accuracy sim :  [0.96477422]
+maj accuracy class :  [0.81863511]
+maj accuracy proj :  [0.9421023]
+maj accuracy sim :  [0.94241459]
+f1 score :  0.7971706951470864
+t_tot: 674.283242225647
+t_model: 587.0440058708191
+t_transfer: 2.4602649211883545
+t_search: 78.37206387519836
+
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-22 10:04:01
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model3/dino_deitsmall16_pretrain.pth
+Indexing
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model3/dino_deitsmall16_pretrain.pth and loaded with msg: <All keys matched successfully>
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 46.13s | transfer: 0.07s | indexing: 7.35s
+T_indexing = 59.03457474708557
+all
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model3/dino_deitsmall16_pretrain.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.7630275]
+top-5 accuracy :  [0.90732413]
+top-1 accuracy proj :  [0.93356651]
+top-5 accuracy proj :  [0.95872629]
+top-1 accuracy sim :  [0.93506548]
+top-5 accuracy sim :  [0.95986093]
+maj accuracy class :  [0.77450919]
+maj accuracy proj :  [0.93528408]
+maj accuracy sim :  [0.9373868]
+f1 score :  0.7630275019257594
+t_tot: 615.3989474773407
+t_model: 516.8458976745605
+t_transfer: 2.5621790885925293
+t_search: 89.69072413444519
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO fine --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-22 10:04:01
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model4/checkpoint0099_pretrained.pth
+Indexing
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model4/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 46.10s | transfer: 0.06s | indexing: 6.74s
+T_indexing = 58.29485368728638
+all
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model4/checkpoint0099_pretrained.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.76738909]
+top-5 accuracy :  [0.88984656]
+top-1 accuracy proj :  [0.92511398]
+top-5 accuracy proj :  [0.94517311]
+top-1 accuracy sim :  [0.92725834]
+top-5 accuracy sim :  [0.94808777]
+maj accuracy class :  [0.77752795]
+maj accuracy proj :  [0.92590511]
+maj accuracy sim :  [0.92843462]
+f1 score :  0.7673890866695813
+t_tot: 599.4272656440735
+t_model: 502.08692836761475
+t_transfer: 2.488802433013916
+t_search: 88.64039254188538
+-----------------------------------------------------------------------------------------------
+------------------------------------- DINO scratch --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-22 10:04:01
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model5/checkpoint0099_scratch.pth
+Indexing
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model5/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 46.25s | transfer: 0.07s | indexing: 7.16s
+T_indexing = 58.931185245513916
+all
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/Dino/model5/checkpoint0099_scratch.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.77236483]
+top-5 accuracy :  [0.89355235]
+top-1 accuracy proj :  [0.9274249]
+top-5 accuracy proj :  [0.94881644]
+top-1 accuracy sim :  [0.9297254]
+top-5 accuracy sim :  [0.95158537]
+maj accuracy class :  [0.78365915]
+maj accuracy proj :  [0.92866363]
+maj accuracy sim :  [0.93138051]
+f1 score :  0.772364832510982
+t_tot: 601.033609867096
+t_model: 503.77093720436096
+t_transfer: 2.4948112964630127
+t_search: 88.5415997505188
+-----------------------------------------------------------------------------------------------
+------------------------------------- BYOL pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-22 10:04:01
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/byol_light/model6/epoch=99-step=500400.ckpt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 49.09s | transfer: 0.06s | indexing: 6.25s
+T_indexing = 60.68888330459595
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.63799888]
+top-5 accuracy :  [0.8431495]
+top-1 accuracy proj :  [0.80788208]
+top-5 accuracy proj :  [0.91743177]
+top-1 accuracy sim :  [0.84275394]
+top-5 accuracy sim :  [0.95148127]
+maj accuracy class :  [0.62596548]
+maj accuracy proj :  [0.79966898]
+maj accuracy sim :  [0.84635563]
+f1 score :  0.6379988757729061
+t_tot: 583.6748428344727
+t_model: 489.92056465148926
+t_transfer: 2.347681760787964
+t_search: 84.72192525863647
+-----------------------------------------------------------------------------------------------
+------------------------------------- BYOL fine --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-22 10:04:01
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/byol_light/model7/epoch=99-step=164900.ckpt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 49.10s | transfer: 0.06s | indexing: 5.87s
+T_indexing = 60.17906951904297
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.75418983]
+top-5 accuracy :  [0.89423938]
+top-1 accuracy proj :  [0.94086357]
+top-5 accuracy proj :  [0.95003435]
+top-1 accuracy sim :  [0.94091562]
+top-5 accuracy sim :  [0.95006558]
+maj accuracy class :  [0.77175067]
+maj accuracy proj :  [0.94211271]
+maj accuracy sim :  [0.94225845]
+f1 score :  0.7541898278267025
+t_tot: 553.3959822654724
+t_model: 463.08799958229065
+t_transfer: 2.268096685409546
+t_search: 81.58320713043213
+-----------------------------------------------------------------------------------------------
+------------------------------------- BYOL scratch --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-22 10:04:01
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/byol_light/model8/epoch=99-step=164900.ckpt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 49.03s | transfer: 0.06s | indexing: 6.50s
+T_indexing = 60.836570024490356
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.73911686]
+top-5 accuracy :  [0.90294173]
+top-1 accuracy proj :  [0.93547145]
+top-5 accuracy proj :  [0.95749797]
+top-1 accuracy sim :  [0.9359711]
+top-5 accuracy sim :  [0.95781026]
+maj accuracy class :  [0.75561593]
+maj accuracy proj :  [0.93560677]
+maj accuracy sim :  [0.93606479]
+f1 score :  0.739116857160702
+t_tot: 573.8851594924927
+t_model: 481.17263555526733
+t_transfer: 2.3544366359710693
+t_search: 83.80201554298401
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-22 10:04:01
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model9/checkpoint_teacher.pth
+Indexing
+Model vit_small 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model9/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 46.14s | transfer: 0.07s | indexing: 6.59s
+T_indexing = 58.01662015914917
+all
+Model vit_small 16x16 built.
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model9/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.75792684]
+top-5 accuracy :  [0.90508609]
+top-1 accuracy proj :  [0.92894468]
+top-5 accuracy proj :  [0.95580122]
+top-1 accuracy sim :  [0.9317032]
+top-5 accuracy sim :  [0.95846605]
+maj accuracy class :  [0.77055358]
+maj accuracy proj :  [0.92951721]
+maj accuracy sim :  [0.93327504]
+f1 score :  0.7579268419628172
+t_tot: 595.0104296207428
+t_model: 498.53854513168335
+t_transfer: 2.506091833114624
+t_search: 87.83336639404297
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT fine --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-22 10:04:01
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model10/checkpointv1_99.pth
+Indexing
+Model vit_small 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model10/checkpointv1_99.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 831
+Batch 50 / 831
+Batch 100 / 831
+Batch 150 / 831
+Batch 200 / 831
+Batch 250 / 831
+Batch 300 / 831
+Batch 350 / 831
+Batch 400 / 831
+Batch 450 / 831
+Batch 500 / 831
+Batch 550 / 831
+Batch 600 / 831
+Batch 650 / 831
+Batch 700 / 831
+Batch 750 / 831
+Batch 800 / 831
+✅ Time - model: 46.17s | transfer: 0.07s | indexing: 7.16s
+T_indexing = 58.678465604782104
+all
+Model vit_small 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model10/checkpointv1_99.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.77975558]
+top-5 accuracy :  [0.8950305]
+top-1 accuracy proj :  [0.92766431]
+top-5 accuracy proj :  [0.94333063]
+top-1 accuracy sim :  [0.9281952]
+top-5 accuracy sim :  [0.94438199]
+maj accuracy class :  [0.78779173]
+maj accuracy proj :  [0.92525972]
+maj accuracy sim :  [0.92599879]
+f1 score :  0.7797555847021839
+t_tot: 578.3820924758911
+t_model: 483.05786514282227
+t_transfer: 2.4679183959960938
+t_search: 86.77943444252014
+

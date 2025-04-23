@@ -8,7 +8,6 @@ import time
 import json
 import argparse
 import arch
-import gc
 
 import numpy as np
 
@@ -72,145 +71,130 @@ class Database:
 
         self.r.set('last_id', last_id) # Update the last id to take into account the added images
 
+        
 
     @torch.no_grad()
     def add_dataset(self, data_root, extractor):
-        # Setup
+        # Create a dataset from a directory root
         data = dataset.AddDataset(data_root, extractor)
-        loader = torch.utils.data.DataLoader(
-            data, batch_size=128, num_workers=8, pin_memory=True, shuffle=True)
-
-        model = self.model
-        model_device = next(model.parameters()).device
-
-        t_model, t_indexing, t_transfer = 0, 0, 0
-
-        def log_mem(step=""):
-            torch.cuda.empty_cache()
-            print(f"[{step}] CUDA mem alloc: {torch.cuda.memory_allocated() / 1e6:.1f} MB")
-            print(f"[{step}] CUDA mem reserved: {torch.cuda.memory_reserved() / 1e6:.1f} MB")
-
+        loader = torch.utils.data.DataLoader(data, batch_size=128, num_workers=8, pin_memory=True, shuffle = True)
+        t_model = 0
+        t_indexing = 0
+        t_transfer = 0
         for i, (images, filenames) in enumerate(loader):
-            if i % 50 == 0:
+            if i % 10 == 0:
                 print(f"Batch {i} / {len(loader)}")
+            images = images.view(-1, 3, 224, 224).to(device=next(self.model.parameters()).device)
+            if extractor == "cdpath":
+                t = time.time()
+                images = arch.scale_generator(images, 224, 1, 112, rescale_size=224)
+                out = self.model.model.encode(images)
+                t_im = time.time() - t
+            elif extractor == "phikon" or extractor == "phikon2":
+                t = time.time()
+                outputs = self.model.model(images)  
+                out = outputs.last_hidden_state[:, 0, :]
+                t_im = time.time() - t
+            elif extractor == "hoptim" or extractor == 'hoptim1':
+                t = time.time()
+                with torch.autocast(device_type="cuda", dtype=torch.float16):
+                    with torch.inference_mode():
+                        out = self.model(images)
+                        out = out.contiguous()
+                t_im = time.time() - t
+            elif extractor == "virchow2":
+                t = time.time()
+                output = self.model(images)  # size: batch x 261 x 1280
+                class_token = output[:, 0]    # size: 1 x 1280
+                patch_tokens = output[:, 5:]  # size: 1 x 256 x 1280, tokens 1-4 are register tokens so we ignore those
 
-            # Ensure shape
-            images = images.view(-1, 3, 224, 224).to(device=model_device, non_blocking=True)
-
-            try:
-                # Inference
-                t0 = time.time()
-
-                if extractor == "cdpath":
-                    images = arch.scale_generator(images, 224, 1, 112, rescale_size=224)
-                    out = model.model.encode(images)
-
-                elif extractor in {"phikon", "phikon2"}:
-                    outputs = model.model(images)
-                    out = outputs.last_hidden_state[:, 0, :]
-
-                elif extractor in {"hoptim", "hoptim1"}:
-                    with torch.autocast(device_type="cuda", dtype=torch.float16):
-                        out = model(images)
-
-                elif extractor == "virchow2":
-                    output = model(images)
-                    class_token = output[:, 0]
-                    patch_tokens = output[:, 5:]
-                    out = torch.cat([class_token, patch_tokens.mean(1)], dim=-1)
-
-                else:
-                    out = model(images)
-                    if not isinstance(out, torch.Tensor):
-                        out = out.logits
-
+                # concatenate class token and average pool of patch tokens
+                out = torch.cat([class_token, patch_tokens.mean(1)], dim=-1)
+                t_im = time.time() - t
+            else: 
+                t = time.time()
+                out = self.model(images)
+                if not isinstance(out, torch.Tensor):
+                    out = out.logits
                 out = out.contiguous()
-
-                torch.cuda.synchronize()
-                t_model += time.time() - t0
-
-                # Check for NaNs
-                if torch.isnan(out).any():
-                    print(f"🚨 NaNs in batch {i}")
-                    continue
-
-                # Transfer to CPU
-                t = time.time()
-                out_np = out.cpu().numpy()
-
-                torch.cuda.synchronize()
-                t_transfer += time.time() - t
-
-                # Indexing / saving
-                t = time.time()
-                self.add(out_np, list(filenames))
-
-                torch.cuda.synchronize()
-                t_indexing += time.time() - t
-
-            except RuntimeError as e:
-                print(f"⚠️ Runtime error at batch {i}: {e}")
-                log_mem(f"Error @ batch {i}")
-                continue
-            # Optional memory cleanup
-            if i % 20 == 0:
-                torch.cuda.empty_cache()
-                gc.collect()
-
-        print(f"✅ Time - model: {t_model:.2f}s | transfer: {t_transfer:.2f}s | indexing: {t_indexing:.2f}s")
+                t_im = time.time() - t   
+            t = time.time()
+            out = out.cpu()
+            t_transfer = t_transfer + time.time() - t
+            t = time.time()
+             # check if out contains nan
+            if np.isnan(out.numpy()).any():
+                print("Nan in output")
+            self.add(out.numpy(), list(filenames))
+            t_im_ind = time.time() - t
+            t_indexing = t_indexing + t_im_ind
+            t_model = t_model + t_im
+            #torch.cuda.empty_cache()
+        print("Time of the model: "+str(t_model))
+        print("Time of the transfer: "+str(t_transfer))
+        print("Time of the indexing: "+str(t_indexing))
         self.save()
+        
+
 
     @torch.no_grad()
     def search(self, x, extractor, generalise=0, nrt_neigh=10):
-        model = self.model
-        model_device = next(model.parameters()).device
-        image = x.to(device=model_device, non_blocking=True).reshape(-1, 3, 224, 224)
-
-        #torch.cuda.synchronize()
-        t0_model = time.time()
-
+        image = x.view(-1, 3, 224, 224).to(device=next(self.model.parameters()).device)
+        t_model = 0
         if extractor == "cdpath":
+            t = time.time()
             image = arch.scale_generator(image, 224, 1, 112, rescale_size=224)
-            out = model.model.encode(image)
-
-        elif extractor in {"phikon", "phikon2"}:
-            outputs = model.model(image)
+            out = self.model.model.encode(image)
+            t_model = time.time() - t
+        elif extractor == "phikon" or extractor == "phikon2":
+            t = time.time()
+            outputs = self.model.model(image)  
             out = outputs.last_hidden_state[:, 0, :]
-
-        elif extractor in {"hoptim", "hoptim1"}:
+            t_model = time.time() - t
+        elif extractor == "hoptim" or extractor == "hoptim1":
+            t = time.time()
             with torch.autocast(device_type="cuda", dtype=torch.float16):
-                out = model(image)
-
+                with torch.inference_mode():
+                    out = self.model(image)
+                    out = out.contiguous()
+            t_model = time.time() - t
         elif extractor == "virchow2":
-            output = model(image)
-            class_token = output[:, 0]
-            patch_tokens = output[:, 5:]
+            t = time.time()
+            output = self.model(image)  # size: batch x 261 x 1280
+            class_token = output[:, 0]    # size: 1 x 1280
+            patch_tokens = output[:, 5:]  # size: 1 x 256 x 1280, tokens 1-4 are register tokens so we ignore those
+
+            # concatenate class token and average pool of patch tokens
             out = torch.cat([class_token, patch_tokens.mean(1)], dim=-1)
-
+            t_model = time.time() - t
+    
         else:
-            out = model(image)
+            t = time.time()
+            out = self.model(image)
             if not isinstance(out, torch.Tensor):
-                out = out.logits
+                 out = out.logits
+            t_model = time.time() - t
+        t_transfer = time.time()
+        out = out.cpu()
+        t_transfer = time.time() - t_transfer
+        
+        t_search = time.time()
 
-        torch.cuda.synchronize()
-        t_model = time.time() - t0_model
-
-        # Transfer to CPU
-        torch.cuda.synchronize()
-        t0_transfer = time.time()
-        out = out.cpu().numpy()
-        t_transfer = time.time() - t0_transfer
-
-        # Search
-        torch.cuda.synchronize()
-        t0_search = time.time()
-        distance, labels = self.index.search(out, nrt_neigh)
+        # Récupère l'index des nrt_neigh images les plus proches de x
+        
+        out = out.numpy()
+        distance, labels = self.index.search(out, nrt_neigh) 
         labels = [l for l in list(labels[0]) if l != -1]
-        values = [self.r.get(str(l)).decode("utf-8") for l in labels]
-        t_search = time.time() - t0_search
+        # retrieves the names of the images based on their index
+        values = []
+        
+        for l in labels:
+            v = self.r.get(str(l)).decode('utf-8')
+            values.append(v)
+        t_search = time.time() - t_search
 
         return values, distance[0], t_model, t_search, t_transfer
-
+        
 
     def remove(self, name):
         key = self.r.get(name).decode('utf-8')

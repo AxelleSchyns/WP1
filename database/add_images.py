@@ -76,6 +76,7 @@ if __name__ == "__main__":
         print("Unkown feature extractor")
         exit(-1)
     # Initialize the database
+    print("database starting")
     database = Database(args.db_name, model, load = not args.rewrite)
     # Indexed the images in the database
     t = time.time()

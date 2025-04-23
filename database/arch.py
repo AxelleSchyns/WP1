@@ -19,6 +19,116 @@ from lightly.utils.benchmarking import OnlineLinearClassifier
 from lightly.loss import NegativeCosineSimilarity
 from timm.models.layers import to_2tuple
 from torch import Tensor
+from transformers import DeiTForImageClassification, ViTModel, AutoModel
+import resnet_ret as ResNet_ret
+from timm.layers import SwiGLUPacked
+
+
+def load_model(name):
+    if name == "resnet":
+        model = torchvision_models.resnet50(weights='ResNet50_Weights.DEFAULT')
+        dim = 128
+
+    elif name == "deit":
+        model = DeiTForImageClassification.from_pretrained('facebook/deit-base-distilled-patch16-224')
+        model.config.use_cache = False
+        dim = 128
+
+    elif name == "dino_vit":
+        model = DINO("vit_small")
+        dim = 384
+
+    elif name == "dino_resnet":
+        model = DINO("resnet50")
+        dim = 384
+
+    elif name == "dino_tiny":
+        model = DINO("vit_tiny")
+        dim = 384
+
+    elif name == "ret_ccl":
+        model = ResNet_ret.resnet50(num_classes=128, mlp=False, two_branch=False, normlinear=True)
+        dim = 2048
+
+    elif name == "cdpath":
+        model = cdpath()
+        dim = 512
+
+    elif name == "phikon":
+        model = ViTModel.from_pretrained("owkin/phikon", add_pooling_layer=False)
+        model.config.use_cache = False
+        dim = 768
+
+    elif name == "phikon2":
+        model = AutoModel.from_pretrained("owkin/phikon-v2")
+        dim = 1024
+
+    elif name == "ibot_vits":
+        model = iBot("vit_small")
+        dim = 384
+
+    elif name == "ibot_vitb":
+        model = iBot("vit_base")
+        dim = 384
+
+    elif name == "byol_light":
+        model = BYOL(67)
+        dim = 256
+
+    elif name == "ctranspath":
+        model = ctranspath()
+        dim = 768
+
+    elif name == "uni":
+        model = timm.create_model("vit_large_patch16_224", pretrained=True, 
+                                  img_size=224, patch_size=16, init_values=1e-5, 
+                                  num_classes=0, dynamic_img_size=True)
+        dim = 1024
+
+    elif name == "uni2":
+        timm_kwargs = {
+            'img_size': 224,
+            'patch_size': 14,
+            'depth': 24,
+            'num_heads': 24,
+            'init_values': 1e-5,
+            'embed_dim': 1536,
+            'mlp_ratio': 2.66667 * 2,
+            'num_classes': 0,
+            'no_embed_class': True,
+            'mlp_layer': SwiGLUPacked,
+            'act_layer': torch.nn.SiLU,
+            'reg_tokens': 8,
+            'dynamic_img_size': True
+        }
+        model = timm.create_model("hf-hub:MahmoodLab/UNI2-h", pretrained=True, **timm_kwargs)
+        dim = 1536
+
+    elif name == "hoptim":
+        model = timm.create_model("hf-hub:bioptimus/H-optimus-0", pretrained=True,
+                                  init_values=1e-5, dynamic_img_size=False)
+        dim = 1536
+
+    elif name == "hoptim1":
+        model = timm.create_model("hf-hub:bioptimus/H-optimus-1", pretrained=True,
+                                  init_values=1e-5, dynamic_img_size=False)
+        dim = 1536
+
+    elif name == "virchow2":
+        model = timm.create_model("hf-hub:paige-ai/Virchow2", pretrained=True,
+                                  mlp_layer=SwiGLUPacked, act_layer=torch.nn.SiLU)
+        dim = 2560
+
+    else:
+        raise ValueError(f"Unknown model name: {name}")
+
+    return model, dim
+
+
+
+
+
+
 
 class BYOL(LightningModule):
     def __init__(self, num_classes: int) -> None:

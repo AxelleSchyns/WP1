@@ -52,7 +52,7 @@ def compute_results(names, data, predictions, class_im, proj_im, top_1_acc, top_
         else:
             prop.append(0)
 
-    # Evolution of proportion of correct image at each step independantly 
+    # Evolution of proportion of correct image at each step 
     for i in range(len(names)): # additive prop 
         if i == 0:
             ev_prop.append(prop[i])
@@ -469,7 +469,7 @@ def test(model, model_weight, dataset, db_name, extractor, measure, project_name
         print("maj accuracy class : ", maj_acc[0] / s)
         print("maj accuracy proj : ", maj_acc[1] / s)
         print("maj accuracy sim : ", maj_acc[2] / s)
-        print("Props: ", props / s)
+        #print("Props: ", props / s)
         print("f1 score : ", f1)
 
         print('t_tot:', t_tot)
