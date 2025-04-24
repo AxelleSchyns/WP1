@@ -1,4 +1,26 @@
 -----------------------------------------------------------------------------------------------
+------------------------------------- ResNet --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py:278: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  if self.device is not 'cuda:0': # TODO change
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- DeiT --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Some weights of DeiTForImageClassification were not initialized from the model checkpoint at facebook/deit-base-distilled-patch16-224 and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Some weights of DeiTForImageClassification were not initialized from the model checkpoint at facebook/deit-base-distilled-patch16-224 and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+-----------------------------------------------------------------------------------------------
 ------------------------------------- DINO pre --------------------------------------------------
 -----------------------------------------------------------------------------------------------
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
@@ -64,8 +86,6 @@ all
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 all
-/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
-  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 -----------------------------------------------------------------------------------------------
 ------------------------------------- iBOT fine --------------------------------------------------
 -----------------------------------------------------------------------------------------------
@@ -74,33 +94,6 @@ all
 all
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
------------------------------------------------------------------------------------------------
-------------------------------------- iBOT scratch --------------------------------------------------
------------------------------------------------------------------------------------------------
-/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
-  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
------------------------------------------------------------------------------------------------
-------------------------------------- iBOT pre --------------------------------------------------
------------------------------------------------------------------------------------------------
-/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
-  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
-all
-/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
-  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
-Traceback (most recent call last):
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 670, in <module>
-    r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 431, in test
-    names, _, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(image, extractor)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 207, in search
-    distance, labels = self.index.search(out, nrt_neigh)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/__init__.py", line 322, in replacement_search
-    self.search_c(n, swig_ptr(x), k, swig_ptr(D), swig_ptr(I))
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/swigfaiss.py", line 8404, in search
-    return _swigfaiss.IndexIDMap_search(self, n, x, k, distances, labels)
-KeyboardInterrupt
 -----------------------------------------------------------------------------------------------
 ------------------------------------- iBOT scratch --------------------------------------------------
 -----------------------------------------------------------------------------------------------
@@ -144,35 +137,6 @@ Some weights of the model checkpoint at owkin/phikon were not used when initiali
 - This IS expected if you are initializing ViTModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing ViTModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
 all
-/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
-  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
-Some weights of the model checkpoint at owkin/phikon were not used when initializing ViTModel: ['pooler.dense.bias', 'pooler.dense.weight']
-- This IS expected if you are initializing ViTModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing ViTModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Traceback (most recent call last):
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 670, in <module>
-    r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 484, in test
-    display_prec_im(model_weight, props, data, measure)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 249, in display_prec_im
-    plt.savefig(fold_path + '/uliege_prec_im_'+measure+'.png')
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/pyplot.py", line 1223, in savefig
-    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/figure.py", line 3388, in savefig
-    self.canvas.print_figure(fname, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2218, in print_figure
-    result = print_method(
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2068, in <lambda>
-    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
-    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 445, in _print_pil
-    mpl.image.imsave(
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/image.py", line 1676, in imsave
-    image.save(fname, **pil_kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/PIL/Image.py", line 2456, in save
-    fp = builtins.open(filename, "w+b")
-FileNotFoundError: [Errno 2] No such file or directory: '/home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model14/uliege_prec_im_all.png'
 -----------------------------------------------------------------------------------------------
 ------------------------------------- CTransPath --------------------------------------------------
 -----------------------------------------------------------------------------------------------
@@ -222,7 +186,99 @@ Traceback (most recent call last):
     self.patch_embed = embed_layer(
 TypeError: ConvStem.__init__() got an unexpected keyword argument 'strict_img_size'
 -----------------------------------------------------------------------------------------------
+------------------------------------- iBOT pre --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- Phikon --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Some weights of the model checkpoint at owkin/phikon were not used when initializing ViTModel: ['pooler.dense.bias', 'pooler.dense.weight']
+- This IS expected if you are initializing ViTModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ViTModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- Phikon --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Some weights of the model checkpoint at owkin/phikon were not used when initializing ViTModel: ['pooler.dense.bias', 'pooler.dense.weight']
+- This IS expected if you are initializing ViTModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ViTModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 670, in <module>
+    r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 484, in test
+    display_prec_im(model_weight, props, data, measure)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 249, in display_prec_im
+    plt.savefig(fold_path + '/uliege_prec_im_'+measure+'.png')
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/pyplot.py", line 1223, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/figure.py", line 3388, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2218, in print_figure
+    result = print_method(
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2068, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 445, in _print_pil
+    mpl.image.imsave(
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/image.py", line 1676, in imsave
+    image.save(fname, **pil_kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/PIL/Image.py", line 2456, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model14/uliege_prec_im_all.png'
+-----------------------------------------------------------------------------------------------
+------------------------------------- CTransPath --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/add_images.py", line 1, in <module>
+    import models
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 11, in <module>
+    import arch
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/arch.py", line 24, in <module>
+    from timm.layers import SwiGLUPacked
+ModuleNotFoundError: No module named 'timm.layers'
+all
+/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py:278: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  if self.device is not 'cuda:0': # TODO change
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 2, in <module>
+    import db
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 3, in <module>
+    import models
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 11, in <module>
+    import arch
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/arch.py", line 24, in <module>
+    from timm.layers import SwiGLUPacked
+ModuleNotFoundError: No module named 'timm.layers'
+-----------------------------------------------------------------------------------------------
+------------------------------------- CTransPath --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3587.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+all
+/home/labsig/anaconda3/envs/WP1/lib/python3.9/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3587.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+-----------------------------------------------------------------------------------------------
 ------------------------------------- Uni --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- Hoptimus --------------------------------------------------
 -----------------------------------------------------------------------------------------------
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
@@ -234,20 +290,12 @@ all
 -----------------------------------------------------------------------------------------------
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
-Traceback (most recent call last):
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/add_images.py", line 83, in <module>
-    database.add_dataset(args.path, args.extractor)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 93, in add_dataset
-    for i, (images, filenames) in enumerate(loader):
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
-    data = self._next_data()
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
-    idx, data = self._get_data()
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1282, in _get_data
-    raise RuntimeError(f'DataLoader timed out after {self._timeout} seconds')
-RuntimeError: DataLoader timed out after 30 seconds
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- UNI V2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
 all
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
@@ -258,11 +306,75 @@ Traceback (most recent call last):
     names, _, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(image, extractor)
   File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
     return func(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 208, in search
-    distance, labels = self.index.search(out, nrt_neigh)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/__init__.py", line 308, in replacement_search
-    assert d == self.d
-AssertionError
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 193, in search
+    out = model(image)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 124, in forward
+    return self.forward_function(input)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 853, in forward
+    x = self.forward_features(x)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 834, in forward_features
+    x = self.blocks(x)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 170, in forward
+    x = x + self.drop_path2(self.ls2(self.mlp(self.norm2(x))))
+RuntimeError: t == DeviceType::CUDA INTERNAL ASSERT FAILED at "../c10/cuda/impl/CUDAGuardImpl.h":28, please report a bug to PyTorch. 
+-----------------------------------------------------------------------------------------------
+------------------------------------- UNI V2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- Virchow V2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 656, in <module>
+    model = Model(num_features=args.num_features, weight=args.weights, model=args.extractor,
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 43, in __init__
+    model_object = arch.load_model(model)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/arch.py", line 120, in load_model
+    mlp_layer=SwiGLUPacked, act_layer=torch.nn.SiLU)
+UnboundLocalError: local variable 'SwiGLUPacked' referenced before assignment
+-----------------------------------------------------------------------------------------------
+------------------------------------- Virchow V2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/add_images.py", line 72, in <module>
+    model = models.Model(model=args.extractor, num_features=args.num_features, weight=args.weights,
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 43, in __init__
+    model_object = arch.load_model(model)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/arch.py", line 120, in load_model
+    mlp_layer=SwiGLUPacked, act_layer=torch.nn.SiLU)
+UnboundLocalError: local variable 'SwiGLUPacked' referenced before assignment
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 656, in <module>
+    model = Model(num_features=args.num_features, weight=args.weights, model=args.extractor,
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 43, in __init__
+    model_object = arch.load_model(model)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/arch.py", line 120, in load_model
+    mlp_layer=SwiGLUPacked, act_layer=torch.nn.SiLU)
+UnboundLocalError: local variable 'SwiGLUPacked' referenced before assignment
 -----------------------------------------------------------------------------------------------
 ------------------------------------- Virchow V2 --------------------------------------------------
 -----------------------------------------------------------------------------------------------
@@ -292,13 +404,93 @@ Traceback (most recent call last):
     names, _, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(image, extractor)
   File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
     return func(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 208, in search
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 209, in search
     distance, labels = self.index.search(out, nrt_neigh)
   File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/__init__.py", line 308, in replacement_search
     assert d == self.d
 AssertionError
 -----------------------------------------------------------------------------------------------
-------------------------------------- Hoptimus --------------------------------------------------
+------------------------------------- Virchow V2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+-----------------------------------------------------------------------------------------------
+------------------------------------- Phikon v2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 670, in <module>
+    r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 431, in test
+    names, _, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(image, extractor)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 209, in search
+    distance, labels = self.index.search(out, nrt_neigh)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/__init__.py", line 308, in replacement_search
+    assert d == self.d
+AssertionError
+-----------------------------------------------------------------------------------------------
+------------------------------------- Phikon v2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 670, in <module>
+    r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 431, in test
+    names, _, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(image, extractor)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 209, in search
+    distance, labels = self.index.search(out, nrt_neigh)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/__init__.py", line 308, in replacement_search
+    assert d == self.d
+AssertionError
+-----------------------------------------------------------------------------------------------
+------------------------------------- Phikon v2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Traceback (most recent call last):
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 670, in <module>
+    r = test(model, args.weights, args.path, args.db_name, args.extractor, args.measure, args.project_name, args.class_name, True)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 484, in test
+    display_prec_im(model_weight, props, data, measure)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 249, in display_prec_im
+    plt.savefig(fold_path + '/uliege_prec_im_'+measure+'.png')
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/pyplot.py", line 1223, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/figure.py", line 3388, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2218, in print_figure
+    result = print_method(
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2068, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 445, in _print_pil
+    mpl.image.imsave(
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/matplotlib/image.py", line 1676, in imsave
+    image.save(fname, **pil_kwargs)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/PIL/Image.py", line 2456, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model20/uliege_prec_im_all.png'
+-----------------------------------------------------------------------------------------------
+------------------------------------- Hoptimus1 --------------------------------------------------
 -----------------------------------------------------------------------------------------------
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
@@ -326,46 +518,49 @@ Traceback (most recent call last):
     names, _, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(image, extractor)
   File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
     return func(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 208, in search
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 209, in search
     distance, labels = self.index.search(out, nrt_neigh)
   File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/__init__.py", line 308, in replacement_search
     assert d == self.d
 AssertionError
 -----------------------------------------------------------------------------------------------
--------------------------------------  --------------------------------------------------
+------------------------------------- Hoptimus1 --------------------------------------------------
 -----------------------------------------------------------------------------------------------
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 Traceback (most recent call last):
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/add_images.py", line 72, in <module>
-    model = models.Model(model=args.extractor, num_features=args.num_features, weight=args.weights,
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 43, in __init__
-    model_object = arch.load_model(model)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/arch.py", line 123, in load_model
-    raise ValueError(f"Unknown model name: {name}")
-ValueError: Unknown model name: 
-all
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/add_images.py", line 83, in <module>
+    database.add_dataset(args.path, args.extractor)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 93, in add_dataset
+    for i, (images, filenames) in enumerate(loader):
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1282, in _get_data
+    raise RuntimeError(f'DataLoader timed out after {self._timeout} seconds')
+RuntimeError: DataLoader timed out after 30 seconds
+-----------------------------------------------------------------------------------------------
+------------------------------------- Hoptimus1 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 Traceback (most recent call last):
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/test_accuracy.py", line 656, in <module>
-    model = Model(num_features=args.num_features, weight=args.weights, model=args.extractor,
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 43, in __init__
-    model_object = arch.load_model(model)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/arch.py", line 123, in load_model
-    raise ValueError(f"Unknown model name: {name}")
-ValueError: Unknown model name: 
------------------------------------------------------------------------------------------------
-------------------------------------- Phikon v2 --------------------------------------------------
------------------------------------------------------------------------------------------------
-/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
-  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
-all
------------------------------------------------------------------------------------------------
-------------------------------------- Hoptimus --------------------------------------------------
------------------------------------------------------------------------------------------------
-/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
-  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/add_images.py", line 83, in <module>
+    database.add_dataset(args.path, args.extractor)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 93, in add_dataset
+    for i, (images, filenames) in enumerate(loader):
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1282, in _get_data
+    raise RuntimeError(f'DataLoader timed out after {self._timeout} seconds')
+RuntimeError: DataLoader timed out after 30 seconds
 all
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
@@ -376,76 +571,16 @@ Traceback (most recent call last):
     names, _, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(image, extractor)
   File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
     return func(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 183, in search
-    out = model(image)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 124, in forward
-    return self.forward_function(input)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 853, in forward
-    x = self.forward_features(x)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 834, in forward_features
-    x = self.blocks(x)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
-    input = module(input)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 169, in forward
-    x = x + self.drop_path1(self.ls1(self.attn(self.norm1(x))))
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/normalization.py", line 201, in forward
-    return F.layer_norm(
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/functional.py", line 2573, in layer_norm
-    return torch.layer_norm(input, normalized_shape, weight, bias, eps, torch.backends.cudnn.enabled)
-RuntimeError: CUDA error: an illegal memory access was encountered
-Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
-
-Faiss assertion 'err == cudaSuccess' failed in virtual void faiss::gpu::StandardGpuResourcesImpl::deallocMemory(int, void*) at /project/faiss/faiss/gpu/StandardGpuResources.cpp:518; details: Failed to cudaFree pointer 0x7cc8a3008600 (error 77 an illegal memory access was encountered)
+  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 209, in search
+    distance, labels = self.index.search(out, nrt_neigh)
+  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/faiss/__init__.py", line 308, in replacement_search
+    assert d == self.d
+AssertionError
 -----------------------------------------------------------------------------------------------
-------------------------------------- UNI V2 --------------------------------------------------
+------------------------------------- Hoptimus1 --------------------------------------------------
 -----------------------------------------------------------------------------------------------
 /home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
-Traceback (most recent call last):
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/add_images.py", line 83, in <module>
-    database.add_dataset(args.path, args.extractor)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/db.py", line 124, in add_dataset
-    out = model(images)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/labsig/Documents/Axelle/cytomine/WP1/database/models.py", line 124, in forward
-    return self.forward_function(input)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 853, in forward
-    x = self.forward_features(x)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 827, in forward_features
-    x = self.patch_embed(x)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/layers/patch_embed.py", line 131, in forward
-    x = self.proj(x)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 460, in forward
-    return self._conv_forward(input, self.weight, self.bias)
-  File "/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 456, in _conv_forward
-    return F.conv2d(input, weight, bias, self.stride,
-KeyboardInterrupt
+all
+/home/labsig/anaconda3/envs/UNI_env/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)

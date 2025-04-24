@@ -6,7 +6,7 @@
 
 
 # Number of models to test
-nb_models=9
+nb_models=21
 
 # path to data
 path_test='/home/labsig/Documents/Axelle/cytomine/Data/our/test'
@@ -46,13 +46,13 @@ models_name=('ResNet' 'DeiT' 'DINO pre' 'DINO fine' 'DINO scratch' 'BYOL pre' 'B
 # Type of measure
 measures=('all' )
 # Output files
-output_file='time_test_2.log'
-warnings_file='warnings_time_test_2.log'
+output_file='time_test_3.log'
+warnings_file='warnings_time_test_3.log'
 
 stat=false
 current_date=$(date "+%Y-%m-%d %H:%M:%S") 
 
-for ((nb=8; nb<nb_models; nb++)); do
+for ((nb=20; nb<nb_models; nb++)); do
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file"
     echo "------------------------------------- ${models_name[nb]} --------------------------------------------------" >> "$output_file"
     echo "-----------------------------------------------------------------------------------------------" >> "$output_file" 
@@ -63,7 +63,7 @@ for ((nb=8; nb<nb_models; nb++)); do
     echo "Weights: ${weights[nb]}" >> "$output_file"
     echo "Indexing" >> "$output_file"
     if [ "$stat" = false ]; then
-        python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}"  --rewrite --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
+        CUDA_LAUNCH_BLOCKING=1 python database/add_images.py --path "$path_test" --extractor "${extractors[nb]}" --weights "${weights[nb]}"  --rewrite --gpu_id 0 >> "$output_file" 2>> "$warnings_file"
     fi
     
     for i in "${!measures[@]}"; do
