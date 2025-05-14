@@ -78,7 +78,7 @@ class Database:
         # Setup
         data = dataset.AddDataset(data_root, extractor)
         loader = torch.utils.data.DataLoader(
-            data, batch_size=16, num_workers=8, pin_memory=True, shuffle=True)
+            data, batch_size=64, num_workers=8, pin_memory=True, timeout=30, persistent_workers=False )
 
         model = self.model
         model_device = next(model.parameters()).device
@@ -91,8 +91,9 @@ class Database:
             print(f"[{step}] CUDA mem reserved: {torch.cuda.memory_reserved() / 1e6:.1f} MB")
 
         for i, (images, filenames) in enumerate(loader):
-            if i % 50 == 0:
+            if i % 5000 == 0:
                 print(f"Batch {i} / {len(loader)}")
+                log_mem()
 
             # Ensure shape
             images = images.view(-1, 3, 224, 224).to(device=model_device, non_blocking=True)
@@ -111,7 +112,8 @@ class Database:
 
                 elif extractor in {"hoptim", "hoptim1"}:
                     with torch.autocast(device_type="cuda", dtype=torch.float16):
-                        out = model(images)
+                        with torch.inference_mode():
+                            out = model(images)
 
                 elif extractor == "virchow2":
                     output = model(images)

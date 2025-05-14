@@ -21,7 +21,7 @@ from timm.models.layers import to_2tuple
 from torch import Tensor
 from transformers import DeiTForImageClassification, ViTModel, AutoModel
 import resnet_ret as ResNet_ret
-from timm.layers import SwiGLUPacked
+
 
 
 def load_model(name):
@@ -86,6 +86,7 @@ def load_model(name):
         dim = 1024
 
     elif name == "uni2":
+        from timm.layers import SwiGLUPacked
         timm_kwargs = {
             'img_size': 224,
             'patch_size': 14,
@@ -115,6 +116,7 @@ def load_model(name):
         dim = 1536
 
     elif name == "virchow2":
+        from timm.layers import SwiGLUPacked
         model = timm.create_model("hf-hub:paige-ai/Virchow2", pretrained=True,
                                   mlp_layer=SwiGLUPacked, act_layer=torch.nn.SiLU)
         dim = 2560

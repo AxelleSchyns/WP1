@@ -476,3 +476,1065 @@ t_model: 483.05786514282227
 t_transfer: 2.4679183959960938
 t_search: 86.77943444252014
 
+-----------------------------------------------------------------------------------------------
+------------------------------------- iBOT scratch --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 12:16:52
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model11/checkpointV0_0085.pth
+Indexing
+Model vit_small 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model11/checkpointV0_0085.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 87.0 MB
+[] CUDA mem reserved: 92.3 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 450 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 500 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 550 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 600 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 650 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 700 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 750 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 800 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 850 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 900 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 950 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1000 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1050 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1100 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1150 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1200 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1250 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1300 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1350 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1400 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1450 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1500 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1550 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1600 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+Batch 1650 / 1661
+[] CUDA mem alloc: 95.6 MB
+[] CUDA mem reserved: 113.2 MB
+✅ Time - model: 52.12s | transfer: 0.08s | indexing: 9.43s
+T_indexing = 70.52616810798645
+all
+Model vit_small 16x16 built.
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model11/checkpointV0_0085.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.76706639]
+top-5 accuracy :  [0.88882643]
+top-1 accuracy proj :  [0.93157829]
+top-5 accuracy proj :  [0.94616201]
+top-1 accuracy sim :  [0.93171361]
+top-5 accuracy sim :  [0.94644307]
+maj accuracy class :  [0.77635167]
+maj accuracy proj :  [0.93048529]
+maj accuracy sim :  [0.93088085]
+f1 score :  0.7670663918555993
+t_tot: 610.0011661052704
+t_model: 511.2770838737488
+t_transfer: 2.5251517295837402
+t_search: 89.90555191040039
+-----------------------------------------------------------------------------------------------
+------------------------------------- RetCCL --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 12:16:52
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/retccl/model12/ret_pretrained.pth
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 94.3 MB
+[] CUDA mem reserved: 123.7 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 450 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 500 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 550 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 600 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 650 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 700 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 750 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 800 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 850 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 900 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 950 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1000 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1050 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1100 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1150 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1200 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1250 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1300 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1350 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1400 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1450 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1500 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1550 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1600 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+Batch 1650 / 1661
+[] CUDA mem alloc: 94.8 MB
+[] CUDA mem reserved: 125.8 MB
+✅ Time - model: 55.60s | transfer: 0.19s | indexing: 11.48s
+T_indexing = 76.55802130699158
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.73678513]
+top-5 accuracy :  [0.87648075]
+top-1 accuracy proj :  [0.89434347]
+top-5 accuracy proj :  [0.93398289]
+top-1 accuracy sim :  [0.90834426]
+top-5 accuracy sim :  [0.94762975]
+maj accuracy class :  [0.73844024]
+maj accuracy proj :  [0.89147045]
+maj accuracy sim :  [0.90697021]
+f1 score :  0.7367851268919284
+t_tot: 624.5374240875244
+t_model: 453.5159296989441
+t_transfer: 2.6653785705566406
+t_search: 161.98017191886902
+-----------------------------------------------------------------------------------------------
+------------------------------------- CDPath --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 12:16:52
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/cdpath/model13/CAMELYON17.ckpt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 106.1 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 450 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 500 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 550 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 600 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 650 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 700 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 750 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 800 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 850 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 900 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 950 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1000 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1050 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1100 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1150 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1200 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1250 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1300 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1350 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1400 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1450 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1500 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1550 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1600 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+Batch 1650 / 1661
+[] CUDA mem alloc: 114.8 MB
+[] CUDA mem reserved: 134.2 MB
+✅ Time - model: 13.08s | transfer: 0.11s | indexing: 10.63s
+T_indexing = 41.7922306060791
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.58382779]
+top-5 accuracy :  [0.78752108]
+top-1 accuracy proj :  [0.73515083]
+top-5 accuracy proj :  [0.87597069]
+top-1 accuracy sim :  [0.80467595]
+top-5 accuracy sim :  [0.93411821]
+maj accuracy class :  [0.57004559]
+maj accuracy proj :  [0.72770803]
+maj accuracy sim :  [0.80918327]
+f1 score :  0.5838277850644349
+t_tot: 308.9786548614502
+t_model: 213.9363889694214
+t_transfer: 2.306659460067749
+t_search: 86.41352152824402
+-----------------------------------------------------------------------------------------------
+------------------------------------- Phikon --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 12:16:52
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model14/placeholder.txt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 343.2 MB
+[] CUDA mem reserved: 400.6 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 450 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 500 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 550 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 600 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 650 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 700 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 750 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 800 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 850 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 900 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 950 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1000 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1050 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1100 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1150 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1200 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1250 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1300 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1350 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1400 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1450 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1500 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1550 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1600 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+Batch 1650 / 1661
+[] CUDA mem alloc: 391.3 MB
+[] CUDA mem reserved: 440.4 MB
+✅ Time - model: 119.62s | transfer: 0.11s | indexing: 8.40s
+T_indexing = 136.67986178398132
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.78153561]
+top-5 accuracy :  [0.89361481]
+top-1 accuracy proj :  [0.94408011]
+top-5 accuracy proj :  [0.95361522]
+top-1 accuracy sim :  [0.94492328]
+top-5 accuracy sim :  [0.95394833]
+maj accuracy class :  [0.78923865]
+maj accuracy proj :  [0.94359086]
+maj accuracy sim :  [0.94442363]
+f1 score :  0.7815356109341495
+t_tot: 709.448529958725
+t_model: 592.3087215423584
+t_transfer: 2.5217413902282715
+t_search: 108.02777147293091
+-----------------------------------------------------------------------------------------------
+------------------------------------- CTransPath --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 12:16:52
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ctranspath/model15/ctranspath.pth
+Indexing
+all
+-----------------------------------------------------------------------------------------------
+------------------------------------- Uni --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 13:02:58
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/uni/model16/uni
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 1214.5 MB
+[] CUDA mem reserved: 1216.3 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 450 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 500 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 550 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 600 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 650 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 700 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 750 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 800 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 850 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 900 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 950 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1000 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1050 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1100 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1150 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1200 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1250 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1300 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1350 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1400 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1450 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1500 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1550 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1600 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+Batch 1650 / 1661
+[] CUDA mem alloc: 1223.2 MB
+[] CUDA mem reserved: 1268.8 MB
+✅ Time - model: 382.42s | transfer: 0.12s | indexing: 8.46s
+T_indexing = 399.3842418193817
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+top-1 accuracy :  [0.79401661]
+top-5 accuracy :  [0.907397]
+top-1 accuracy proj :  [0.93988508]
+top-5 accuracy proj :  [0.95463535]
+top-1 accuracy sim :  [0.94584973]
+top-5 accuracy sim :  [0.95732101]
+maj accuracy class :  [0.80787167]
+maj accuracy proj :  [0.94085316]
+maj accuracy sim :  [0.94622447]
+f1 score :  0.794016613578165
+t_tot: 1124.2628877162933
+t_model: 1001.4503355026245
+t_transfer: 2.173875093460083
+t_search: 115.4692108631134
+-----------------------------------------------------------------------------------------------
+------------------------------------- UNI V2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 13:29:54
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/uni/model18/placeholder.txt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 2751.3 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 450 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 500 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 550 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 600 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 650 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 700 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 750 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 800 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+Batch 850 / 1661
+[] CUDA mem alloc: 2760.2 MB
+[] CUDA mem reserved: 2793.4 MB
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+-----------------------------------------------------------------------------------------------
+------------------------------------- Virchow V2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 13:41:46
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/virchow/model19/virchow2
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 2546.5 MB
+[] CUDA mem reserved: 2650.8 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 2641.7 MB
+[] CUDA mem reserved: 2822.8 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 2641.7 MB
+[] CUDA mem reserved: 2822.8 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 2641.7 MB
+[] CUDA mem reserved: 2822.8 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 2641.7 MB
+[] CUDA mem reserved: 2822.8 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 2641.7 MB
+[] CUDA mem reserved: 2822.8 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 2641.7 MB
+[] CUDA mem reserved: 2822.8 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 2641.7 MB
+[] CUDA mem reserved: 2822.8 MB
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+-----------------------------------------------------------------------------------------------
+------------------------------------- Hoptimus --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 13:47:23
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/hoptimus/model17/placeholder.txt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 4581.6 MB
+[] CUDA mem reserved: 4638.9 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+-----------------------------------------------------------------------------------------------
+-------------------------------------  --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 13:57:20
+Weights: 
+Indexing
+all
+-----------------------------------------------------------------------------------------------
+------------------------------------- Phikon v2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 13:58:43
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model20/placeholder.txt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 1214.5 MB
+[] CUDA mem reserved: 1228.9 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 450 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 500 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 550 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 600 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 650 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 700 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 750 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 800 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 850 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 900 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 950 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1000 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1050 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1100 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1150 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1200 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1250 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1300 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1350 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1400 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1450 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1500 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1550 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1600 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+Batch 1650 / 1661
+[] CUDA mem alloc: 1275.7 MB
+[] CUDA mem reserved: 1281.4 MB
+✅ Time - model: 424.07s | transfer: 0.12s | indexing: 8.26s
+T_indexing = 441.6637861728668
+all
+-----------------------------------------------------------------------------------------------
+------------------------------------- Hoptimus --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 15:11:53
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/hoptimus/model17/placeholder.txt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 4581.6 MB
+[] CUDA mem reserved: 4638.9 MB
+Batch 50 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 100 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 150 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 200 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 250 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 300 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 350 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 400 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 450 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 500 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 550 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 600 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 650 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 700 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 750 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 800 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 850 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 900 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 950 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1000 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1050 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1100 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1150 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1200 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1250 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1300 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1350 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1400 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1450 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1500 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1550 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1600 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+Batch 1650 / 1661
+[] CUDA mem alloc: 4590.5 MB
+[] CUDA mem reserved: 4641.0 MB
+✅ Time - model: 626.76s | transfer: 0.18s | indexing: 9.14s
+T_indexing = 648.3514497280121
+all
+Loading FAISS index from file
+Transferring index to GPU
+Index transferred to GPU
+-----------------------------------------------------------------------------------------------
+------------------------------------- UNI V2 --------------------------------------------------
+-----------------------------------------------------------------------------------------------
+Date is: 2025-04-23 15:11:53
+Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/uni/model18/placeholder.txt
+Indexing
+database starting
+Transferring index to GPU
+Index transferred to GPU
+Batch 0 / 1661
+[] CUDA mem alloc: 2751.3 MB
+[] CUDA mem reserved: 2793.4 MB

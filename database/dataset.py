@@ -136,7 +136,7 @@ class AddDataset(Dataset):
         self.root = root
         self.model_name = model_name
         self.list_img = []
-        if model_name == "hoptim":
+        if model_name == "hoptim" or model_name == "hoptim1":
             self.transform = transforms.Compose([
                 transforms.Resize((224, 224)),
                 transforms.ToTensor(),
@@ -167,8 +167,12 @@ class AddDataset(Dataset):
         return len(self.list_img)
 
     def __getitem__(self, idx):
-        img = Image.open(self.list_img[idx]).convert('RGB') 
-        
+        try:
+            img = Image.open(self.list_img[idx]).convert('RGB') 
+        except:
+            print(self.list_img[idx])
+            raise
+            
         return self.transform(img), self.list_img[idx]
 
    
