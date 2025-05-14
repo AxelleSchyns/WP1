@@ -261,31 +261,12 @@ t_model: 464.95244908332825
 t_transfer: 2.2850799560546875
 t_search: 82.03384137153625
 -----------------------------------------------------------------------------------------------
-------------------------------------- iBOT pre --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-23 15:42:37
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model9/checkpoint_teacher.pth
-Indexing
-Model vit_small 16x16 built.
-Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model9/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
-database starting
-Transferring index to GPU
-Index transferred to GPU
-Batch 0 / 1661
-[] CUDA mem alloc: 87.0 MB
-[] CUDA mem reserved: 92.3 MB
-✅ Time - model: 52.00s | transfer: 0.09s | indexing: 8.99s
-T_indexing = 69.62227940559387
-all
------------------------------------------------------------------------------------------------
 ------------------------------------- iBOT fine --------------------------------------------------
 -----------------------------------------------------------------------------------------------
 Date is: 2025-04-23 15:42:37
 Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model10/checkpointv1_99.pth
 Indexing
 Model vit_small 16x16 built.
-Take key teacher in provided checkpoint dict
-Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model10/checkpointv1_99.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
 database starting
 Transferring index to GPU
 Index transferred to GPU
@@ -295,9 +276,6 @@ Batch 0 / 1661
 ✅ Time - model: 52.03s | transfer: 0.08s | indexing: 9.30s
 T_indexing = 69.96894478797913
 all
-Model vit_small 16x16 built.
-Take key teacher in provided checkpoint dict
-Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model10/checkpointv1_99.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
 Loading FAISS index from file
 Transferring index to GPU
 Index transferred to GPU
@@ -321,10 +299,6 @@ t_search: 88.25904250144958
 Date is: 2025-04-23 15:42:37
 Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model11/checkpointV0_0085.pth
 Indexing
-Model vit_small 16x16 built.
-Take key teacher in provided checkpoint dict
-Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model11/checkpointV0_0085.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
-database starting
 Transferring index to GPU
 Index transferred to GPU
 Batch 0 / 1661
@@ -333,10 +307,6 @@ Batch 0 / 1661
 ✅ Time - model: 52.11s | transfer: 0.08s | indexing: 9.35s
 T_indexing = 70.1682996749878
 all
-Model vit_small 16x16 built.
-Take key teacher in provided checkpoint dict
-Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model11/checkpointV0_0085.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v', 'head.last_layer2.weight_g', 'head.last_layer2.weight_v'])
-Loading FAISS index from file
 Transferring index to GPU
 Index transferred to GPU
 top-1 accuracy :  [0.76706639]
@@ -418,39 +388,11 @@ t_model: 221.73705315589905
 t_transfer: 2.3830409049987793
 t_search: 87.28753352165222
 -----------------------------------------------------------------------------------------------
-------------------------------------- Phikon --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-23 15:42:37
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model14/placeholder.txt
-Indexing
-database starting
-Transferring index to GPU
-Index transferred to GPU
-Batch 0 / 1661
-[] CUDA mem alloc: 343.2 MB
-[] CUDA mem reserved: 400.6 MB
-✅ Time - model: 119.02s | transfer: 0.11s | indexing: 8.42s
-T_indexing = 135.83070278167725
-all
------------------------------------------------------------------------------------------------
-------------------------------------- CTransPath --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-23 15:42:37
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ctranspath/model15/ctranspath.pth
-Indexing
-all
------------------------------------------------------------------------------------------------
 ------------------------------------- iBOT pre --------------------------------------------------
 -----------------------------------------------------------------------------------------------
 Date is: 2025-04-24 08:23:01
 Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model9/checkpoint_teacher.pth
 Indexing
-Model vit_small 16x16 built.
-Pretrained weights found at /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ibot/model9/checkpoint_teacher.pth and loaded with msg: <All keys matched successfully>
-database starting
-Transferring index to GPU
-Index transferred to GPU
-Batch 0 / 1661
 [] CUDA mem alloc: 87.0 MB
 [] CUDA mem reserved: 92.3 MB
 ✅ Time - model: 52.18s | transfer: 0.08s | indexing: 8.88s
@@ -478,21 +420,6 @@ t_search: 88.47023844718933
 -----------------------------------------------------------------------------------------------
 ------------------------------------- Phikon --------------------------------------------------
 -----------------------------------------------------------------------------------------------
-Date is: 2025-04-24 08:36:46
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model14/placeholder.txt
-Indexing
-database starting
-Transferring index to GPU
-Index transferred to GPU
-Batch 0 / 1661
-[] CUDA mem alloc: 343.2 MB
-[] CUDA mem reserved: 400.6 MB
-✅ Time - model: 118.47s | transfer: 0.11s | indexing: 8.29s
-T_indexing = 135.22252559661865
-all
------------------------------------------------------------------------------------------------
-------------------------------------- Phikon --------------------------------------------------
------------------------------------------------------------------------------------------------
 Date is: 2025-04-24 08:44:52
 Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model14/placeholder.txt
 Indexing
@@ -514,13 +441,6 @@ t_tot: 672.7789626121521
 t_model: 558.2756168842316
 t_transfer: 2.4323723316192627
 t_search: 105.8041000366211
------------------------------------------------------------------------------------------------
-------------------------------------- CTransPath --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-24 09:00:08
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/ctranspath/model15/ctranspath.pth
-Indexing
-all
 -----------------------------------------------------------------------------------------------
 ------------------------------------- CTransPath --------------------------------------------------
 -----------------------------------------------------------------------------------------------
@@ -620,34 +540,6 @@ t_search: 140.64168119430542
 -----------------------------------------------------------------------------------------------
 ------------------------------------- UNI V2 --------------------------------------------------
 -----------------------------------------------------------------------------------------------
-Date is: 2025-04-24 11:38:14
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/uni/model18/placeholder.txt
-Indexing
-database starting
-Transferring index to GPU
-Index transferred to GPU
-Batch 0 / 1661
-[] CUDA mem alloc: 2751.3 MB
-[] CUDA mem reserved: 2793.4 MB
-✅ Time - model: 1083.40s | transfer: 0.15s | indexing: 8.62s
-T_indexing = 1101.3083758354187
-all
-Loading FAISS index from file
-Transferring index to GPU
-Index transferred to GPU
------------------------------------------------------------------------------------------------
-------------------------------------- UNI V2 --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-24 13:21:15
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/uni/model18/placeholder.txt
-Indexing
-all
-Loading FAISS index from file
-Transferring index to GPU
-Index transferred to GPU
------------------------------------------------------------------------------------------------
-------------------------------------- UNI V2 --------------------------------------------------
------------------------------------------------------------------------------------------------
 Date is: 2025-04-24 13:42:42
 Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/uni/model18/placeholder.txt
 Indexing
@@ -669,36 +561,6 @@ t_tot: 1868.4380481243134
 t_model: 1719.9584414958954
 t_transfer: 2.175194263458252
 t_search: 141.1298098564148
------------------------------------------------------------------------------------------------
-------------------------------------- Virchow V2 --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-24 14:15:12
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/virchow/model19/virchow2
-Indexing
-all
------------------------------------------------------------------------------------------------
-------------------------------------- Virchow V2 --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-24 14:18:15
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/virchow/model19/virchow2
-Indexing
-all
------------------------------------------------------------------------------------------------
-------------------------------------- Virchow V2 --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-24 14:21:34
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/virchow/model19/virchow2
-Indexing
-database starting
-Transferring index to GPU
-Index transferred to GPU
-Batch 0 / 1661
-[] CUDA mem alloc: 2546.5 MB
-[] CUDA mem reserved: 2650.8 MB
-all
-Loading FAISS index from file
-Transferring index to GPU
-Index transferred to GPU
 -----------------------------------------------------------------------------------------------
 ------------------------------------- Virchow V2 --------------------------------------------------
 -----------------------------------------------------------------------------------------------
@@ -731,28 +593,6 @@ t_tot: 2021.2222080230713
 t_model: 1830.4226469993591
 t_transfer: 2.255530834197998
 t_search: 183.3028838634491
------------------------------------------------------------------------------------------------
-------------------------------------- Phikon v2 --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-24 15:28:36
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model20/placeholder.txt
-Indexing
-all
-Loading FAISS index from file
-Transferring index to GPU
-Index transferred to GPU
------------------------------------------------------------------------------------------------
-------------------------------------- Phikon v2 --------------------------------------------------
------------------------------------------------------------------------------------------------
-Date is: 2025-04-24 15:29:17
-Weights: /home/labsig/Documents/Axelle/cytomine/WP1/weights_folder/phikon/model20/placeholder.txt
-Indexing
-database starting
-Transferring index to GPU
-Index transferred to GPU
-all
-Loading FAISS index from file
-Transferring index to GPU
 Index transferred to GPU
 -----------------------------------------------------------------------------------------------
 ------------------------------------- Phikon v2 --------------------------------------------------
