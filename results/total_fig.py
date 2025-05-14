@@ -44,9 +44,9 @@ if __name__ == "__main__":
             cropped_img = remove_blank_space(img)
             img_list_ssl.append(cropped_img)
     # Med images
-    fig = plt.figure(figsize=(20, 30))  # Adjust figure size as needed
+    fig = plt.figure(figsize=(25, 30))  # Adjust figure size as needed
     gs = GridSpec(3, 2, height_ratios=[1, 1, 1], hspace=0, wspace=0)  # hspace=0 removes vertical gap
-    letters = ['(a)', '(b)', '(e)', '(c)', '(d)', '(f)']
+    letters = ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']
     for i in range(3):
         ax = fig.add_subplot(gs[i, 0])
         ax.imshow(img_list_med[i])  # Load images properly
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     # SSL images
     fig = plt.figure(figsize=(20, 30))  # Adjust figure size as needed
     gs = GridSpec(3, 2, height_ratios=[1, 1, 1], hspace=0, wspace=0.1)  # hspace=0 removes vertical gap
-    letters = ['(a)', '(b)', '(e))', '(c))', '(d))', '(f)']
+    letters = ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']
     for i in range(3):
         ax = fig.add_subplot(gs[i, 0])
         ax.imshow(img_list_ssl[i])  # Load images properly

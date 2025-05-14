@@ -14,15 +14,15 @@ if __name__ == "__main__":
         "--dataset",
     )
     args = parser.parse_args()
-    extractor_name_med = ['retccl', 'uni', 'uni v2', 'ctranspath', 'cdpath', 'Phikon v2', 'phikon','hoptimus', 'Virchow v2']
+    extractor_name_med = ['retccl', 'uni', 'uni v2', 'ctranspath', 'cdpath', 'Phikon v2', 'phikon', 'hoptimus v1', 'hoptimus', 'Virchow v2']
     search_strings_med=['ret_ccl', 'uni', 'ctranspath', 'cdpath','phikon','hoptim', 'virchow2' ]
-    # Labels for ssl meds - in order of folders
-    label0_med=['True','True','True','True','True','True', 'True','True','True']
-    label1_med=['False','False','True', 'False','False','True', 'True','True', 'True']
-    label2_med=['False','False','False', 'True','False','False','False', 'False', 'False']
-    label3_med=['True','True','True','True','True','True', 'True','True','True']
-    label4_med=['True','True','True','True','True','True', 'True','True','True']
-    label5_med=['True','True','True','True','True','True', 'True','True','True',]
+    # Labels for ssl meds - in order of folders (Back, LYM, cam-normal, MUS, STR, cam-tumor)
+    label0_med=['True',  'True',  'True',  'True',  'True',  'True',  'True',  'True', 'True',  'True']
+    label1_med=['False', 'False', 'True',  'False', 'False', 'True',  'True',  'True', 'True',  'True']
+    label2_med=['False', 'False', 'False', 'True',  'False', 'False', 'False', 'True', 'False', 'False']
+    label3_med=['True',  'True',  'True',  'True',  'True',  'True',  'True',  'True', 'True',  'True']
+    label4_med=['True',  'True',  'True',  'True',  'True',  'True',  'True',  'True', 'True',  'True']
+    label5_med=['True',  'True',  'True',  'True',  'True',  'True',  'True',  'True',  'True', 'True',]
     labels_med = [label0_med, label1_med, label2_med, label3_med, label4_med, label5_med]
 
     extractor_name = ['dino_pretrained', 'dino_scratch', 'dino_finetuned', 'byol_pretrained', 'byol_scratch', 'byol_finetuned', 'ibot_pretrained', 'ibot_scratch', 'ibot_finetuned']
@@ -52,9 +52,9 @@ if __name__ == "__main__":
                     if "query" in files:
                         input = os.path.join(dir_fold, files)
             print(len(inputs))
-            plt.figure()
+            plt.figure(figsize=(8,7))
             plt.subplots_adjust(wspace=0.1, hspace=0.1)
-            plt.subplot(3,4,1)
+            plt.subplot(4,4,1)
             plt.axis('off')
             plt.imshow(Image.open(input))
             plt.title("Query", fontsize=12)
@@ -65,20 +65,16 @@ if __name__ == "__main__":
                 else:
                     color = 'red'
                 if i < 4:
-                    plt.subplot(3,4,i+1)
-                    plt.axis('off')
-                    plt.imshow(Image.open(inputs[i-1]))
-                    plt.title(extractor_name_med[i-1], fontsize=12, color=color)
+                    plt.subplot(4,4,i+1)
                 elif i<7:
-                    plt.subplot(3,4,i+2)
-                    plt.axis('off')
-                    plt.imshow(Image.open(inputs[i-1]))
-                    plt.title(extractor_name_med[i-1], fontsize=12, color=color)
+                    plt.subplot(4,4,i+2)
+                elif i<10:
+                    plt.subplot(4,4,i+3)
                 else:
-                    plt.subplot(3,4,i+3)
-                    plt.axis('off')
-                    plt.imshow(Image.open(inputs[i-1]))
-                    plt.title(extractor_name_med[i-1], fontsize=12, color=color)
+                    plt.subplot(4,4, i+4)
+                plt.axis('off')
+                plt.imshow(Image.open(inputs[i-1]))
+                plt.title(extractor_name_med[i-1], fontsize=12, color=color)
                 if label_med[i-1]=='Wrong':
                     im = Image.open(inputs[i-1])
                     width, height = im.size

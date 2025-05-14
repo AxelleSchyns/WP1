@@ -78,7 +78,7 @@ class Database:
         # Setup
         data = dataset.AddDataset(data_root, extractor)
         loader = torch.utils.data.DataLoader(
-            data, batch_size=128, num_workers=8, pin_memory=True, shuffle=True)
+            data, batch_size=16, num_workers=8, pin_memory=True, shuffle=True)
 
         model = self.model
         model_device = next(model.parameters()).device
