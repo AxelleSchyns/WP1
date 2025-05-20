@@ -289,7 +289,33 @@ class Model(nn.Module):
         
         except KeyboardInterrupt:
             print("Interrupted")
-        
+
+    def get_vector(self, image):
+        if self.model_name == "cdpath":
+            image = arch.scale_generator(image, 224, 1, 112, rescale_size=224)
+            out = self.model.model.encode(image)
+
+        elif self.model_name in {"phikon", "phikon2"}:
+            outputs = self.model.model(image)
+            out = outputs.last_hidden_state[:, 0, :]
+
+        elif self.model_name in {"hoptim", "hoptim1"}:
+            with torch.autocast(device_type="cuda", dtype=torch.float16):
+                out = self.model(image)
+
+        elif self.model_name == "virchow2":
+            output = self.model(image)
+            class_token = output[:, 0]
+            patch_tokens = output[:, 5:]
+            out = torch.cat([class_token, patch_tokens.mean(1)], dim=-1)
+
+        else:
+            out = self.model(image)
+            if not isinstance(out, torch.Tensor):
+                out = out.logits
+
+        return out
+      
 if __name__ == "__main__":
     parser = ArgumentParser()
 
