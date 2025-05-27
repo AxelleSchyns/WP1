@@ -124,7 +124,7 @@ if __name__ == "__main__":
         database = db.Database(args.db_name, model, load = True)
 
     # Prepare the query
-    img = Image.open(args.query).convert('RGB')
+    query_im = Image.open(args.query).convert('RGB')
     feat_extract = transforms.Compose([
                 transforms.Resize((224, 224)),
                 transforms.ToTensor(),
@@ -132,10 +132,12 @@ if __name__ == "__main__":
                     mean=[0.485, 0.456, 0.406],
                     std=[0.229, 0.224, 0.225]
                 )])
-    img = feat_extract(img)
+    query_im = feat_extract(query_im)
+    cl_query = utils.get_class(args.query)
+
 
     # Search closest vector and retriev it from db
-    names, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(img, args.extractor, nrt_neigh=1)
+    names, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(query_im, args.extractor, nrt_neigh=1)
     top1_result = names[0]
     index = faiss.read_index(args.db_name)
     r = redis.Redis(host='localhost', port='6379', db=0)
@@ -148,43 +150,53 @@ if __name__ == "__main__":
     print(out.shape)
     print(faiss.pairwise_distances(out.cpu().detach().numpy(), vector.reshape(1, 128)))"""
 
-    # Generates the masks 
-    masks = generate_masks_torch(nb_masks, 7, 0.5, (224, 224), device="cuda:0") #values from article
-    saliency_map = torch.zeros((224, 224)) # Initialize the saliency map
+    # prepare the result
+    result_im = Image.open(top1_result).convert('RGB')
+    result_im = feat_extract(result_im)
+    cl_result = utils.get_class(top1_result)
 
-    # Apply RISE  
-    img = img.unsqueeze(0).cuda()
-    for i in range(nb_masks):
-        if i % 1000==0:
-            print(i)
+    im_list = [query_im, result_im]
+    cl_list = [cl_query, cl_result]
+    for j in range(len(im_list)):
+        status = 'Query' if j == 0 else 'Result'
+        img = im_list[j]
+        # Generates the masks 
+        masks = generate_masks_torch(nb_masks, 7, 0.5, (224, 224), device="cuda:0") #values from article
+        saliency_map = torch.zeros((224, 224)) # Initialize the saliency map
+
+        # Apply RISE  
+        img = img.unsqueeze(0).cuda()
+        for i in range(nb_masks):
+            if i % 2000==0:
+                print(i)
+            
+            masked_query = img * masks[i] # mask value 0 = pixels erased
+            
+            masked_vec = model(masked_query)[0]
+
+            masked_vec = masked_vec.unsqueeze(0)
+            vector = vector.reshape(1, nb_features)
+            # Compute similarity with the vector of top1 results
+            sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vector)
+            # Store the results - the difference between original similarity score and new one is placed in the saliency map for each pixel not masked, normalized by the original distance
+            saliency_map += (1 - masks[i].squeeze(0).cpu()) * (abs((distances[0] - sim_score)) / distances[0])
         
-        masked_query = img * masks[i] # mask value 0 = pixels erased
+        # Divide by the expectation
+        E_p =  0.5
+        saliency_map = saliency_map / nb_masks / E_p
         
-        masked_vec = model(masked_query)[0]
 
-        masked_vec = masked_vec.unsqueeze(0)
-        vector = vector.reshape(1, nb_features)
-        # Compute similarity with the vector of top1 results
-        sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vector)
-        # Store the results - the difference between original similarity score and new one is placed in the saliency map for each pixel not masked, normalized by the original distance
-        saliency_map += (1 - masks[i].squeeze(0).cpu()) * (abs((distances[0] - sim_score)) / distances[0])
-    
-    # Divide by the expectation
-    E_p =  0.5
-    saliency_map = saliency_map / nb_masks / E_p
-    
+        
+        #3 Save the saliency map
+        saliency_map = saliency_map.cpu().numpy()
+        saliency_map = (saliency_map - saliency_map.min()) / (saliency_map.max() - saliency_map.min()) * 255
+        saliency_map = saliency_map.astype('uint8')
+        saliency_map = Image.fromarray(saliency_map)
+        saliency_map.save('sal_'+status+'_'+args.extractor+'_'+cl_list[j]+'.png')
+        saliency_map.show()
 
-    cl = utils.get_class(args.query)
-    #3 Save the saliency map
-    saliency_map = saliency_map.cpu().numpy()
-    saliency_map = (saliency_map - saliency_map.min()) / (saliency_map.max() - saliency_map.min()) * 255
-    saliency_map = saliency_map.astype('uint8')
-    saliency_map = Image.fromarray(saliency_map)
-    saliency_map.save('sal_'+args.extractor+'_'+cl+'.png')
-    saliency_map.show()
-
-    plt.imshow(np.array(img.squeeze(0).cpu().permute(1, 2, 0)))
-    plt.imshow(saliency_map, cmap='jet', alpha=0.5)
-    # save the image
-    plt.savefig(args.extractor+'_'+cl+'.png')
-    
+        plt.imshow(np.array(img.squeeze(0).cpu().permute(1, 2, 0)))
+        plt.imshow(saliency_map, cmap='jet', alpha=0.5)
+        # save the image
+        plt.savefig(status+'_'+args.extractor+'_'+cl_list[j]+'.png')
+        
