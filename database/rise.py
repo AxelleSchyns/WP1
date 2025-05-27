@@ -5,6 +5,7 @@ import db
 import faiss
 import time
 import models
+import utils
 
 import torch.nn.functional as F
 
@@ -90,7 +91,6 @@ if __name__ == "__main__":
     nb_features = model.num_features
     if model is None:
         exit(-1)
-
     if args.indexing: 
         # Initialize the database
         print("database starting")
@@ -148,6 +148,8 @@ if __name__ == "__main__":
     E_p =  0.5
     saliency_map = saliency_map / nb_masks / E_p
     
+
+    cl = utils.get_class(args.query)
     #3 Save the saliency map
     saliency_map = saliency_map.cpu().numpy()
     # save as image and display
@@ -155,9 +157,11 @@ if __name__ == "__main__":
     saliency_map = saliency_map.astype('uint8')
 
     saliency_map = Image.fromarray(saliency_map)
-    saliency_map.save('saliency_map.png')
+    saliency_map.save('sal_'+args.extractor+'_'+cl+'.png')
     saliency_map.show()
 
     plt.imshow(np.array(img.squeeze(0).cpu().permute(1, 2, 0)))
-    plt.imshow(saliency_map, cmap='jet', alpha=0.3)
-    plt.show()
+    plt.imshow(saliency_map, cmap='jet', alpha=0.5)
+    # save the image
+    plt.savefig(args.extractor+'_'+cl+'.png')
+    
