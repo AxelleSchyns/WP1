@@ -170,6 +170,10 @@ if __name__ == "__main__":
     im_list = [query_im, result_im]
     cl_list = [cl_query, cl_result]
     saliency_maps = []
+    # start of test
+    vec_query = model(query_im)[0]
+    vec_query = vec_query.unsqueeze(0)
+    # end of test
     for j in range(len(im_list)):
         status = 'Query' if j == 0 else 'Result'
         img = im_list[j]
@@ -191,9 +195,12 @@ if __name__ == "__main__":
             masked_vec = masked_vec.unsqueeze(0)
             vector = vector.reshape(1, nb_features)
 
-            # Compute confidence score
+            # start of test
+            sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vec_query.cpu().detach().numpy())
+            saliency_map += (1 - masks[i].squeeze(0).cpu()) * sim_score
+            """# Compute confidence score
             sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vector)
-            saliency_map += (1 - masks[i].squeeze(0).cpu()) * (abs((distances[0] - sim_score)) / distances[0])
+            saliency_map += (1 - masks[i].squeeze(0).cpu()) * (abs((distances[0] - sim_score)) / distances[0])"""
         
         # Divide by the expectation
         E_p =  0.5
@@ -212,7 +219,7 @@ if __name__ == "__main__":
         saliency_maps.append(saliency_map)
 
         # Display the image and the saliency map on one 
-        plt.imshow(np.array(img.squeeze(0).cpu().permute(1, 2, 0)))
+        plt.imshow(np.array(img.squeeze(0).cpu().periency mapmute(1, 2, 0)))
         plt.imshow(saliency_map, cmap='jet', alpha=0.5)
         # save the image
         plt.savefig(status+'_'+args.extractor+'_'+cl_list[j]+'.png')
