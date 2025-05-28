@@ -34,6 +34,12 @@ def visualize_inter(img):
     img_display = Image.fromarray(img_display)
     img_display.save('masked_image.png')
     exit()
+
+    """ Checking of correct distance used
+    out = img.to(device="cuda:0", non_blocking=True).reshape(-1, 3, 224, 224)
+    out = model(out)
+    print(out.shape)
+    print(faiss.pairwise_distances(out.cpu().detach().numpy(), vector.reshape(1, 128)))"""
 def generate_masks_torch(N, s, p1, input_size, device):
     H, W = input_size
     
@@ -59,7 +65,6 @@ def generate_masks_torch(N, s, p1, input_size, device):
         masks[i] = upsampled[i, :, x:x + H, y:y + W]
 
     return masks  # shape: (N, 1, H, W)
-
 
 if __name__ == "__main__":
 
@@ -108,11 +113,17 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    # ----------------------------------------------------------------------------------------------------------
+    #                                     1. Load of items
+    # ----------------------------------------------------------------------------------------------------------
+
     # Load the feature extractor 
     model = models.Model(model=args.extractor, weight=args.weight, device ='cuda:0')
     nb_features = model.num_features
     if model is None:
         exit(-1)
+
+    # Load the databse 
     if args.indexing: 
         print("database starting")
         database = db.Database(args.db_name, model, load = False)
@@ -123,7 +134,7 @@ if __name__ == "__main__":
         print("Loading the database")
         database = db.Database(args.db_name, model, load = True)
 
-    # Prepare the query
+    # Load the query
     query_im = Image.open(args.query).convert('RGB')
     feat_extract = transforms.Compose([
                 transforms.Resize((224, 224)),
@@ -136,7 +147,10 @@ if __name__ == "__main__":
     cl_query = utils.get_class(args.query)
 
 
-    # Search closest vector and retriev it from db
+    # ----------------------------------------------------------------------------------------------------------
+    #                                     2. Find the closest vector
+    # ----------------------------------------------------------------------------------------------------------
+    # Search closest vector and retrieve it from db
     names, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(query_im, args.extractor, nrt_neigh=1)
     top1_result = names[0]
     index = faiss.read_index(args.db_name)
@@ -144,22 +158,22 @@ if __name__ == "__main__":
     id_top1 = int(r.get(str(top1_result)).decode('utf-8'))
     vector = index.index.reconstruct(id_top1)
 
-    """ Checking of correct distance used
-    out = img.to(device="cuda:0", non_blocking=True).reshape(-1, 3, 224, 224)
-    out = model(out)
-    print(out.shape)
-    print(faiss.pairwise_distances(out.cpu().detach().numpy(), vector.reshape(1, 128)))"""
 
     # prepare the result
     result_im = Image.open(top1_result).convert('RGB')
     result_im = feat_extract(result_im)
     cl_result = utils.get_class(top1_result)
 
+    # ----------------------------------------------------------------------------------------------------------
+    #                                     3. Apply RISE
+    # ----------------------------------------------------------------------------------------------------------
     im_list = [query_im, result_im]
     cl_list = [cl_query, cl_result]
+    saliency_maps = []
     for j in range(len(im_list)):
         status = 'Query' if j == 0 else 'Result'
         img = im_list[j]
+
         # Generates the masks 
         masks = generate_masks_torch(nb_masks, 7, 0.5, (224, 224), device="cuda:0") #values from article
         saliency_map = torch.zeros((224, 224)) # Initialize the saliency map
@@ -176,9 +190,9 @@ if __name__ == "__main__":
 
             masked_vec = masked_vec.unsqueeze(0)
             vector = vector.reshape(1, nb_features)
-            # Compute similarity with the vector of top1 results
+
+            # Compute confidence score
             sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vector)
-            # Store the results - the difference between original similarity score and new one is placed in the saliency map for each pixel not masked, normalized by the original distance
             saliency_map += (1 - masks[i].squeeze(0).cpu()) * (abs((distances[0] - sim_score)) / distances[0])
         
         # Divide by the expectation
@@ -186,17 +200,41 @@ if __name__ == "__main__":
         saliency_map = saliency_map / nb_masks / E_p
         
 
-        
-        #3 Save the saliency map
+        #- ----------------------------------------------------------------------------------------------------------
+        #                                    4. Save and display the results
+        # ----------------------------------------------------------------------------------------------------------
+        # Normalize and save saliency map
         saliency_map = saliency_map.cpu().numpy()
         saliency_map = (saliency_map - saliency_map.min()) / (saliency_map.max() - saliency_map.min()) * 255
         saliency_map = saliency_map.astype('uint8')
         saliency_map = Image.fromarray(saliency_map)
         saliency_map.save('sal_'+status+'_'+args.extractor+'_'+cl_list[j]+'.png')
-        saliency_map.show()
+        saliency_maps.append(saliency_map)
 
+        # Display the image and the saliency map on one 
         plt.imshow(np.array(img.squeeze(0).cpu().permute(1, 2, 0)))
         plt.imshow(saliency_map, cmap='jet', alpha=0.5)
         # save the image
         plt.savefig(status+'_'+args.extractor+'_'+cl_list[j]+'.png')
+
+    # Display in one image the query, the top 1 result and both saliency maps
+    plt.figure(figsize=(10, 5))
+    plt.subplot(1, 4, 1)
+    plt.imshow(np.array(im_list[0].cpu().permute(1, 2, 0)))
+    plt.title('Query')
+    plt.axis('off')
+    plt.subplot(1, 4, 2)
+    plt.imshow(np.array(im_list[1].cpu().permute(1, 2, 0)))
+    plt.title('Result')
+    plt.axis('off')
+    plt.subplot(1, 4, 3)
+    plt.imshow(saliency_maps[0])
+    plt.title('Saliency Map Query')
+    plt.axis('off')
+    plt.subplot(1, 4, 4)
+    plt.imshow(saliency_maps[1])
+    plt.title('Saliency Map Result')
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig('comparison_'+args.extractor+'_'+cl_list[0]+'.png')
         
