@@ -220,11 +220,11 @@ if __name__ == "__main__":
     # Display in one image the query, the top 1 result and both saliency maps
     plt.figure(figsize=(10, 5))
     plt.subplot(1, 4, 1)
-    plt.imshow(np.array(im_list[0].cpu().permute(1, 2, 0)))
+    plt.imshow(Image.open(args.query).convert('RGB'))
     plt.title('Query')
     plt.axis('off')
     plt.subplot(1, 4, 2)
-    plt.imshow(np.array(im_list[1].cpu().permute(1, 2, 0)))
+    plt.imshow(Image.open(top1_result).convert('RGB'))
     plt.title('Result')
     plt.axis('off')
     plt.subplot(1, 4, 3)
