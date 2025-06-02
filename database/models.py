@@ -291,6 +291,7 @@ class Model(nn.Module):
             print("Interrupted")
 
     def get_vector(self, image):
+        image = image.to(device=self.device, non_blocking=True).reshape(-1, 3, 224, 224)
         if self.model_name == "cdpath":
             image = arch.scale_generator(image, 224, 1, 112, rescale_size=224)
             out = self.model.model.encode(image)

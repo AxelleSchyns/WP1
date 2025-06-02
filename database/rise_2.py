@@ -189,7 +189,8 @@ if __name__ == "__main__":
                 print(i)
             
             masked_query = img * masks[i] # mask value 0 = pixels erased
-            
+            names, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(masked_query, args.extractor, nrt_neigh=10)
+    
             masked_vec = model.get_vector(masked_query)
             # Compute confidence score
             sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vec_list[j])
