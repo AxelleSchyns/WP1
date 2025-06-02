@@ -17,29 +17,8 @@ import numpy as np
 
 nb_masks = 8000
 result_folder = "./results/explainability/"
-# to display the masked image if needed
-def visualize_inter(img):
-    # ImageNet mean and std
-    mean = torch.tensor([0.485, 0.456, 0.406]).cuda().view(3, 1, 1)
-    std = torch.tensor([0.229, 0.224, 0.225]).cuda().view(3, 1, 1)
 
-    # Unnormalize the masked image
-    img_display = img.clone()
-    img_display = img_display.squeeze(0)
-    img_display = img_display * std + mean  # Undo normalization
-    img_display = img_display.clamp(0, 1)
 
-    # Convert to uint8 image
-    img_display = (img_display.permute(1, 2, 0).cpu().numpy() * 255).astype('uint8')
-    img_display = Image.fromarray(img_display)
-    img_display.save('masked_image.png')
-    exit()
-
-    """ Checking of correct distance used
-    out = img.to(device="cuda:0", non_blocking=True).reshape(-1, 3, 224, 224)
-    out = model(out)
-    print(out.shape)
-    print(faiss.pairwise_distances(out.cpu().detach().numpy(), vector.reshape(1, 128)))"""
 def generate_masks_torch(N, s, p1, input_size, device):
     H, W = input_size
     
@@ -152,8 +131,8 @@ if __name__ == "__main__":
     #                                     2. Find the closest vector
     # ----------------------------------------------------------------------------------------------------------
     # Search closest vector and retrieve it from db
-    names, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(query_im, args.extractor, nrt_neigh=1)
-    top1_result = names[0]
+    names_og, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(query_im, args.extractor, nrt_neigh=1)
+    top1_result = names_og[0]
     index = faiss.read_index(args.db_name)
     r = redis.Redis(host='localhost', port='6379', db=0)
     id_top1 = int(r.get(str(top1_result)).decode('utf-8'))
@@ -174,14 +153,17 @@ if __name__ == "__main__":
     cl_list = [cl_query, cl_result]
     vec_list = [vector, vec_query.cpu().detach().numpy()]
     saliency_maps = []
+    maps = []
     for j in range(len(im_list)):
         status = 'Query' if j == 0 else 'Result'
         img = im_list[j]
 
         # Generates the masks 
         masks = generate_masks_torch(nb_masks, 7, 0.5, (224, 224), device="cuda:0") #values from article
-        saliency_map = torch.zeros((224, 224)) # Initialize the saliency map
-
+        saliency_map_1 = torch.zeros((224, 224)) # Initialize the saliency map for the change of rank of top1
+        saliency_map_2 = torch.zeros((224, 224)) # Initialize the saliency map for percentage of changes in top10 results
+        saliency_map_3 = torch.zeros((224, 224))
+        maps.append(saliency_map_1, saliency_map_2, saliency_map_3)
         # Apply RISE  
         img = img.unsqueeze(0).cuda()
         for i in range(nb_masks):
@@ -189,111 +171,92 @@ if __name__ == "__main__":
                 print(i)
             
             masked_query = img * masks[i] # mask value 0 = pixels erased
-            names, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(masked_query, args.extractor, nrt_neigh=10)
+            names, distances,_, _, _ = database.search(masked_query, args.extractor, nrt_neigh=50)
+            rank_top = 100
+            # first score
+            for l in range(len(names)):
+                if names[l] == top1_result:
+                    rank_top = l
+                    break
+            changes = 0
+            for l in range(10):
+                if names[l] not in names_og:
+                    changes += 1
+            changes = changes/10
+
+            score = 0
+            for l in range(10):
+                temp_rank = names.index(names_og[l])
+                diff = abs(temp_rank - l)
+                score += (10-l)*diff
+            score = score/10
     
             masked_vec = model.get_vector(masked_query)
             # Compute confidence score
-            sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vec_list[j])
-            saliency_map += (1 - masks[i].squeeze(0).cpu()) * (abs((distances[0] - sim_score)) / distances[0])
+            sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vec_list[j]) 
+            print(abs((distances[0] - sim_score)))
+            print("rank_top = ", rank_top)
+            print("changes = ", changes)
+            print("score = ", score)
+            saliency_map_1 += (1 - masks[i].squeeze(0).cpu()) * (rank_top-1)
+            saliency_map_2 += (1 - masks[i].squeeze(0).cpu()) * changes
+            saliency_map_3 += (1 - masks[i].squeeze(0).cpu()) * score
         
-        # Divide by the expectation
-        E_p =  0.5
-        saliency_map = saliency_map / nb_masks / E_p
+        score_id = 1
+        for saliency_map in maps:
+            # Divide by the expectation
+            E_p =  0.5
+            saliency_map = saliency_map / nb_masks / E_p
+            
+
+            #- ----------------------------------------------------------------------------------------------------------
+            #                                    4. Save and display the results
+            # ----------------------------------------------------------------------------------------------------------
+            # Normalize and save saliency map
+            saliency_map = saliency_map.cpu().numpy()
+            saliency_map = (saliency_map - saliency_map.min()) / (saliency_map.max() - saliency_map.min()) * 255
+            saliency_map = saliency_map.astype('uint8')
+            saliency_map = Image.fromarray(saliency_map)
+            saliency_map.save(result_folder+'saliency/'+status+'_'+args.extractor+'_'+cl_list[j]+'_'+score_id+'.png')
+            saliency_maps.append(saliency_map)
+
+            # Display the image and the saliency map on one 
+            plt.imshow(og_im_list[j])
+            plt.imshow(saliency_map, cmap='jet', alpha=0.5)
+            # save the image
+            plt.savefig(result_folder+'superposition/'+status+'_'+args.extractor+'_'+cl_list[j]+'_'+score_id+'.png')
+            score_id += 1
+
+    for l in range(3):
+        # Display in one image the query, the top 1 result and both saliency maps
+        plt.figure(figsize=(10, 5))
+        plt.subplot(3, 2, 1)
+        plt.imshow(Image.open(args.query).convert('RGB'))
+        plt.title('Query')
+        plt.axis('off')
+        plt.subplot(3, 2, 2)
+        plt.imshow(Image.open(top1_result).convert('RGB'))
+        plt.title('Result')
+        plt.axis('off')
+        plt.subplot(3, 2, 3)
+        plt.imshow(saliency_maps[0+l])
+        plt.title('Saliency Map Query')
+        plt.axis('off')
+        plt.subplot(3, 2, 4)
+        plt.imshow(saliency_maps[3+l])
+        plt.title('Saliency Map Result')
+        plt.axis('off')
+        plt.subplot(3, 2, 5)
+        plt.imshow(og_im_list[0])
+        plt.imshow(saliency_maps[0+l], cmap='jet', alpha=0.5)
+        plt.title('Superposition for Query')
+        plt.axis('off')
+        plt.subplot(3, 2, 6)
+        plt.imshow(og_im_list[1])
+        plt.imshow(saliency_maps[3+l], cmap='jet', alpha=0.5)
+        plt.title('Superposition for Query')
+        plt.axis('off')
+        plt.tight_layout()
+        plt.savefig(result_folder+'comparison/'+args.extractor+'_'+cl_list[0]+'_'+l+'.png')
         
 
-        #- ----------------------------------------------------------------------------------------------------------
-        #                                    4. Save and display the results
-        # ----------------------------------------------------------------------------------------------------------
-        # Normalize and save saliency map
-        saliency_map = saliency_map.cpu().numpy()
-        saliency_map = (saliency_map - saliency_map.min()) / (saliency_map.max() - saliency_map.min()) * 255
-        saliency_map = saliency_map.astype('uint8')
-        saliency_map = Image.fromarray(saliency_map)
-        saliency_map.save(result_folder+'saliency/'+status+'_'+args.extractor+'_'+cl_list[j]+'.png')
-        saliency_maps.append(saliency_map)
-
-        # Display the image and the saliency map on one 
-        plt.imshow(og_im_list[j])
-        plt.imshow(saliency_map, cmap='jet', alpha=0.5)
-        # save the image
-        plt.savefig(result_folder+'superposition/'+status+'_'+args.extractor+'_'+cl_list[j]+'.png')
-
-    # Display in one image the query, the top 1 result and both saliency maps
-    plt.figure(figsize=(10, 5))
-    plt.subplot(3, 2, 1)
-    plt.imshow(Image.open(args.query).convert('RGB'))
-    plt.title('Query')
-    plt.axis('off')
-    plt.subplot(3, 2, 2)
-    plt.imshow(Image.open(top1_result).convert('RGB'))
-    plt.title('Result')
-    plt.axis('off')
-    plt.subplot(3, 2, 3)
-    plt.imshow(saliency_maps[0])
-    plt.title('Saliency Map Query')
-    plt.axis('off')
-    plt.subplot(3, 2, 4)
-    plt.imshow(saliency_maps[1])
-    plt.title('Saliency Map Result')
-    plt.axis('off')
-    plt.subplot(3, 2, 5)
-    plt.imshow(og_im_list[0])
-    plt.imshow(saliency_maps[0], cmap='jet', alpha=0.5)
-    plt.title('Superposition for Query')
-    plt.axis('off')
-    plt.subplot(3, 2, 6)
-    plt.imshow(og_im_list[1])
-    plt.imshow(saliency_maps[1], cmap='jet', alpha=0.5)
-    plt.title('Superposition for Query')
-    plt.axis('off')
-    plt.tight_layout()
-    plt.savefig(result_folder+'comparison/'+args.extractor+'_'+cl_list[0]+'.png')
-        
-
-
-
-# --------------------------------------------------------------------------------
-#                   Test
-# --------------------------------------------------------------------------------
-    vec_query = model.get_vector(query_im)
-    img = im_list[0]
-
-    # Generates the masks 
-    masks = generate_masks_torch(nb_masks, 7, 0.5, (224, 224), device="cuda:0") #values from article
-    saliency_map = torch.zeros((224, 224)) # Initialize the saliency map
-
-    # Apply RISE  
-    img = img.unsqueeze(0).cuda()
-    for i in range(nb_masks):
-        if i % 2000==0:
-            print(i)
-        
-        masked_query = img * masks[i] # mask value 0 = pixels erased
-        
-        masked_vec = model.get_vector(masked_query)
-        vector = vector.reshape(1, nb_features)
-        # start of test
-        sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vec_query.cpu().detach().numpy())
-        saliency_map += (1 - masks[i].squeeze(0).cpu()) * abs(sim_score)
-        
-    
-    # Divide by the expectation
-    E_p =  0.5
-    saliency_map = saliency_map / nb_masks / E_p
-    
-    # Display in one image the query, the top 1 result and both saliency maps
-    plt.figure(figsize=(10, 5))
-    plt.subplot(1, 3, 1)
-    plt.imshow(Image.open(args.query).convert('RGB'))
-    plt.title('Query')
-    plt.axis('off')
-    plt.subplot(1, 3, 2)
-    plt.imshow(saliency_map)
-    plt.title('Saliency map')
-    plt.axis('off')
-    plt.subplot(1, 3, 3)
-    plt.imshow(og_im_list[0])
-    plt.imshow(saliency_map, cmap='jet', alpha=0.5)
-    plt.title('Superposition for Query')
-    plt.axis('off')
-    plt.savefig(result_folder+'self/'+args.extractor+'_'+cl_list[0]+'.png')
