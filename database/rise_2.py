@@ -131,7 +131,7 @@ if __name__ == "__main__":
     #                                     2. Find the closest vector
     # ----------------------------------------------------------------------------------------------------------
     # Search closest vector and retrieve it from db
-    names_og, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(query_im, args.extractor, nrt_neigh=1)
+    names_og, distances, t_model_tmp, t_search_tmp, t_transfer_tmp = database.search(query_im, args.extractor, nrt_neigh=10)
     top1_result = names_og[0]
     index = faiss.read_index(args.db_name)
     r = redis.Redis(host='localhost', port='6379', db=0)
@@ -163,7 +163,8 @@ if __name__ == "__main__":
         saliency_map_1 = torch.zeros((224, 224)) # Initialize the saliency map for the change of rank of top1
         saliency_map_2 = torch.zeros((224, 224)) # Initialize the saliency map for percentage of changes in top10 results
         saliency_map_3 = torch.zeros((224, 224))
-        maps.append(saliency_map_1, saliency_map_2, saliency_map_3)
+        maps = []
+        
         # Apply RISE  
         img = img.unsqueeze(0).cuda()
         for i in range(nb_masks):
@@ -186,7 +187,10 @@ if __name__ == "__main__":
 
             score = 0
             for l in range(10):
-                temp_rank = names.index(names_og[l])
+                try:
+                    temp_rank = names.index(names_og[l])
+                except:
+                    temp_rank = 100
                 diff = abs(temp_rank - l)
                 score += (10-l)*diff
             score = score/10
@@ -194,16 +198,24 @@ if __name__ == "__main__":
             masked_vec = model.get_vector(masked_query)
             # Compute confidence score
             sim_score =  faiss.pairwise_distances(masked_vec.cpu().detach().numpy(), vec_list[j]) 
-            print(abs((distances[0] - sim_score)))
+            """print(abs((distances[0] - sim_score)))
             print("rank_top = ", rank_top)
             print("changes = ", changes)
-            print("score = ", score)
+            print("score = ", score)"""
             saliency_map_1 += (1 - masks[i].squeeze(0).cpu()) * (rank_top-1)
             saliency_map_2 += (1 - masks[i].squeeze(0).cpu()) * changes
             saliency_map_3 += (1 - masks[i].squeeze(0).cpu()) * score
         
         score_id = 1
+        folders_sal = [result_folder+'/score_1/saliency/', result_folder+'/score_2/saliency/',
+                   result_folder+'/score_3/saliency/']
+        folders_sup = [result_folder+'/score_1/superposition/', result_folder+'/score_2/superposition/',
+                   result_folder+'/score_3/superposition/']
+        maps.append(saliency_map_1)
+        maps.append(saliency_map_2)
+        maps.append(saliency_map_3)
         for saliency_map in maps:
+            temp_path = status+'_'+args.extractor+'_'+cl_list[j]+'_'+str(score_id)+'.png'
             # Divide by the expectation
             E_p =  0.5
             saliency_map = saliency_map / nb_masks / E_p
@@ -217,17 +229,20 @@ if __name__ == "__main__":
             saliency_map = (saliency_map - saliency_map.min()) / (saliency_map.max() - saliency_map.min()) * 255
             saliency_map = saliency_map.astype('uint8')
             saliency_map = Image.fromarray(saliency_map)
-            saliency_map.save(result_folder+'saliency/'+status+'_'+args.extractor+'_'+cl_list[j]+'_'+score_id+'.png')
+            saliency_map.save(folders_sal[score_id-1]+temp_path)
             saliency_maps.append(saliency_map)
 
             # Display the image and the saliency map on one 
             plt.imshow(og_im_list[j])
             plt.imshow(saliency_map, cmap='jet', alpha=0.5)
             # save the image
-            plt.savefig(result_folder+'superposition/'+status+'_'+args.extractor+'_'+cl_list[j]+'_'+score_id+'.png')
+            plt.savefig(folders_sup[score_id-1]+temp_path)
             score_id += 1
 
+    folders_comp = [result_folder+'/score_1/', result_folder+'/score_2/',
+                   result_folder+'/score_3/']
     for l in range(3):
+        temp_path = 'comparison/'+args.extractor+'_'+cl_list[0]+'_'+str(l+1)+'.png'
         # Display in one image the query, the top 1 result and both saliency maps
         plt.figure(figsize=(10, 5))
         plt.subplot(3, 2, 1)
@@ -254,9 +269,51 @@ if __name__ == "__main__":
         plt.subplot(3, 2, 6)
         plt.imshow(og_im_list[1])
         plt.imshow(saliency_maps[3+l], cmap='jet', alpha=0.5)
-        plt.title('Superposition for Query')
+        plt.title('Superposition for Result')
         plt.axis('off')
         plt.tight_layout()
-        plt.savefig(result_folder+'comparison/'+args.extractor+'_'+cl_list[0]+'_'+l+'.png')
-        
+        plt.savefig(folders_comp[l]+temp_path)
 
+    
+    # Display in one image the query, the top 1 result and saliency maps from each score
+    plt.figure(figsize=(5, 5))
+    plt.subplot(4, 2, 1)
+    plt.imshow(Image.open(args.query).convert('RGB'))
+    plt.title('Query')
+    plt.axis('off')
+    plt.subplot(4, 2, 2)
+    plt.imshow(Image.open(top1_result).convert('RGB'))
+    plt.title('Result')
+    plt.axis('off')
+    plt.subplot(4, 2, 3)
+    plt.imshow(og_im_list[0])
+    plt.imshow(saliency_maps[0], cmap='jet', alpha=0.5)
+    plt.title('Score 1 - Query')
+    plt.axis('off')
+    plt.subplot(4, 2, 4)
+    plt.imshow(og_im_list[0])
+    plt.imshow(saliency_maps[3], cmap='jet', alpha=0.5)
+    plt.title('Score 1 - Result')
+    plt.axis('off')
+    plt.subplot(4, 2, 5)
+    plt.imshow(og_im_list[0])
+    plt.imshow(saliency_maps[1], cmap='jet', alpha=0.5)
+    plt.title('Score 2 - Query')
+    plt.axis('off')
+    plt.subplot(4, 2, 6)
+    plt.imshow(og_im_list[0])
+    plt.imshow(saliency_maps[4], cmap='jet', alpha=0.5)
+    plt.title('Score 2 - Result')
+    plt.axis('off')
+    plt.subplot(4, 2, 7)
+    plt.imshow(og_im_list[0])
+    plt.imshow(saliency_maps[2], cmap='jet', alpha=0.5)
+    plt.title('Score 3 - Query')
+    plt.axis('off')
+    plt.subplot(4, 2, 8)
+    plt.imshow(og_im_list[0])
+    plt.imshow(saliency_maps[5], cmap='jet', alpha=0.5)
+    plt.title('Score 3 - Result')
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig(result_folder+args.extractor+'_'+cl_list[0]+'_all_scores'+'.png')

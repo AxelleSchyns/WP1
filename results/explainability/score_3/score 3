@@ -1,0 +1,1 @@
+Score 3 finds for each original result his new rank, and multiplies by a weight the difference between the new and 0. Rank is set to 100 if not in the top50 results
