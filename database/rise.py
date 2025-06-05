@@ -16,7 +16,7 @@ from torchvision import transforms
 import numpy as np
 
 nb_masks = 8000
-result_folder = "./results/explainability/"
+result_folder = "./results/explainability/score_0/"
 # to display the masked image if needed
 def visualize_inter(img):
     # ImageNet mean and std
