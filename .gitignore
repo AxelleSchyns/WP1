@@ -1,6 +1,7 @@
 # ignore folders
 weights_folder/
 scripts/outputs
+results/explainability
 
 # ignore database files
 db
