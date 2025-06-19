@@ -254,10 +254,9 @@ def save_comp_map(scores, og_im_list):
     plt.axis('off')
 
     for i, score in enumerate(scores):
-        id_map = score_match[score]
         plt.subplot(nb_row, 2, i + 3)
         plt.imshow(og_im_list[0])
-        plt.imshow(saliency_maps[id_map], cmap='jet', alpha=0.5)
+        plt.imshow(saliency_maps[i], cmap='jet', alpha=0.5)
         plt.title(score + ' - Query')
         plt.axis('off')
     
