@@ -13,24 +13,26 @@ import random
 def summary_image(path):
     classes = os.listdir(path)
     classes.sort()
-    plt.figure(figsize=(7, 10))
+    plt.figure()
+    cpt = 0
     for class_ in classes:
-        # Get images
         images = os.listdir(os.path.join(path, class_))
-        idx = np.random.randint(0, len(images))
-        img = Image.open(os.path.join(path, class_, images[idx])).convert('RGB')
+        for i in range(9): # change 9 by number of images to draw
+            # Get images
+            idx = np.random.randint(0, len(images))
+            img = Image.open(os.path.join(path, class_, images[idx])).convert('RGB')
 
-        # save image in subplot
-        plt.subplot(10, 7, classes.index(class_)+1)
+            # save image in subplot
+            plt.subplot(2, 9, cpt+1)
 
-        # Adjust position and label
-        # For resized images: 
-        img = transforms.RandomResizedCrop(224, scale=(.7,1))(img)
-        # Remove scale and ticks
-        plt.xticks([])
-        plt.yticks([])
-        # stick images to one another
-        plt.subplots_adjust(wspace=0, hspace=0)
+            # Adjust position and label
+            # For resized images: 
+            img = transforms.RandomResizedCrop(224, scale=(.7,1))(img)
+            plt.imshow(img)
+            plt.xticks([])
+            plt.yticks([])
+
+            cpt += 1
 
 
         """# For normal images:
@@ -45,9 +47,7 @@ def summary_image(path):
             plt.xlabel(class_, fontsize=6, rotation=0, labelpad=1)
         else:
             plt.xlabel(class_, fontsize=6, rotation=0, labelpad=7)"""
-        
-        plt.imshow(img)
-    
+    plt.subplots_adjust(wspace=0, hspace=0)    
     plt.show()
 
 def prob_per_class(path, path_queries):      
@@ -315,11 +315,12 @@ def plot_im_curve(path, path_queries):
     for i in range(10) :
         plt.plot(model_prop[i], label=extractors[i], marker='o', color=colors[i])
     plt.plot(model_prop[21], label=extractors[21], marker='o', color=colors[11])
-    plt.title('Proportion of Correct Images per Model')
-    plt.xlabel('Retrieval Step')
-    plt.ylabel('Proportion of Correct Images')
-    plt.xticks(np.arange(10), labels=np.arange(1, 11))  # Label steps 1 to 10
-    plt.legend()
+    plt.title('Proportion of Correct Images per Model', fontsize=20)
+    plt.xlabel('Retrieval Step', fontsize=20)
+    plt.ylabel('Proportion of Correct Images', fontsize=20)
+    plt.xticks(np.arange(10), labels=np.arange(1, 11), fontsize=15)  # Label steps 1 to 10
+    plt.yticks(fontsize=15)
+    plt.legend(fontsize=15)
     plt.grid()
     plt.show()
 
@@ -328,11 +329,12 @@ def plot_im_curve(path, path_queries):
     for i in range(11, len(extractors)-1) :
         plt.plot(model_prop[i], label=extractors[i], marker='o', color=colors[i-11])
     
-    plt.title('Proportion of Correct Images per Model')
-    plt.xlabel('Retrieval Step')
-    plt.ylabel('Proportion of Correct Images')
-    plt.xticks(np.arange(10), labels=np.arange(1, 11))  # Label steps 1 to 10
-    plt.legend()
+    plt.title('Proportion of Correct Images per Model', fontsize=20)
+    plt.xlabel('Retrieval Step', fontsize=20)
+    plt.ylabel('Proportion of Correct Images', fontsize=20)
+    plt.xticks(np.arange(10), labels=np.arange(1, 11), fontsize=15)  # Label steps 1 to 10
+    plt.yticks(fontsize=15)
+    plt.legend(fontsize=15)
     plt.grid()
     plt.show()
     
@@ -703,10 +705,10 @@ if __name__ == "__main__":
     train = "/home/labsig//Documents/Axelle/cytomine/Data/our/train"
     test = '/home/labsig/Documents/Axelle/cytomine/Data/our/test'
 
-    plot_im_curve(test, val)
+    #plot_im_curve(test, val)
     #prob_per_class(test, val)
     #prob_vs_size(test, val)
-    #summary_image(train)
+    summary_image('/home/axelle/Documents/Doctorat/WP1/data/Camelyon17/cm17_changed/test')
 
     #count_all_classes(test)
     #count_maj(train, test, val)
