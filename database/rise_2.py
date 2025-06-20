@@ -1,3 +1,4 @@
+import os
 from matplotlib import pyplot as plt
 import redis
 import torch
@@ -134,6 +135,15 @@ def compute_scores(i, exp, args, scores, masked_img, top1_result, masks, maps, n
             id_d = scores.index('distance')
         maps[id_d] += (1 - masks[i].squeeze(0).cpu()) * (abs((distances_og[0] - sim_score)) / distances_og[0])
     return maps
+def save_og(query, cl_query, top1_im, cl_top1, extractor, result_folder):
+    og_im = Image.open(query).convert('RGB').resize((224, 224))
+    query_name = query.split('/')[-1]
+    og_im.save(result_folder +'/queries/'+str(cl_query)+'_'+query_name+'.png')
+    top1_result_im = Image.open(top1_im).convert('RGB').resize((224, 224))
+    top1_result_name = top1_im.split('/')[-1]
+    if not os.path.exists(result_folder + 'results/'+str(extractor)+'/'):
+        os.makedirs(result_folder + 'results/'+str(extractor)+'/')
+    top1_result_im.save(result_folder + 'results/' +str(extractor)+'/' +cl_top1+'_'+top1_result_name + '.png')
 
 def save_ind_map(maps, scores, exp, args, og_im_list, cl_list, status, saliency_maps):
     new_scores = scores if exp == 0 else ['distance']
@@ -261,7 +271,7 @@ def save_comp_map(scores, og_im_list):
         plt.axis('off')
     
     plt.tight_layout()
-    plt.savefig(result_folder+args.extractor+'_'+cl_list[0]+'_all_scores'+'.png') 
+    plt.savefig(result_folder+'/all_scores/'+args.extractor+'_'+cl_list[0]+'_all_scores'+'.png') 
    
 if __name__ == "__main__":
 
@@ -322,6 +332,9 @@ if __name__ == "__main__":
     result_im = Image.open(top1_result).convert('RGB')
     result_im = feat_extract(result_im)
     cl_result = utils.get_class(top1_result)
+
+    # Save query and result 
+    save_og(args.query, cl_query, top1_result, cl_result, args.extractor, result_folder) 
 
     # ----------------------------------------------------------------------------------------------------------
     #                                     3. Apply RISE
